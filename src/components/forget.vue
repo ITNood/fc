@@ -21,10 +21,11 @@
 
 <script>
 export default {
-  props: ["imgSrc","forgetDialog"],
+  props: ["imgSrc"],
   name: "Forget",
   data() {
     return {
+      forgetDialog:false
     };
   },
   updated() {

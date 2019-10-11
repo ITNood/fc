@@ -27,8 +27,8 @@
       @click="login1()"
     >登录</el-button>
       </div>
-    </el-dialog>
-    <Forget :forgetDialog="forget" :imgSrc="imgLogo"/>
+    </el-dialog> 
+    <Forget :forgetDialog="forget"   ref="child"  :imgSrc="imgLogo"/>
   </div>
 </template>
 
@@ -43,7 +43,6 @@ export default {
       dialogVisible: false,
       forget:false,
       imgLogo:'',
-      close:false,
       //img:""
       loginForm: {
         type: "",
@@ -65,8 +64,8 @@ export default {
       this.dialogVisible = !this.dialogVisible;
     },
     forgetPwd(){
-        this.forget=true
-        this.dialogVisible = !this.dialogVisible;
+       this.$refs.child.close();
+       // this.dialogVisible = !this.dialogVisible;
         console.log(this.forget)
     }
   },
