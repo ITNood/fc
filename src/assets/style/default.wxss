@@ -1,0 +1,199 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+}
+body {
+  background: #051e32;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-weight: normal;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+img {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+.el-form-item__error {
+  color: #e01d43 !important;
+}
+.el-form-item.is-error .el-input__inner,
+.el-form-item.is-error .el-input__inner:focus,
+.el-form-item.is-error .el-textarea__inner,
+.el-form-item.is-error .el-textarea__inner:focus,
+.el-message-box__input input.invalid,
+.el-message-box__input input.invalid:focus {
+  border-color: #e01d43 !important;
+}
+/*
+/
+/-----------------------login---------------------------------
+/
+*/
+#login {
+  padding: 30px 0;
+  margin: 0 20px;
+  position: relative;
+  min-height: 100vh;
+  align-items: center;
+  box-sizing: border-box;
+}
+#login .logo {
+  width: 35%;
+  margin: 0 auto;
+  display: block;
+}
+#login .loginForm {
+  margin-top: 50px;
+}
+#login .loginForm .el-input__inner {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #1e3547;
+  border-radius: 0;
+  padding-left: 35px;
+  color: white;
+}
+#login .loginForm .el-input__inner::-webkit-input-placeholder {
+  color: #999999;
+}
+#login .loginForm .el-input__inner:focus {
+  border-color: #0fbcfa;
+}
+#login .loginForm i {
+  position: absolute;
+  left: 8px;
+  color: #0fbcfa;
+}
+#login .otherLoginWay {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+}
+#login .otherLoginWay .otherTitle {
+  background-color: #999999;
+}
+#login .otherLoginWay .otherTitle .el-divider__text {
+  background-color: #051e32;
+  color: #999999;
+}
+#login .otherLoginWay .loginList {
+  margin-top: 30px;
+  text-align: center;
+}
+#login .otherLoginWay .loginList li {
+  margin: 0 10px;
+  display: inline-block;
+}
+#login .otherLoginWay .loginList li span {
+  border: 1px solid #0fbcfa;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  padding: 8px;
+  display: block;
+  box-sizing: border-box;
+  align-items: center;
+  display: flex;
+}
+#login .otherLoginWay .loginList li P {
+  margin-top: 8px;
+  color: white;
+}
+.forget {
+  color: white;
+}
+.submit.el-button {
+  width: 250px;
+  height: 38px;
+  border-radius: 19px;
+  background: #0fbcfa;
+  color: white;
+  border: none;
+  display: block;
+  margin: 25px auto 0;
+}
+.submit.el-button span {
+  font-size: 14px;
+}
+.submit.el-button:focus,
+.submit.el-button:hover {
+  color: white;
+  border-color: #0fbcfa;
+  background-color: #0fbcfa;
+}
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.login .el-dialog {
+  background-color: #051e32;
+  margin: 0 !important;
+}
+.otherlogin img {
+  width: 70%;
+}
+.otherlogin h5 {
+  color: white;
+  font-size: 16px;
+  margin: 20px 0;
+}
+.otherlogin .loginWay .el-input__inner {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #1e3547;
+  border-radius: 0;
+  color: white;
+}
+.otherlogin .loginWay .el-input__inner::-webkit-input-placeholder {
+  color: #999999;
+}
+.otherlogin .loginWay .el-input__inner:focus {
+  border-color: #0fbcfa;
+}
+/*
+*
+*
+*------------------------------媒体查询----------------------------------
+*
+*/
+@media screen and (min-height: 737px) {
+  #login {
+    padding: 50px 0;
+  }
+  #login .loginForm {
+    margin-top: 80px;
+  }
+  #login .submit.el-button {
+    margin-top: 40px;
+  }
+  #login .otherLoginWay {
+    bottom: 70px;
+  }
+}

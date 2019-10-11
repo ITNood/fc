@@ -1,0 +1,249 @@
+@blue: #0fbcfa;
+@gray: #999999;
+@red: #e01d43;
+@white: white;
+@bgk: #051e32;
+@borderColor: #1e3547;
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+body {
+    background: @bgk;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    font-weight: normal;
+}
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.el-form-item__error {
+    color: @red  !important;
+}
+
+.el-form-item.is-error .el-input__inner,
+.el-form-item.is-error .el-input__inner:focus,
+.el-form-item.is-error .el-textarea__inner,
+.el-form-item.is-error .el-textarea__inner:focus,
+.el-message-box__input input.invalid,
+.el-message-box__input input.invalid:focus {
+    border-color: @red  !important;
+}
+
+/*
+/
+/-----------------------login---------------------------------
+/
+*/
+#login {
+    padding: 30px 0;
+    margin: 0 20px;
+    position: relative;
+    min-height: 100vh;
+    align-items: center;
+    box-sizing: border-box;
+
+    .logo {
+        width: 35%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .loginForm {
+        margin-top: 50px;
+
+        .el-input__inner {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid @borderColor;
+            border-radius: 0;
+            padding-left: 35px;
+            color: @white;
+
+            &::-webkit-input-placeholder {
+                color: @gray
+            }
+
+            &:focus {
+                border-color: @blue;
+            }
+        }
+
+        i {
+            position: absolute;
+            left: 8px;
+            color: @blue;
+        }
+    }
+
+    .otherLoginWay {
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+
+        .otherTitle {
+            background-color: @gray;
+
+            .el-divider__text {
+                background-color: @bgk;
+                color: @gray;
+            }
+        }
+
+        .loginList {
+            margin-top: 30px;
+            text-align: center;
+
+            li {
+                margin: 0 10px;
+                display: inline-block;
+
+                span {
+                    border: 1px solid @blue;
+                    border-radius: 50%;
+                    width: 45px;
+                    height: 45px;
+                    padding: 8px;
+                    display: block;
+                    box-sizing: border-box;
+                    align-items: center;
+                    display: flex;
+                }
+
+                P {
+                    margin-top: 8px;
+                    color: @white;
+                }
+            }
+        }
+    }
+}
+
+.forget {
+    color: @white;
+
+}
+
+.submit.el-button {
+    width: 250px;
+    height: 38px;
+    border-radius: 19px;
+    background: @blue;
+    color: @white;
+    border: none;
+    display: block;
+    margin: 25px auto 0;
+
+    span {
+        font-size: 14px;
+    }
+
+    &:focus,
+    &:hover {
+        color: @white;
+        border-color: @blue;
+        background-color: @blue;
+    }
+}
+
+.login {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    .el-dialog {
+        background-color: @bgk;
+        margin:0 !important
+    }
+}
+
+.otherlogin {
+    img {
+        width: 70%;
+    }
+
+    h5 {
+        color: @white;
+        font-size: 16px;
+        margin: 20px 0;
+    }
+
+    .loginWay {
+        .el-input__inner {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid @borderColor;
+            border-radius: 0;
+            color: @white;
+
+            &::-webkit-input-placeholder {
+                color: @gray;
+            }
+
+            &:focus {
+                border-color: @blue;
+            }
+        }
+    }
+}
+
+
+/*
+*
+*
+*------------------------------媒体查询----------------------------------
+*
+*/
+@media screen and (min-height: 737px) {
+    #login {
+        padding: 50px 0;
+
+        .loginForm {
+            margin-top: 80px;
+        }
+
+        .submit.el-button {
+            margin-top: 40px
+        }
+
+        .otherLoginWay {
+            bottom: 70px
+        }
+    }
+}
