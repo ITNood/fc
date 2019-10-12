@@ -1,17 +1,13 @@
 <template>
-  <div>
-    <el-dialog
-      :visible.sync="forgetDialog"
-      width="85%"
-      center
-      class="login"
-    >
-      <div class="otherlogin">
-        <img :src="imgSrc">
-        <h5>忘记密码</h5>
+<div>
+  <Top :title="msg"/>
+  <div id="login" style="margin-top:60px;min-height:100%">
+    <img src="../assets/image/logo.png" class="logo" >
+    <div class="login" style="margin-top:30px;">
+        <div class="otherlogin">
         <el-form :model="forgetForm" ref="forgetForm" :rules="rules" class="loginWay">
             <el-form-item prop="username">
-                <el-input v-model="forgetForm.username" :placeholder="user+'用户名'"></el-input>
+                <el-input v-model="forgetForm.username" placeholder="用户名"></el-input>
             </el-form-item>
             <el-form-item prop="mobile">
                 <el-input v-model="forgetForm.mobile" placeholder="手机号码"></el-input>
@@ -32,15 +28,15 @@
         </el-form>
         <el-button class="submit" @click="forgetSub()" >登录</el-button>
       </div>
-
-    </el-dialog>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
+import Top from '../components/top'
 export default {
-  props: ["imgSrc","user"],
-  name: "Forget",
+  components:{Top},
   data() {
       var validatePass = (rule, value, callback) => {
         if (value === '') {
@@ -62,8 +58,8 @@ export default {
         }
       };
     return {
-      forgetDialog:false,
-      forgetForm:{
+        msg:'忘记密码',
+        forgetForm:{
           username:'',
           mobile:'',
           mobileCode:'',
@@ -88,18 +84,14 @@ export default {
           ],
       },
       items:[
-        {value:'1',label:'中国 +86'}
+        {value:'1',label:'中国 +86'},
+        {value:'2',label:'中国 +88'}
       ],
       value:'1'
-    };
-  },
-  updated() {
-    console.log(this.forgetDialog);
+    }
   },
   methods: {
-      close(){
-          this.forgetDialog=!this.forgetDialog
-      }
+      forgetSub(){}
   },
 };
 </script>

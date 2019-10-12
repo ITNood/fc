@@ -15,47 +15,60 @@
           class="loginWay"
         >
           <el-form-item prop="username">
-            <el-input v-model="loginForm.username" :placeholder="userMessage+'用户名'"></el-input>
+            <el-input
+              v-model="loginForm.username"
+              :placeholder="userMessage+'用户名'"
+            ></el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input v-model="loginForm.password" :placeholder="passwordMessage+'账号密码'"></el-input>
+            <el-input
+              v-model="loginForm.password"
+              :placeholder="passwordMessage+'账号密码'"
+            ></el-input>
           </el-form-item>
         </el-form>
-        <p class="forget" @click="forgetPwd()">忘记密码？</p>
+        <p
+          class="forget"
+          @click="forgetPwd()"
+        >忘记密码？</p>
         <el-button
-      class="submit"
-      @click="login1()"
-    >登录</el-button>
+          class="submit"
+          @click="login1()"
+        >登录</el-button>
       </div>
-    </el-dialog> 
-    <Forget :forgetDialog="forget"   ref="child"  :imgSrc="imgLogo"/>
+    </el-dialog>
+    <Forget
+      :forgetDialog="forget"
+      ref="child"
+      :imgSrc="imgLogo"
+      :user="account"
+    />
   </div>
 </template>
 
 <script>
-import Forget from '../components/forget'
+import Forget from "../components/forget";
 export default {
-  props: ["logo", "userMessage", "passwordMessage",'type'],
+  props: ["logo", "userMessage", "passwordMessage", "type"],
   name: "Login",
-  components:{Forget},
+  components: { Forget },
   data() {
     return {
       dialogVisible: false,
-      forget:false,
-      imgLogo:'',
+      forget: false,
+      imgLogo: "",
+      account:'',
       //img:""
       loginForm: {
         type: "",
         username: "",
         password: ""
       },
-      rules:{
-          username:[
-              {required:true,message:'用户名不能为空',trigger:'blur'}
-          ],
-          password:[
-              {required:true,message:'密码不能为空',trigger:'blur'}
-          ]
+      rules: {
+        username: [
+          { required: true, message: "用户名不能为空", trigger: "blur" }
+        ],
+        password: [{ required: true, message: "密码不能为空", trigger: "blur" }]
       }
     };
   },
@@ -63,15 +76,16 @@ export default {
     open() {
       this.dialogVisible = !this.dialogVisible;
     },
-    forgetPwd(){
-       this.$refs.child.close();
-       // this.dialogVisible = !this.dialogVisible;
-        console.log(this.forget)
+    forgetPwd() {
+      this.$refs.child.close();
+      this.dialogVisible = !this.dialogVisible;
+      console.log(this.forget);
     }
   },
   updated() {
-   this.loginForm.type=this.type
-   this.imgLogo=this.logo
+    this.loginForm.type = this.type;
+    this.imgLogo = this.logo;
+    this.account=this.userMessage
   }
 };
 </script>

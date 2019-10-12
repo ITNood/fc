@@ -1,3 +1,7 @@
+@font-face {
+  font-family: number;
+  src: url('../bahnschrift.ttf');
+}
 * {
   padding: 0;
   margin: 0;
@@ -39,6 +43,66 @@ a {
 .el-message-box__input input.invalid:focus {
   border-color: #e01d43 !important;
 }
+.clear::after {
+  clear: both;
+  height: 0;
+  overflow: visible;
+  display: block;
+  content: '';
+}
+.layout {
+  margin: 60px 20px;
+}
+#nav {
+  background-color: #051624;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+#nav a {
+  color: white;
+  text-align: center;
+  display: block;
+  padding: 5px 0;
+}
+#nav a i {
+  font-size: 18px;
+  line-height: 25px;
+}
+#nav a p {
+  line-height: 25px;
+}
+#nav .router-link-exact-active i,
+#nav .router-link-exact-active p {
+  color: #0fbcfa;
+}
+#top {
+  background-color: #051624;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  z-index: 9999;
+}
+#top .back {
+  color: white;
+  font-size: 18px;
+}
+#top .title {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  line-height: 60px;
+}
+.center {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
 /*
 /
 /-----------------------login---------------------------------
@@ -53,7 +117,7 @@ a {
   box-sizing: border-box;
 }
 #login .logo {
-  width: 35%;
+  width: 30%;
   margin: 0 auto;
   display: block;
 }
@@ -156,6 +220,9 @@ a {
   background-color: #051e32;
   margin: 0 !important;
 }
+.otherlogin {
+  width: 100%;
+}
 .otherlogin img {
   width: 70%;
 }
@@ -177,6 +244,262 @@ a {
 .otherlogin .loginWay .el-input__inner:focus {
   border-color: #0fbcfa;
 }
+.otherlogin .loginWay .el-form-item__content {
+  position: relative;
+}
+.otherlogin .loginWay .el-form-item__content .send {
+  position: absolute;
+  right: 0px;
+  border: none;
+  background: transparent;
+  color: #0fbcfa;
+}
+.otherlogin .loginWay .el-form-item__content .el-select {
+  position: absolute;
+  right: 0;
+  border: none;
+  width: 120px;
+  z-index: 99;
+}
+.el-select-dropdown {
+  background-color: #051e32 !important;
+  border-color: #0fbcfa !important;
+}
+.el-select-dropdown .el-select-dropdown__item {
+  color: white;
+  height: 38px !important;
+  line-height: 38px !important;
+}
+.el-select-dropdown .el-select-dropdown__list {
+  padding: 0;
+}
+.el-select-dropdown .el-select-dropdown__item.selected {
+  background-color: #0fbcfa;
+  color: white;
+}
+.el-select-dropdown .el-select-dropdown__item.hover,
+.el-select-dropdown .el-select-dropdown__item:hover {
+  background-color: #0fbcfa;
+  color: white;
+}
+.el-select-dropdown .el-popper[x-placement^=bottom] .popper__arrow::after {
+  border-bottom-color: #0fbcfa !important;
+}
+/*
+*
+*
+*------------------------------home>index----------------------------
+*
+*/
+.header {
+  height: 60px;
+  overflow: hidden;
+}
+.header .title {
+  color: white;
+  font-size: 16px;
+  line-height: 60px;
+  text-align: center;
+}
+.header .news {
+  color: white;
+  float: right;
+  line-height: 60px;
+}
+.header .news i {
+  font-size: 18px;
+}
+.home {
+  border-radius: 6px;
+  overflow: hidden;
+  background: url(../image/bg.png) no-repeat bottom, linear-gradient(to top right, #0a75ff, #10c5f9);
+  background-size: 100%;
+  padding: 20px;
+  min-height: 150px;
+  box-sizing: border-box;
+  align-items: center;
+}
+.home #avatar p {
+  color: white;
+  font-size: 16px;
+  margin-top: 8px;
+}
+.home .purse {
+  text-align: right;
+  color: white;
+}
+.home .purse h4 {
+  font-weight: 500;
+  font-size: 20px;
+  font-family: number;
+  line-height: 40px;
+}
+.home .purse h4 span {
+  font-size: 16px;
+  margin-right: 5px;
+}
+.home .purse p {
+  font-size: 14px;
+}
+.home .purseLists {
+  margin-top: 20px;
+}
+.home .purseLists a {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.home .purseLists a span {
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+  border-radius: 50%;
+  background: white;
+  box-sizing: border-box;
+  line-height: 25px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home .purseLists a span i {
+  color: #0fbcfa;
+  text-align: center;
+}
+.interest {
+  margin-top: 20px;
+}
+.interest .interest-title {
+  position: relative;
+  border-left: 2px solid #0fbcfa;
+  color: white;
+  font-size: 14px;
+  padding-left: 8px;
+  line-height: 25px;
+}
+.interest .interest-title a {
+  color: white;
+  position: absolute;
+  right: 0;
+  font-size: 18px;
+}
+.interest .walletList {
+  overflow: hidden;
+  margin-top: 20px;
+}
+.interest .walletList ul {
+  height: calc(-273vh);
+  overflow-y: auto;
+}
+.interest .walletList ul li {
+  position: relative;
+  border-bottom: 1px solid #1e3547;
+  padding: 8px 35px 8px 48px;
+  height: 40px;
+}
+.interest .walletList ul li img {
+  width: 40px;
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+.interest .walletList ul li i {
+  font-size: 20px;
+  position: absolute;
+  right: 5px;
+  top: 8px;
+  line-height: 40px;
+}
+.interest .walletList ul li .el-icon-star-off {
+  color: white;
+}
+.interest .walletList ul li .el-icon-star-on {
+  color: #0fbcfa;
+}
+.interest .walletList ul li .walletName {
+  line-height: 40px;
+  font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.interest .walletList ul li .walletName span {
+  color: #0fbcfa;
+  margin-left: 8px;
+  padding-left: 10px;
+  position: relative;
+  font-size: 14px;
+  font-family: number;
+}
+.interest .walletList ul li .walletName span:after {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  border-radius: 50%;
+  background: #0fbcfa;
+  display: block;
+  content: '';
+  left: 0;
+  top: 50%;
+  margin-top: -2.5px;
+}
+.interest .walletList ul li .percent {
+  text-align: right;
+}
+.interest .walletList ul li .percent h5 {
+  color: white;
+  font-size: 16px;
+  font-family: number;
+  line-height: 25px;
+}
+.currency {
+  color: white;
+}
+.currency p {
+  margin-bottom: 10px;
+}
+.currency .coin {
+  border-bottom: 1px solid #1e3547;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.currency .coin img {
+  width: 35px;
+  margin-right: 8px;
+}
+.currency .coin i {
+  position: absolute;
+  right: 0;
+}
+.currency .coinAmount .el-input__inner {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #1e3547;
+  border-radius: 0;
+}
+.currency .coinAmount .el-input__inner:focus {
+  border-color: #0fbcfa;
+}
+.tips {
+  margin-top: 30px;
+}
+.tips p {
+  line-height: 180%;
+  text-align: justify;
+}
+/*
+*
+*
+*-------------------------------home>invest-----------------------------
+*
+*
+*/
 /*
 *
 *

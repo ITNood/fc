@@ -4,7 +4,12 @@
 @white: white;
 @bgk: #051e32;
 @borderColor: #1e3547;
+@footer: #051624;
 
+@font-face {
+    font-family: number;
+    src: url('../bahnschrift.ttf')
+}
 
 * {
     padding: 0;
@@ -55,6 +60,82 @@ a {
     border-color: @red  !important;
 }
 
+.clear::after {
+    clear: both;
+    height: 0;
+    overflow: visible;
+    display: block;
+    content: '';
+}
+
+.layout {
+    margin: 60px 20px;
+}
+
+#nav {
+    background-color: @footer;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
+    a {
+        color: @white;
+        text-align: center;
+        display: block;
+        padding: 5px 0;
+
+        i {
+            font-size: 18px;
+            line-height: 25px;
+        }
+
+        p {
+            line-height: 25px;
+        }
+
+    }
+
+    .router-link-exact-active {
+
+        i,
+        p {
+            color: @blue;
+        }
+    }
+
+}
+
+#top {
+    background-color: @footer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    z-index: 9999;
+
+    .back {
+        color: @white;
+        font-size: 18px
+    }
+
+    .title {
+        color: @white;
+        font-size: 16px;
+        text-align: center;
+        line-height: 60px;
+    }
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
 /*
 /
 /-----------------------login---------------------------------
@@ -69,7 +150,7 @@ a {
     box-sizing: border-box;
 
     .logo {
-        width: 35%;
+        width: 30%;
         margin: 0 auto;
         display: block;
     }
@@ -189,11 +270,13 @@ a {
 
     .el-dialog {
         background-color: @bgk;
-        margin:0 !important
+        margin: 0 !important
     }
 }
 
 .otherlogin {
+    width: 100%;
+
     img {
         width: 70%;
     }
@@ -205,12 +288,14 @@ a {
     }
 
     .loginWay {
+
         .el-input__inner {
             background: transparent;
             border: none;
             border-bottom: 1px solid @borderColor;
             border-radius: 0;
             color: @white;
+
 
             &::-webkit-input-placeholder {
                 color: @gray;
@@ -220,8 +305,316 @@ a {
                 border-color: @blue;
             }
         }
+
+        .el-form-item__content {
+            position: relative;
+
+            .send {
+                position: absolute;
+                right: 0px;
+                border: none;
+                background: transparent;
+                color: @blue;
+            }
+
+            .el-select {
+                position: absolute;
+                right: 0;
+                border: none;
+                width: 120px;
+                z-index: 99
+            }
+        }
     }
 }
+
+.el-select-dropdown {
+    background-color: @bgk  !important;
+    border-color: @blue  !important;
+
+    .el-select-dropdown__item {
+        color: @white;
+        height: 38px !important;
+        line-height: 38px !important;
+    }
+
+    .el-select-dropdown__list {
+        padding: 0;
+    }
+
+    .el-select-dropdown__item.selected {
+        background-color: @blue;
+        color: @white
+    }
+
+    .el-select-dropdown__item.hover,
+    .el-select-dropdown__item:hover {
+        background-color: @blue;
+        color: @white
+    }
+
+    .el-popper[x-placement^=bottom] .popper__arrow::after {
+        border-bottom-color: @blue  !important
+    }
+}
+
+/*
+*
+*
+*------------------------------home>index----------------------------
+*
+*/
+.header {
+    height: 60px;
+    overflow: hidden;
+
+    .title {
+        color: @white;
+        font-size: 16px;
+        line-height: 60px;
+        text-align: center;
+    }
+
+    .news {
+        color: @white;
+        float: right;
+        line-height: 60px;
+
+        i {
+            font-size: 18px;
+        }
+    }
+}
+
+.home {
+    border-radius: 6px;
+    overflow: hidden;
+    background: url(../image/bg.png) no-repeat bottom, linear-gradient(to top right, #0a75ff, #10c5f9);
+    background-size: 100%;
+    padding: 20px;
+    min-height: 150px;
+    box-sizing: border-box;
+    align-items: center;
+
+    #avatar {
+        p {
+            color: @white;
+            font-size: 16px;
+            margin-top: 8px
+        }
+    }
+
+    .purse {
+        text-align: right;
+        color: @white;
+
+        h4 {
+            font-weight: 500;
+            font-size: 20px;
+            font-family: number;
+            line-height: 40px;
+
+            span {
+                font-size: 16px;
+                margin-right: 5px;
+            }
+        }
+
+        p {
+            font-size: 14px;
+        }
+    }
+
+    .purseLists {
+        margin-top: 20px;
+
+        a {
+            color: @white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+
+            span {
+                width: 30px;
+                height: 30px;
+                padding: 3px;
+                border-radius: 50%;
+                background: @white;
+                box-sizing: border-box;
+                line-height: 25px;
+                margin-right: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                i {
+                    color: @blue;
+                    text-align: center;
+                }
+
+            }
+        }
+    }
+}
+
+.interest {
+    margin-top: 20px;
+
+    .interest-title {
+        position: relative;
+        border-left: 2px solid @blue;
+        color: @white;
+        font-size: 14px;
+        padding-left: 8px;
+        line-height: 25px;
+
+        a {
+            color: @white;
+            position: absolute;
+            right: 0;
+            font-size: 18px;
+        }
+    }
+
+    .walletList {
+        overflow: hidden;
+        margin-top: 20px;
+
+        ul {
+            height: calc(100vh - 373px);
+            overflow-y: auto;
+
+            li {
+                position: relative;
+                border-bottom: 1px solid @borderColor;
+                padding: 8px 35px 8px 48px;
+                height: 40px;
+
+                img {
+                    width: 40px;
+                    position: absolute;
+                    top: 8px;
+                    left: 0;
+                }
+
+                i {
+                    font-size: 20px;
+                    position: absolute;
+                    right: 5px;
+                    top: 8px;
+                    line-height: 40px;
+                }
+
+                .el-icon-star-off {
+                    color: @white;
+                }
+
+                .el-icon-star-on {
+                    color: @blue;
+                }
+
+                .walletName {
+                    line-height: 40px;
+                    font-size: 16px;
+                    color: @white;
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        color: @blue;
+                        margin-left: 8px;
+                        padding-left: 10px;
+                        position: relative;
+                        font-size: 14px;
+                        font-family: number;
+
+                        &:after {
+                            width: 5px;
+                            height: 5px;
+                            position: absolute;
+                            left: 0;
+                            border-radius: 50%;
+                            background: @blue;
+                            display: block;
+                            content: '';
+                            left: 0;
+                            top: 50%;
+                            margin-top: -2.5px;
+                        }
+                    }
+                }
+
+                .percent {
+                    text-align: right;
+
+                    h5 {
+                        color: @white;
+                        font-size: 16px;
+                        font-family: number;
+                        line-height: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.currency {
+    color: @white;
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    .coin {
+        border-bottom: 1px solid @borderColor;
+        padding-bottom: 5px;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        position: relative;
+        margin-bottom: 10px;
+
+        img {
+            width: 35px;
+            margin-right: 8px;
+        }
+
+        i {
+            position: absolute;
+            right: 0
+        }
+    }
+
+    .coinAmount {
+        .el-input__inner {
+            background: transparent;
+            border:none;
+            border-bottom: 1px solid @borderColor;
+            border-radius: 0;
+            &:focus{
+                border-color: @blue;
+            }
+        }
+    }
+}
+.tips{
+    margin-top: 30px;
+    p{
+        line-height: 180%;
+        text-align: justify;
+    }
+}
+
+
+/*
+*
+*
+*-------------------------------home>invest-----------------------------
+*
+*
+*/
 
 
 /*
