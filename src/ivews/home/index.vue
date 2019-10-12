@@ -36,7 +36,7 @@
 
         <!--套利-->
         <div class="interest">
-          <div class="interest-title">套利<router-link to="/history" class="icon iconfont icon-jilu1"></router-link></div>
+          <div class="interest-title">套利<router-link to="/home/notes/index" class="icon iconfont icon-jilu1"></router-link></div>
           <div class="walletList">
             <ul>
               <li v-for="(item,index) in items" :key="index" @click="interest(item.id,item.logo,item.name,$event)">
@@ -50,7 +50,7 @@
                   <el-col :span="10" class="percent">
                     <h5>$ {{item.price}}</h5>
                     <p v-if="item.code==1" style="color:#05ce7e">+{{item.percent}}%</p>
-                    <p v-else style="color:#ee310f">-{{item.percent}}%</p>
+                    <p v-else style="color:#ff5e52">-{{item.percent}}%</p>
                   </el-col>
                 </el-row>
               </li>
@@ -77,9 +77,9 @@ export default {
       typeId:'',
       coinName:'',
       lists:[
-        {url:'',icon:'icon-meiyuan4',test:'充值'},
-        {url:'',icon:'icon-yinhangqiashezhi',test:'提现'},
-        {url:'',icon:'icon-lvzhou_mingxi',test:'明细'}
+        {url:'/home/invest/index',icon:'icon-meiyuan4',test:'充值'},
+        {url:'/home/cash/index',icon:'icon-yinhangqiashezhi',test:'提现'},
+        {url:'/home/history/index',icon:'icon-lvzhou_mingxi',test:'明细'}
       ],
       items:[
         {logo:require('../../assets/image/btc.png'),state:1,name:'BTC',amount:'100.00',price:100,percent:8.2,code:1,id:1},

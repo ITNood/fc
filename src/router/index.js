@@ -47,6 +47,55 @@ export default new Router({
       component: () => {
         return import('../ivews/home/invest/index')
       }
+    },
+    {
+      path: '/home/history/index',
+      name: 'history',
+      component: () => {
+        return import('../ivews/home/history/index')
+      }
+    },
+    {
+      path: '/home/cash/index',
+      name: 'cash',
+      component: () => {
+        return import('../ivews/home/cash/index')
+      }
+    },
+    {
+      path: '/home/notes/index',
+      name: 'notes',
+      component: () => {
+        return import('../ivews/home/notes/index')
+      }
+    },
+    {
+      path: '/my/usdt/index',
+      name: 'usdt',
+      component: () => {
+        return import('../ivews/my/usdt/index')
+      }
+    },
+    {
+      path: '/my/set/index',
+      name: 'set',
+      component: () => {
+        return import('../ivews/my/set/index')
+      }
+    },
+    {
+      path: '/my/invite/index',
+      name: 'invite',
+      component: () => {
+        return import('../ivews/my/invite/index')
+      }
+    },
+    {
+      path: '/my/manage/index',
+      name: 'manage',
+      component: () => {
+        return import('../ivews/my/manage/index')
+      }
     }
   ]
 })

@@ -79,7 +79,7 @@ a {
   color: #0fbcfa;
 }
 #top {
-  background-color: #051624;
+  background-color: #051e32;
   position: fixed;
   top: 0;
   left: 0;
@@ -244,6 +244,12 @@ a {
 .otherlogin .loginWay .el-input__inner:focus {
   border-color: #0fbcfa;
 }
+.otherlogin .loginWay .phone .el-input__inner {
+  padding-left: 120px;
+}
+.otherlogin .loginWay .el-form-item__label {
+  color: white;
+}
 .otherlogin .loginWay .el-form-item__content {
   position: relative;
 }
@@ -260,6 +266,9 @@ a {
   border: none;
   width: 120px;
   z-index: 99;
+}
+.otherlogin .loginWay .el-form-item__content .area.el-select {
+  left: 0;
 }
 .el-select-dropdown {
   background-color: #051e32 !important;
@@ -500,6 +509,508 @@ a {
 *
 *
 */
+.invest {
+  background: #051725;
+  padding: 30px 20px;
+  text-align: center;
+}
+.invest h6 {
+  font-size: 16px;
+  color: white;
+}
+.invest h6 span {
+  color: #0fbcfa;
+  font-size: 16px;
+}
+.invest img {
+  margin: 20px auto;
+  width: 150px;
+  display: block;
+}
+.invest .hold.el-button {
+  display: block;
+  background: #0fbcfa;
+  color: white;
+  margin: 0 auto;
+  border: none;
+  border-radius: 19px;
+}
+.invest .hold.el-button:focus,
+.invest .hold.el-button:hover {
+  background: #0fbcfa;
+  color: white;
+}
+.invest p {
+  color: white;
+  font-size: 14px;
+  margin: 20px 0;
+}
+.invest .address {
+  color: white;
+  font-family: number;
+  letter-spacing: 2px;
+  line-height: 150%;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-size: 14px;
+}
+.invest #copy.el-button {
+  background: #697486;
+  border: none;
+  color: white;
+  min-width: 100px;
+  border-radius: 19px;
+  margin-top: 20px;
+}
+.invest #copy.el-button:focus,
+.invest #copy.el-button:hover {
+  background: #697486;
+  color: white;
+}
+.investTips {
+  margin-top: 20px;
+}
+.investTips h6 {
+  color: white;
+  font-size: 14px;
+  line-height: 180%;
+}
+.investTips p {
+  line-height: 180%;
+  color: #999999;
+  text-align: justify;
+}
+/**
+**
+**
+**------------------------------home>history---------------------------
+**
+**
+**/
+.infinite-list-wrapper {
+  overflow: hidden;
+  height: calc(-6vh);
+}
+.infinite-list-wrapper p {
+  color: white;
+  text-align: center;
+}
+.infinite-list-wrapper .list li {
+  border-bottom: 1px solid #1e3547;
+  position: relative;
+  padding-right: 50%;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+}
+.infinite-list-wrapper .list li p {
+  color: #999999;
+  line-height: 20px;
+  text-align: left;
+}
+.infinite-list-wrapper .list li span {
+  color: white;
+  line-height: 20px;
+}
+.infinite-list-wrapper .list li h6 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 40px;
+  font-size: 14px;
+  font-family: number;
+}
+/**
+**
+**
+**-----------------------------------home>cash----------------------------------
+**
+**/
+#tabs {
+  position: relative;
+}
+#tabs .el-tabs__nav-wrap::after {
+  background-color: transparent;
+}
+#tabs .el-tabs__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #051e32;
+}
+#tabs .el-tabs__header .el-tabs__nav {
+  width: 100%;
+}
+#tabs .el-tabs__header .el-tabs__nav .el-tabs__item {
+  width: 50%;
+  text-align: center;
+  color: white;
+}
+#tabs .el-tabs__header .el-tabs__nav .el-tabs__item.is-active {
+  color: #0fbcfa;
+}
+#tabs .el-tabs__header .el-tabs__nav .el-tabs__active-bar {
+  background-color: #0fbcfa;
+}
+#tabs .el-tabs__content {
+  padding-top: 54px;
+}
+#tabs .el-tabs__content .cash {
+  margin-top: 20px;
+}
+#tabs .el-tabs__content .cash li {
+  margin-bottom: 10px;
+}
+#tabs .el-tabs__content .cash li p {
+  color: white;
+  line-height: 180%;
+  margin-bottom: 10px;
+}
+#tabs .el-tabs__content .cash li h5 {
+  border-bottom: 1px solid #1e3547;
+  line-height: 40px;
+  color: #0fbcfa;
+  font-size: 16px;
+  font-family: number;
+}
+#tabs .el-tabs__content .cash li .entry .el-input__inner {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #1e3547;
+  border-radius: 0;
+  padding: 0;
+  color: white;
+}
+#tabs .el-tabs__content .cash li .entry .el-input__inner::-webkit-input-placeholder {
+  color: #999999;
+}
+#tabs .el-tabs__content .cashList {
+  overflow: hidden;
+}
+#tabs .el-tabs__content .cashList ul {
+  height: calc(-39vh);
+  overflow-y: auto;
+}
+#tabs .el-tabs__content .cashList ul li {
+  border-bottom: 1px solid #1e3547;
+  margin-bottom: 8px;
+  padding: 8px 100px 8px 0;
+  position: relative;
+}
+#tabs .el-tabs__content .cashList ul li h5 {
+  font-family: number;
+  font-size: 16px;
+  color: white;
+  line-height: 25px;
+}
+#tabs .el-tabs__content .cashList ul li p {
+  color: #999999;
+  line-height: 20px;
+}
+#tabs .el-tabs__content .cashList ul li span {
+  position: absolute;
+  right: 0;
+  top: 8px;
+  line-height: 45px;
+  font-size: 14px;
+}
+/**
+**
+**
+**-------------------------------------my-----------------------------------
+**
+**
+**/
+#myPhoto {
+  background: linear-gradient(to top right, #0a75ff, #10c5f9);
+  padding: 50px 20px 30px 20px;
+  min-height: 150px;
+  box-sizing: border-box;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+#myPhoto .avatarPicter {
+  display: flex;
+  justify-content: center;
+}
+#myPhoto .avatarPicter .myAvatar {
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+#myPhoto .icon-edit {
+  position: absolute;
+  color: white;
+  font-size: 20px;
+  right: 20px;
+  top: 20px;
+}
+#myPhoto h5 {
+  font-size: 18px;
+  margin-top: 10px;
+  color: white;
+}
+#myPhoto p {
+  margin-top: 8px;
+  color: white;
+}
+.myList {
+  margin: 20px 20px 15px;
+  overflow: hidden;
+}
+.myList .myContent {
+  height: calc(-198vh);
+  overflow-y: auto;
+}
+.myList .myContent ul li {
+  position: relative;
+  padding: 8px 35px;
+  border-bottom: 1px solid #1e3547;
+  line-height: 30px;
+}
+.myList .myContent ul li a {
+  display: block;
+  color: white;
+}
+.myList .myContent ul li a i {
+  color: #0fbcfa;
+  position: absolute;
+  left: 5px;
+}
+.myList .myContent ul li a span {
+  position: absolute;
+  right: 5px;
+  top: 8px;
+  line-height: 30px;
+}
+/**
+***
+**
+**------------------------------my>USDT-------------------------
+**
+**
+**/
+.bind {
+  padding-top: 20px;
+}
+.bind p {
+  font-size: 14px;
+  color: white;
+  margin-bottom: 10px;
+}
+.bind .el-textarea__inner {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #1e3547;
+  min-height: 80px !important;
+  border-radius: 0;
+  color: white;
+}
+.bind .el-textarea__inner:focus {
+  border-color: #0fbcfa;
+}
+.bind .el-textarea__inner::-webkit-input-placeholder {
+  color: #999999;
+}
+/**
+**
+**
+**--------------------------------my>set--------------------------------------
+**
+**/
+.set {
+  margin-top: 20px;
+}
+.set ul li {
+  border-bottom: 1px solid #1e3547;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+.set ul li a {
+  color: white;
+  position: relative;
+  display: block;
+}
+.set ul li a i {
+  position: absolute;
+  right: 0;
+  line-height: 40px;
+}
+/**
+**
+*
+*-------------------------------------my>manage------------------------------
+*
+**/
+.rank .manage {
+  border-bottom: 1px solid #1e3547;
+  text-align: center;
+  padding: 15px 0;
+}
+.rank .manage h5 {
+  font-family: number;
+  color: white;
+  font-size: 18px;
+  line-height: 180%;
+}
+.rank .manage p {
+  color: #999999;
+}
+.partner h5 {
+  border-left: 2px solid #0fbcfa;
+  padding-left: 5px;
+  color: white;
+  font-size: 14px;
+  line-height: 180%;
+  margin: 20px 0;
+}
+.partner .partnerList {
+  overflow: hidden;
+}
+.partner .partnerList ul {
+  height: calc(-282vh);
+  overflow-y: auto;
+}
+.partner .partnerList ul li {
+  border-bottom: 1px solid #1e3547;
+  padding: 8px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  color: white;
+}
+.partner .partnerList ul li img {
+  width: 40px;
+  margin-right: 10px;
+}
+.partner .partnerList ul li p {
+  font-size: 14px;
+}
+.partner .partnerList ul li span {
+  position: absolute;
+  right: 0;
+  font-size: 16px;
+  font-family: number;
+}
+/**
+**
+**
+**----------------------------------fc-------------------------------
+**
+**
+**/
+.fc {
+  text-align: center;
+}
+.fc h5 {
+  color: #0fbcfa;
+  font-size: 20px;
+  font-family: number;
+  line-height: 180%;
+}
+.fc a {
+  color: white;
+}
+.fcList {
+  background-color: #07263e;
+  padding: 20px;
+  margin-top: 20px;
+  height: calc(-92vh);
+}
+.fcList .operate li {
+  float: left;
+  width: 25%;
+}
+.fcList .operate li a {
+  display: block;
+}
+.fcList .operate li a span {
+  border: 1px solid #0fbcfa;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0fbcfa;
+  margin: auto;
+  font-size: 20px;
+}
+.fcList .operate li a p {
+  color: white;
+  margin-top: 8px;
+  text-align: center;
+}
+.fcList .salary {
+  margin-top: 20px;
+  overflow: hidden;
+}
+.fcList .salary ul {
+  height: calc(-178vh);
+  overflow-y: auto;
+}
+.fcList .salary ul li {
+  border-radius: 6px;
+  background-color: #062e46;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+.fcList .salary ul li h5 {
+  border-bottom: 1px solid #1e3547;
+  line-height: 180%;
+  color: white;
+  position: relative;
+}
+.fcList .salary ul li h5 span {
+  position: absolute;
+  right: 0;
+}
+.fcList .salary ul li .data {
+  margin-top: 15px;
+  position: relative;
+  padding-left: 115px;
+  min-height: 100px;
+}
+.fcList .salary ul li .data .progressSet {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.fcList .salary ul li .data .progressSet .progressData {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  padding: 15px 0;
+  text-align: center;
+  box-sizing: border-box;
+  align-items: center;
+}
+.fcList .salary ul li .data .progressSet .progressData h6 {
+  font-size: 22px;
+  font-family: number;
+  color: white;
+  line-height: 40px;
+}
+.fcList .salary ul li .data .progressSet .progressData p {
+  color: white;
+}
+.fcList .salary ul li .data .result p {
+  padding: 0 ;
+  margin: 0;
+  line-height: 25px;
+  color: white;
+  position: relative;
+}
+.fcList .salary ul li .data .result p span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 25px;
+}
 /*
 *
 *

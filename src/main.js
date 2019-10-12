@@ -7,7 +7,8 @@ import './assets/style/default.less'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/fonts/iconfont.css'
-
+import vueiInfinite from 'vue-infinite-scroll'
+Vue.use(vueiInfinite)
 Vue.use(ElementUI)
 
 Vue.config.productionTip = false
