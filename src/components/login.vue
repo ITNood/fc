@@ -81,6 +81,9 @@ export default {
       this.$refs.child.close();
       this.dialogVisible = !this.dialogVisible;
       console.log(this.forget);
+    },
+    login1(){
+       this.$router.push('/home/index')
     }
   },
   updated() {
@@ -90,7 +93,8 @@ export default {
     console.log(this.type)
     this.imgLogo = this.logo;
     this.account=this.userMessage
-  }
+  },
+  
 };
 </script>
 

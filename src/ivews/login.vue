@@ -89,7 +89,9 @@ export default {
     };
   },
   methods: {
-    login() {},
+    login() {
+      this.$router.push('/home/index')
+    },
     openCtc() {
       this.$refs.child.open();
       this.imgSrc = require("../assets/image/ctclogo.png");

@@ -279,7 +279,7 @@ a {
     width: 100%;
 
     img {
-         width: 70%;
+        width: 70%;
     }
 
     h5 {
@@ -884,6 +884,11 @@ a {
                         &::-webkit-input-placeholder {
                             color: @gray;
                         }
+
+                        &:focus,
+                        &:hover {
+                            border-color: @blue
+                        }
                     }
                 }
             }
@@ -1315,13 +1320,15 @@ a {
 
 }
 
-.newsContent{
+.newsContent {
     margin-top: 20px;
     color: @white;
-    p{
+
+    p {
         line-height: 180%;
     }
-    img{
+
+    img {
         margin: 10px 0
     }
 }
@@ -1348,4 +1355,106 @@ a {
             bottom: 70px
         }
     }
+}
+
+/*
+*
+*
+*--------------------------password---------------------------------------
+*
+*
+*
+*/
+
+#pin {
+    .el-dialog {
+        background: @bgk;
+        margin-top: 50px !important;
+        margin-bottom: 0 !important;
+        width: 100%;
+        height: calc(100vh - 50px)
+    }
+
+    .el-icon-close {
+        color: @white;
+    }
+}
+
+.pay-tool {
+    overflow: hidden;
+    position: fixed;
+    display: block;
+    min-height: 80vh;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.pay-tool-title {
+    width: 100%;
+    height: 2.08888888rem;
+    line-height: 2.08888888rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.icon1 {
+    float: left;
+    margin-top: 0.72222222rem;
+}
+
+strong {
+    font-size: 16px;
+}
+
+.pay-tool-inputs {
+    width: 312px;
+    height: 32px;
+    margin: 1.28888888rem auto 0;
+    border-radius: 0.26666666rem;
+    text-align: center;
+}
+
+.item {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid @blue;
+    border-radius: 50%;
+    margin: 10px;
+    float: left;
+    overflow: hidden;
+}
+
+.icon_dot {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url('../image/round.png') no-repeat center;
+    background-size: cover;
+}
+
+.pay-tool-keyboard {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: block;
+}
+
+.pay-tool-keyboard ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pay-tool-keyboard li {
+    width: 33.1333%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 22px;
+    color: @white;
 }

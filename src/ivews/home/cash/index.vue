@@ -14,7 +14,7 @@
                         <el-input v-model="amount" placeholder="请输入100的倍数" class="entry"></el-input>
                     </li>
                 </ul>
-                <el-button class="submit" style="margin-top:80px;" @click="submit()">确认</el-button>
+                <el-button class="submit" style="margin-top:80px;" @click="submit1()">确认</el-button>
             </el-tab-pane>
             <el-tab-pane label="提现记录" name="second">
                 <div class="cashList">
@@ -30,25 +30,41 @@
             </el-tab-pane>
         </el-tabs>
     </div>
+    <Pin @submit="submit" ref="child" :centerDialogVisible="show" />
   </div>
 </template>
 
 <script>
 import Top from "../../../components/top";
+import Pin from '../../../components/pin'
 export default {
-  components: { Top },
+  components: { Top ,Pin},
   data() {
     return {
         msg:'USDT提现',
         activeName:'first',
         usdt:'100.00',
         amount:'',
+        show:false,
         items:[
             {amount:'100.00',date:'2019/10/12 15:00',state:1},
             {amount:'100.00',date:'2019/10/12 15:00',state:2}
         ]
     };
-  }
+  },
+  methods: {
+      submit1(){
+          let amount=this.amount
+          if(amount){
+              this.$refs.child.open()
+          }else{
+              alert('提现数量不能为0')
+          }
+      },
+      submit(pwd){
+          console.log(pwd)
+      }
+  },
 };
 </script>
 
