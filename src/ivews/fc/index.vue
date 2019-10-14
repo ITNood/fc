@@ -77,10 +77,10 @@ export default {
       FC: "100.00",
       closeFC: "100.00",
       items: [
-        { url: "", iconClass: "icon-shuju", name: "增值" },
-        { url: "", iconClass: "icon-shuju", name: "兑换" },
-        { url: "", iconClass: "icon-shuju", name: "薪酬" },
-        { url: "", iconClass: "icon-shuju", name: "回购" }
+        { url: "", iconClass: "icon-anshengxupailie", name: "增值" },
+        { url: "", iconClass: "icon-jixuduihuan", name: "兑换" },
+        { url: "", iconClass: "icon-qianbao", name: "薪酬" },
+        { url: "", iconClass: "icon-xunhuanxuyuezhuanzhang", name: "回购" }
       ],
       lists:[
         {date:'2018/10/12',state:'进行中',prcent:50,number:8,total:100,pay:100,week:100,end:100},
