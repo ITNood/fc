@@ -96,6 +96,20 @@ export default new Router({
       component: () => {
         return import('../ivews/my/manage/index')
       }
+    },
+    {
+      path: '/home/news/index',
+      name: 'news',
+      component: () => {
+        return import('../ivews/home/news/index')
+      }
+    },
+    {
+      path: '/home/news/details/index',
+      name: 'details',
+      component: () => {
+        return import('../ivews/home/news/details/index')
+      }
     }
   ]
 })

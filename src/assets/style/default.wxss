@@ -142,6 +142,7 @@ a {
   position: absolute;
   left: 8px;
   color: #0fbcfa;
+  top: 0;
 }
 #login .otherLoginWay {
   position: absolute;
@@ -619,6 +620,43 @@ a {
   font-size: 14px;
   font-family: number;
 }
+.infinite-list-wrapper .news {
+  border-bottom: 1px solid #1e3547;
+  margin-bottom: 8px;
+}
+.infinite-list-wrapper .news a {
+  color: white;
+  position: relative;
+  padding: 8px 20px 8px 0;
+  display: block;
+}
+.infinite-list-wrapper .news a p {
+  text-align: left;
+  color: #999999;
+  display: flex;
+  align-items: center;
+}
+.infinite-list-wrapper .news a span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #e01d43;
+  margin-left: 8px;
+  display: inline-block;
+}
+.infinite-list-wrapper .news a h6 {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.infinite-list-wrapper .news a i {
+  right: 0;
+  display: block;
+  top: 8px;
+  position: absolute;
+  line-height: 33px;
+}
 /**
 **
 **
@@ -998,7 +1036,7 @@ a {
   color: white;
 }
 .fcList .salary ul li .data .result p {
-  padding: 0 ;
+  padding: 0;
   margin: 0;
   line-height: 25px;
   color: white;
@@ -1009,6 +1047,34 @@ a {
   right: 0;
   top: 0;
   line-height: 25px;
+}
+/**
+**
+**
+**--------------------------------------------details---------------------------------
+**
+**/
+.news-title {
+  padding: 20px 0 8px;
+  border-bottom: 1px solid #1e3547;
+}
+.news-title h5 {
+  color: white;
+  font-size: 16px;
+  line-height: 180%;
+}
+.news-title p {
+  color: #999999;
+}
+.newsContent {
+  margin-top: 20px;
+  color: white;
+}
+.newsContent p {
+  line-height: 180%;
+}
+.newsContent img {
+  margin: 10px 0;
 }
 /*
 *

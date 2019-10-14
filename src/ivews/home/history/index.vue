@@ -7,7 +7,7 @@
     >
       <div
         class="infinite-list-wrapper"
-        style="overflow:auto"
+        style="overflow:auto ;height:calc(100vh - 80px)"
       >
         <ul
           class="list"

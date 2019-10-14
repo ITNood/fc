@@ -5,7 +5,7 @@
         <el-row :gutter="15">
           <el-col :span="12" :offset="6" class="title">套利</el-col>
           <el-col :span="6" class="clear">
-            <router-link to="" class="news"><i class="icon iconfont icon-xiaoxi"></i></router-link>
+            <router-link to="/home/news/index" class="news"><i class="icon iconfont icon-xiaoxi"></i></router-link>
           </el-col>
         </el-row>
       </el-header>

@@ -1,10 +1,10 @@
 <template>
   <div>
     <Top :title="msg" />
-    <div class="layout">
+    <div class="layout" style="margin-bottom:20px">
         <div
         class="infinite-list-wrapper"
-        style="overflow:auto"
+        style="overflow:auto;height:calc(100vh - 80px)"
       >
         <ul
           class="list"
