@@ -2,6 +2,7 @@
   <div>
     <el-dialog
       :visible.sync="forgetDialog"
+      :close-on-click-modal="false"
       width="85%"
       center
       class="login"

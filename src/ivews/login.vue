@@ -100,21 +100,21 @@ export default {
     },
     openFc() {
       this.$refs.child.open();
-      this.imgSrc=require('../assets/image/ctclogo.png')
+      this.imgSrc=require('../assets/image/fclogo.png')
       this.userMsg = "FC";
       this.pwdMsg = "FC";
       this.openType=2
     },
     openRtl() {
       this.$refs.child.open();
-      this.imgSrc = require("../assets/image/ctclogo.png");
+      this.imgSrc = require("../assets/image/rtllogo.png");
       this.userMsg = "RTL";
       this.pwdMsg = "RTL";
       this.openType=3
     },
     openSyl() {
       this.$refs.child.open();
-      this.imgSrc = require("../assets/image/ctclogo.png");
+      this.imgSrc = require("../assets/image/syllogo.png");
       this.userMsg = "SYL";
       this.pwdMsg = "SYL";
       this.openType=4

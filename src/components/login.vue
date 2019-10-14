@@ -4,6 +4,7 @@
       :visible.sync="dialogVisible"
       width="85%"
       class="login"
+      :close-on-click-modal="false"
     >
       <div class="otherlogin">
         <img :src="logo">

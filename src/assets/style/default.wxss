@@ -59,7 +59,7 @@ a {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 999;
 }
 #nav a {
   color: white;
@@ -86,7 +86,7 @@ a {
   width: 100%;
   box-sizing: border-box;
   align-items: center;
-  z-index: 9999;
+  z-index: 999;
 }
 #top .back {
   color: white;
