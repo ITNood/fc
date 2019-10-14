@@ -26,10 +26,11 @@
         <i class="icon iconfont icon-password"></i>
       </el-form-item>
     </el-form>
-    <p
+    <router-link
+    to="/forget"
       class="forget"
-      style="text-align:right"
-    >忘记密码？</p>
+      style="text-align:right;display:block"
+    >忘记密码？</router-link>
     <el-button
       class="submit"
       @click="login()"
@@ -59,7 +60,6 @@
       :dialogVisible="show"
       :logo="imgSrc"
       :userMessage="userMsg"
-      :passwordMessage="pwdMsg"
       :type="openType"
       ref="child"
     />
@@ -78,14 +78,13 @@ export default {
       },
       rules: {
         username: [
-          { required: true, message: "用户名不能为空", trigger: "blur" }
+          { required: true, message: "请输入登录账号", trigger: "blur" }
         ],
-        password: [{ required: true, message: "密码不能为空", trigger: "blur" }]
+        password: [{ required: true, message: "请输入登录密码", trigger: "blur" }]
       },
       show: false,
       imgSrc: "",
       userMsg: "",
-      pwdMsg: "",
       openType:''
     };
   },
@@ -95,28 +94,24 @@ export default {
       this.$refs.child.open();
       this.imgSrc = require("../assets/image/ctclogo.png");
       this.userMsg = "CTC";
-      this.pwdMsg = "CTC";
       this.openType=1
     },
     openFc() {
       this.$refs.child.open();
       this.imgSrc=require('../assets/image/fclogo.png')
       this.userMsg = "FC";
-      this.pwdMsg = "FC";
       this.openType=2
     },
     openRtl() {
       this.$refs.child.open();
       this.imgSrc = require("../assets/image/rtllogo.png");
       this.userMsg = "RTL";
-      this.pwdMsg = "RTL";
       this.openType=3
     },
     openSyl() {
       this.$refs.child.open();
       this.imgSrc = require("../assets/image/syllogo.png");
       this.userMsg = "SYL";
-      this.pwdMsg = "SYL";
       this.openType=4
     }
   }

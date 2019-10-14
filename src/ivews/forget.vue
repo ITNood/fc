@@ -58,8 +58,8 @@ export default {
         }
       };
     return {
-        msg:'忘记密码',
-        forgetForm:{
+      msg:'忘记密码',
+      forgetForm:{
           username:'',
           mobile:'',
           mobileCode:'',

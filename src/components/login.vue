@@ -24,7 +24,7 @@
           <el-form-item prop="password">
             <el-input
               v-model="loginForm.password"
-              :placeholder="passwordMessage+'账号密码'"
+              :placeholder="userMessage+'账号密码'"
             ></el-input>
           </el-form-item>
         </el-form>
@@ -50,7 +50,7 @@
 <script>
 import Forget from "../components/forget";
 export default {
-  props: ["logo", "userMessage", "passwordMessage", "type"],
+  props: ["logo", "userMessage", "type"],
   name: "Login",
   components: { Forget },
   data() {
@@ -67,9 +67,9 @@ export default {
       },
       rules: {
         username: [
-          { required: true, message: "用户名不能为空", trigger: "blur" }
+          { required: true, message: "请输入登录账号", trigger: "blur" }
         ],
-        password: [{ required: true, message: "密码不能为空", trigger: "blur" }]
+        password: [{ required: true, message: "请输入登录密码", trigger: "blur" }]
       }
     };
   },
@@ -84,7 +84,10 @@ export default {
     }
   },
   updated() {
+    //重置表单
+    this.$refs["loginForm"].resetFields();
     this.loginForm.type = this.type;
+    console.log(this.type)
     this.imgLogo = this.logo;
     this.account=this.userMessage
   }
