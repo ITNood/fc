@@ -8,6 +8,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/fonts/iconfont.css'
 import vueiInfinite from 'vue-infinite-scroll'
+import i18n from './i18n/i18n'
 
 import store from './ivews/store/index'
 
@@ -23,6 +24,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  i18n,
   store:store,
   components: { App },
   template: '<App/>'

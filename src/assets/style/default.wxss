@@ -238,6 +238,7 @@ a {
   border-bottom: 1px solid #1e3547;
   border-radius: 0;
   color: white;
+  padding: 0;
 }
 .otherlogin .loginWay .el-input__inner::-webkit-input-placeholder {
   color: #999999;
@@ -492,6 +493,7 @@ a {
   border: none;
   border-bottom: 1px solid #1e3547;
   border-radius: 0;
+  padding: 0;
 }
 .currency .coinAmount .el-input__inner:focus {
   border-color: #0fbcfa;
@@ -614,6 +616,7 @@ a {
 .infinite-list-wrapper .list li span {
   color: white;
   line-height: 20px;
+  font-size: 14px;
 }
 .infinite-list-wrapper .list li h6 {
   position: absolute;
@@ -850,6 +853,7 @@ a {
   min-height: 80px !important;
   border-radius: 0;
   color: white;
+  padding: 0;
 }
 .bind .el-textarea__inner:focus {
   border-color: #0fbcfa;
