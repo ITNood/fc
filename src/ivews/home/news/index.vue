@@ -20,7 +20,7 @@
                     </router-link>
                 </li>
                 </ul>
-                <p v-if="loading">加载中...</p>
+                <p v-if="loading"><i class="el-icon-loading"></i>加载中...</p>
                 <p v-if="noMore">- - - - 没有更多数据了 - - - -</p>
             </div>
         </el-tab-pane>
@@ -38,7 +38,7 @@
                             </router-link>
                         </li>
                     </ul>
-                    <p v-if="loading">加载中...</p>
+                    <p v-if="loading"><i class="el-icon-loading"></i>加载中...</p>
                     <p v-if="noMore">- - - - 没有更多数据了 - - - -</p>
             </div>
         </el-tab-pane>

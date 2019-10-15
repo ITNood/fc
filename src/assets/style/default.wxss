@@ -596,6 +596,9 @@ a {
   color: white;
   text-align: center;
 }
+.infinite-list-wrapper p i {
+  color: #0fbcfa;
+}
 .infinite-list-wrapper .list li {
   border-bottom: 1px solid #1e3547;
   position: relative;
