@@ -21,7 +21,7 @@
                 </li>
                 </ul>
                 <p v-if="loading">加载中...</p>
-                <p v-if="noMore">- - - - 我也是有底线的 - - - -</p>
+                <p v-if="noMore">- - - - 没有更多数据了 - - - -</p>
             </div>
         </el-tab-pane>
         <el-tab-pane
@@ -39,7 +39,7 @@
                         </li>
                     </ul>
                     <p v-if="loading">加载中...</p>
-                    <p v-if="noMore">- - - - 我也是有底线的 - - - -</p>
+                    <p v-if="noMore">- - - - 没有更多数据了 - - - -</p>
             </div>
         </el-tab-pane>
       </el-tabs>
