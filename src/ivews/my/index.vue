@@ -50,7 +50,7 @@
             </router-link>
           </li>
         </ul>
-        <el-button class="submit" style="margin-top:10px;">退出登录</el-button>
+        <el-button class="submit" style="margin-top:10px;" @click="exit()">退出登录</el-button>
       </div>
     </div>
     
@@ -59,6 +59,7 @@
 
 <script>
 import Footer from "../../components/nav";
+import api from '../../API/index'
 export default {
   components: { Footer },
   data() {
@@ -75,6 +76,20 @@ export default {
         {url:'',iconClass:'icon-about_fill',name:'关于我们'}
       ]
     };
+  },
+  methods: {
+    exit(){
+      api.minicart.template.choices('api/login/loginOut').then(result=>{
+        if(result.status==200){
+          this.$store.commit('setToken','')
+          this.$router.push('/')
+        }else if(result.status==400){
+          alert(result.msg)
+        }
+      }).catch(err=>{
+        console.log(err)
+      })
+    }
   },
 };
 </script>

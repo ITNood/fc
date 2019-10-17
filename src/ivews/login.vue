@@ -94,9 +94,12 @@ export default {
       this.$refs[form].validate(valid=>{
         if(valid){
           let data=this.form
-          api.minicart.template.choices('api/login/loginIn',data).then(result=>{
+          api.choices('api/login/loginIn',data).then(result=>{
             if(result.status==200){
-              
+              this.$store.commit('setToken',result.res.token)
+              this.$router.push('/home/index')
+            }else if(result.status==400){
+              alert(result.msg)
             }
           }).catch(err=>{
             console.log(err)

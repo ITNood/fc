@@ -8,11 +8,16 @@ let store = new Vuex.Store({
     },
     mutations: {
         setToken(state, token) {
+            console.log(token)
             state.setToken=token
         },
     },
     actions: {},
-    getters: {},
+    getters: {
+        getToken: (state) => {
+            return state.token
+        }
+    },
     modules:{}
 })
 export default store

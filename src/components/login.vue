@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import api from '../API/index'
+import store from '../ivews/store/index'
 import Forget from "../components/forget";
 export default {
   props: ["logo", "userMessage", "type"],
@@ -83,7 +85,15 @@ export default {
       console.log(this.forget);
     },
     login1(){
-       this.$router.push('/home/index')
+       let data=this.loginForm
+       api.choices('api/login/loginIn',data).then(result=>{
+         if(result.status==200){
+           this.$store.commit('setToken',result.res.token)
+           this.$router.push('/home/index')
+         }
+       }).catch(err=>{
+         console.log(err)
+       })
     }
   },
   updated() {

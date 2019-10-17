@@ -4,6 +4,7 @@ import json_response_codes from './codes'
 import config from '../config'
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../ivews/store/index'
 Vue.use(Router)
 
 // 创建axios实例
@@ -18,8 +19,12 @@ const Axios = axios.create({
 //拦截所有api请求，重新获取token
 Axios.interceptors.request.use(
     config => {
-        const token = window.localStorage.getItem('token')
-        if (token&&lang) {
+        console.log(store)
+        let token = store.getters.getToken
+        console.log(token)
+        //const token = store.state.token
+        const lang = window.localStorage.getItem('lang')
+        if (token||lang) {
             config.headers.Token = token
             config.headers.lang = lang
         }
@@ -49,30 +54,35 @@ Axios.interceptors.request.use(
 
 // 拦截所有的 api 响应，可以实现自动弹窗报错
 Axios.interceptors.response.use(
-    net_response => {   // when HTTP_STATUS in [ 200 , 299 ]
-        // const json_response = net_response.data;
+    response => {   // when HTTP_STATUS in [ 200 , 299 ]
+        // const json_response = response.data;
         loadinginstace.close()
         //判断登录状态，跳转路由
-        if (net_response.data.status === 500) {
-            alert(net_response.data.msg)
-            console.log(window.location.host+"/login")
-            window.localStorage.removeItem('token')
+        if (response.data.status === 500) {
+            alert(response.data.msg)
+           // console.log(window.location.host+"/login")
+            //window.localStorage.removeItem('token')
            //window.location.href="/login"
-            window.location.href = window.location.origin + "#/login"
+            // window.location.href = window.location.origin + "#/login"
+            Router.push('/')
         //    this.$router.push('/login')
+        }
+        if (response.status == 400) {
+            console.log(response.data)
+            alert(response.data.msg)
         }
 
         //返回数据
-        if (net_response.status === json_response_codes.status) {
-            return Promise.resolve(net_response.data);
+        if (response.status === json_response_codes.status) {
+            return Promise.resolve(response.data);
         }
 
         Message({
             //请求超时时间
-            message: json_response.message || this.$t('message.interface'), type: 'error', duration: 60 * 1000
+            message: json_response.message || '服务器接口异常', type: 'error', duration: 60 * 1000
         });
 
-        return Promise.reject(net_response);
+        return Promise.reject(response);
     },
     error => {      // when HTTP_STATUS in [ 300 , 599 ]
 
