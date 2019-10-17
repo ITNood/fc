@@ -1,14 +1,14 @@
-import http from '../Http'
+import {post,get} from '../Http'
 
-class api extends http {
+class api  {
     async choices(url, params) {
         //请求。页面中.then执行成功时的操作。
-        return await http.post(url, params)
+        return await post(url, params)
     }
 
     async get(url, params) {
         //console.log(data)
-        return await http.get(url, params)
+        return await get(url, params)
 
     }
 }
