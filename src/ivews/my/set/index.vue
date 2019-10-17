@@ -24,7 +24,7 @@ export default {
     return {
         msg:'安全设置',
         items:[
-            {url:'',name:'手机号码'},
+            {url:'/my/set/mobile/index',name:'手机号码'},
             {url:'',name:'登录密码'},
             {url:'',name:'支付密码'}
         ]

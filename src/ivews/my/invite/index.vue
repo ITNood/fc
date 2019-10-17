@@ -3,7 +3,7 @@
     <Top :title="msg" />
     <div class="layout">
         <div class="login" style="margin-top:30px;">
-            <div class="otherlogin">
+          <div class="otherlogin">
             <el-form :model="forgetForm" ref="forgetForm" class="loginWay">
                 <el-form-item label="伙伴账号" prop="username">
                     <el-input v-model="forgetForm.username" placeholder="请输入您需邀请的伙伴账号"></el-input>
@@ -17,8 +17,8 @@
                
             </el-form>
             <el-button class="submit" @click="submit()" style="margin-top:80px;">确认</el-button>
-        </div>
-    </div>
+         </div>
+      </div>
     </div>
   </div>
 </template>
@@ -33,12 +33,12 @@ export default {
         forgetForm:{
           username:'',
           mobile:''
-      },
-      items:[
-        {value:'1',label:'中国 +86'},
-        {value:'2',label:'中国 +88'}
-      ],
-      value:'1'
+        },
+        items:[
+          {value:'1',label:'中国 +86'},
+          {value:'2',label:'中国 +88'}
+        ],
+        value:'1'
     };
   },
   methods: {

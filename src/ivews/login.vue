@@ -33,7 +33,7 @@
     >忘记密码？</router-link>
     <el-button
       class="submit"
-      @click="login()"
+      @click="login('form')"
     >登录</el-button>
     <div class="otherLoginWay">
       <el-divider class="otherTitle">其他登录方式</el-divider>
@@ -67,6 +67,7 @@
 </template>
 
 <script>
+import api from '../API/index'
 import Login from "../components/login";
 export default {
   components: { Login },
@@ -78,9 +79,9 @@ export default {
       },
       rules: {
         username: [
-          { required: true, message: "请输入登录账号", trigger: "blur" }
+          { required: true, message: "请输入账号", trigger: "blur" }
         ],
-        password: [{ required: true, message: "请输入登录密码", trigger: "blur" }]
+        password: [{ required: true, message: "请输入密码", trigger: "blur" }]
       },
       show: false,
       imgSrc: "",
@@ -89,8 +90,19 @@ export default {
     };
   },
   methods: {
-    login() {
-      this.$router.push('/home/index')
+    login(form) {
+      this.$refs[form].validate(valid=>{
+        if(valid){
+          let data=this.form
+          api.minicart.template.choices('api/login/loginIn',data).then(result=>{
+            if(result.status==200){
+              
+            }
+          }).catch(err=>{
+            console.log(err)
+          })
+        }
+      })
     },
     openCtc() {
       this.$refs.child.open();

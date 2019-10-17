@@ -110,6 +110,13 @@ export default new Router({
       component: () => {
         return import('../ivews/home/news/details/index')
       }
+    },
+    {
+      path: '/my/set/mobile/index',
+      name: 'mobile',
+      component: () => {
+        return import('../ivews/my/set/mobile/index')
+      }
     }
   ]
 })

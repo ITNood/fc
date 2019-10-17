@@ -59,7 +59,6 @@
 
 <script>
 import Footer from "../../components/nav";
-import api from '../../API/index'
 export default {
   components: { Footer },
   data() {
@@ -76,9 +75,6 @@ export default {
         {url:'',iconClass:'icon-about_fill',name:'关于我们'}
       ]
     };
-  },
-  mounted() {
-    api.choices()
   },
 };
 </script>
