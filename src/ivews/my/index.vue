@@ -11,7 +11,7 @@
     </div>
     <div class="myList">
       <div class="myContent">
-        <ul>
+        <!-- <ul>
           <li>
             <router-link to="">
               <i class="icon iconfont icon-jilu"></i>
@@ -40,8 +40,8 @@
               超级节点
             </router-link>
           </li>
-        </ul>
-        <ul style="margin-top:20px;">
+        </ul> -->
+        <ul>
           <li v-for="(item,index) in items" :key="index">
             <router-link :to="item.url">
               <i class="icon iconfont" :class="item.iconClass"></i>
@@ -50,13 +50,16 @@
             </router-link>
           </li>
         </ul>
+        <el-button class="submit" style="margin-top:10px;">退出登录</el-button>
       </div>
     </div>
+    
   </div>
 </template>
 
 <script>
 import Footer from "../../components/nav";
+import api from '../../API/index'
 export default {
   components: { Footer },
   data() {
@@ -73,7 +76,10 @@ export default {
         {url:'',iconClass:'icon-about_fill',name:'关于我们'}
       ]
     };
-  }
+  },
+  mounted() {
+    api.choices()
+  },
 };
 </script>
 

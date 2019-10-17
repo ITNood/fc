@@ -19,7 +19,7 @@ const Axios = axios.create({
 Axios.interceptors.request.use(
     config => {
         const token = window.localStorage.getItem('token')
-        if (token) {
+        if (token&&lang) {
             config.headers.Token = token
             config.headers.lang = lang
         }
