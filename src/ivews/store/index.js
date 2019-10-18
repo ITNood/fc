@@ -8,15 +8,15 @@ let store = new Vuex.Store({
     },
     mutations: {
         setToken(state, token) {
-            console.log(token)
-            state.setToken=token
+            state.token = token
         },
     },
-    actions: {},
+    actions: {
+        // getToken(state,token) {
+        //     state.commit('setToken',token) 
+        // }
+    },
     getters: {
-        getToken: (state) => {
-            return state.token
-        }
     },
     modules:{}
 })

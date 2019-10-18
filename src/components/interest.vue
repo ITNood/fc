@@ -12,7 +12,7 @@
         <p>套利金额</p>
         <el-input
           v-model="amount"
-          placeholder="请输入100的倍数"
+          :placeholder="'请输入'+number+'的倍数'"
           class="coinAmount"
         ></el-input>
         <el-button
@@ -27,24 +27,56 @@
         <p>套利金额必须为100USDT的倍数</p>
       </div>
     </el-dialog>
+    <Pin
+      @submit="submit"
+      ref="child"
+      :centerDialogVisible="show"
+    />
   </div>
 </template>
 
 <script>
+import api from "../API/index";
+import Pin from "../components/pin";
 export default {
-  props: ["name","imgSrc","id","name"],
+  props: ["name", "imgSrc", "id", "name", "number"],
   name: "Interest",
+  components: { Pin },
   data() {
     return {
       amount: "",
-      dialogVisible:false
+      dialogVisible: false,
+      entry: "请输入",
+      text: "的倍数",
+      type_id: "",
+      show: false
     };
+  },
+  updated() {
+    //console.log(this.id);
+    this.type_id = this.id;
   },
   methods: {
     submit1() {
-      this.dialogVisible = !this.dialogVisible;
+      let amount = this.amount;
+      if (amount) {
+        this.dialogVisible = !this.dialogVisible;
+        this.$refs.child.open()
+      }else{
+        alert('请输入套利金额')
+      }
     },
-    open() {
+    submit(pwd) {
+      api.choices('api/home/algebraSubmit',{safePwd:pwd,type_id:this.type_id,amount:this.amount}).then(result=>{
+        if(result.status==200){
+          alert(result.msg)
+          window.location.reload()
+        }
+      }).catch(err=>{
+        console.log(err)
+      })
+    },
+    opening() {
       this.dialogVisible = !this.dialogVisible;
     }
   }

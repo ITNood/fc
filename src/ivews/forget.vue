@@ -121,8 +121,8 @@ export default {
         mobileCode: [
           { required: true, message: "请输入短信验证码", trigger: "blur" }
         ],
-        password: [{ validator: validatePass, trigger: "blur" }],
-        confirmPwd: [{ validator: validatePass2, trigger: "blur" }]
+        password: [{ validator: validatePass, trigger: "blur",required:true }],
+        confirmPwd: [{ validator: validatePass2, trigger: "blur",required:true }]
       },
       items: [
         { value: "1", label: "中国 +86" },
@@ -134,8 +134,7 @@ export default {
   methods: {
     //发送验证码
     send() {
-      api.minicart.template
-        .choices("api/resetPwd/sendPhoneCode", {
+      api.choices("api/resetPwd/sendPhoneCode", {
           username: this.forgetForm.username,
           mobile: this.forgetForm.mobile
         })
@@ -170,7 +169,7 @@ export default {
       this.$refs[forgetForm].validate(valid => {
         if (valid) {
           let data = this.forgetForm;
-          api.minicart.template.choices("api/resetPwd/update", data).then(result=>{
+          api.choices("api/resetPwd/update", data).then(result=>{
             if(result.status==200){
               alert(result.msg)
               this.$router.push('/')

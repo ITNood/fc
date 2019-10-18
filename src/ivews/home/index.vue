@@ -5,7 +5,11 @@
         <el-row :gutter="15">
           <el-col :span="12" :offset="6" class="title">套利</el-col>
           <el-col :span="6" class="clear">
-            <router-link to="/home/news/index" class="news"><i class="icon iconfont icon-xiaoxi"></i></router-link>
+            <router-link to="/home/news/index" class="news">
+                <el-badge :value="number" :max="99" class="item">
+                     <i size="small" class="icon iconfont icon-xiaoxi"></i>
+                </el-badge>
+            </router-link>
           </el-col>
         </el-row>
       </el-header>
@@ -39,18 +43,18 @@
           <div class="interest-title">套利<router-link to="/home/notes/index" class="icon iconfont icon-jilu1"></router-link></div>
           <div class="walletList">
             <ul>
-              <li v-for="(item,index) in items" :key="index" @click="interest(item.id,item.logo,item.name,$event)">
-                <img :src="item.logo">
-                <i v-if="item.state== 1" class="el-icon-star-off"></i>
+              <li v-for="(item,index) in items" :key="index" @click="interest(item.id,item.img,item.name,$event)">
+                <img :src="item.img">
+                <i v-if="item.isCheck== false" class="el-icon-star-off"></i>
                 <i v-else class="el-icon-star-on"></i>
                 <el-row :gutter="15">
                   <el-col :span="14" class="walletName">
-                    {{item.name}}<span v-if="item.state!==1">{{item.amount}}</span>
+                    {{item.name}}<span v-if="item.isCheck==true">{{item.balance}}</span>
                   </el-col>
                   <el-col :span="10" class="percent">
-                    <h5>$ {{item.price}}</h5>
-                    <p v-if="item.code==1" style="color:#05ce7e">+{{item.percent}}%</p>
-                    <p v-else style="color:#ff5e52">-{{item.percent}}%</p>
+                    <h5>$ {{item.amount}}</h5>
+                    <p v-if="item.ratio>0" style="color:#05ce7e">+{{item.ratio}}%</p>
+                    <p v-else style="color:#ff5e52">{{item.ratio}}%</p>
                   </el-col>
                 </el-row>
               </li>
@@ -58,46 +62,57 @@
           </div>
         </div>
       </div>
-      <Interest :dialogVisible="show" ref="child" :imgSrc="img" :id="typeId" :name="coinName"/>
+      <Interest :dialogVisible="show" ref="child" :imgSrc="img" :id="typeId" :name="coinName" :number="num"/>
   </div>
 </template>
 
 <script>
 import Interest from '../../components/interest'
 import Footer from "../../components/nav";
+import api from '../../API/index'
 export default {
   components: { Footer ,Interest},
   data() {
     return {
       show:true,
-      avatar:require('../../assets/image/avatar.png'),
-      username:'Boy',
-      amount:'10000',
+      avatar:'',
+      username:'',
+      amount:'',
       img:'',
       typeId:'',
+      number:'',
       coinName:'',
+      num:'',
       lists:[
         {url:'/home/invest/index',icon:'icon-meiyuan4',test:'充值'},
         {url:'/home/cash/index',icon:'icon-yinhangqiashezhi',test:'提现'},
         {url:'/home/history/index',icon:'icon-lvzhou_mingxi',test:'明细'}
       ],
-      items:[
-        {logo:require('../../assets/image/btc.png'),state:1,name:'BTC',amount:'100.00',price:100,percent:8.2,code:1,id:1},
-        {logo:require('../../assets/image/eth.png'),state:2,name:'ETH',amount:'100.00',price:100,percent:8.2,code:2,id:2},
-        {logo:require('../../assets/image/ltc.png'),state:2,name:'LTC',amount:'100.00',price:100,percent:8.2,code:2,id:3},
-        {logo:require('../../assets/image/icon-ctc.png'),state:2,name:'CTC',amount:'100.00',price:100,percent:8.2,code:2,id:4},
-        {logo:require('../../assets/image/icon-fc.png'),state:2,name:'FC',amount:'100.00',price:100,percent:8.2,code:2,id:5},
-        {logo:require('../../assets/image/icon-rtl.png'),state:2,name:'RTL',amount:'100.00',price:100,percent:8.2,code:2,id:6},
-        {logo:require('../../assets/image/icon-syl.png'),state:2,name:'SYL',amount:'100.00',price:100,percent:8.2,code:2,id:7}
-      ]
+      items:[]
     };
   },
+  mounted() {
+    this.getdata()
+  },
   methods: {
+    getdata(){
+      api.choices('api/home/index').then(result=>{
+        if(result.status==200){
+          this.amount=result.res.usdt
+          this.username=result.res.user.username,
+          this.avatar=result.res.user.avatar
+          this.items=this.items.concat(result.res.levelSet)
+          if(result.res.msgNumber>0){
+            this.number=result.res.msgNumber
+          }
+          this.num=result.res.multiple
+        }
+      }).catch(err=>{
+        console.log(err)
+      })
+    },
     interest(id,logo,name,ev){
-      this.$refs.child.open()
-      // console.log(id)
-      // console.log(logo)
-      // console.log(name)
+      this.$refs.child.opening()
       this.img=logo
       this.typeId=id
       this.coinName=name

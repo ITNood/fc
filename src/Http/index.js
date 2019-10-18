@@ -4,7 +4,6 @@ import json_response_codes from './codes'
 import config from '../config'
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from '../ivews/store/index'
 Vue.use(Router)
 
 // 创建axios实例
@@ -19,14 +18,13 @@ const Axios = axios.create({
 //拦截所有api请求，重新获取token
 Axios.interceptors.request.use(
     config => {
-        console.log(store)
-        let token = store.getters.getToken
-        console.log(token)
+        let token = localStorage.getItem('token')
+        //console.log(token)
         //const token = store.state.token
-        const lang = window.localStorage.getItem('lang')
-        if (token||lang) {
+        const lang = localStorage.getItem('lang')
+        if (token&&lang) {
             config.headers.Token = token
-            config.headers.lang = lang
+           config.headers.lang = lang
         }
         return config
     },
@@ -55,34 +53,28 @@ Axios.interceptors.request.use(
 // 拦截所有的 api 响应，可以实现自动弹窗报错
 Axios.interceptors.response.use(
     response => {   // when HTTP_STATUS in [ 200 , 299 ]
-        // const json_response = response.data;
         loadinginstace.close()
         //判断登录状态，跳转路由
         if (response.data.status === 500) {
             alert(response.data.msg)
-           // console.log(window.location.host+"/login")
-            //window.localStorage.removeItem('token')
-           //window.location.href="/login"
-            // window.location.href = window.location.origin + "#/login"
+            localStorage.removeItem('token')
             Router.push('/')
-        //    this.$router.push('/login')
         }
-        if (response.status == 400) {
-            console.log(response.data)
-            alert(response.data.msg)
+        if (response.data.status == 400) {
+             alert(response.data.msg)
         }
 
         //返回数据
-        if (response.status === json_response_codes.status) {
+        if (response.data.status === json_response_codes.status) {
             return Promise.resolve(response.data);
         }
 
-        Message({
-            //请求超时时间
-            message: json_response.message || '服务器接口异常', type: 'error', duration: 60 * 1000
-        });
+        // Message({
+        //     //请求超时时间
+        //     message: response.data.msg || '服务器接口异常', type: 'error', duration: 3 * 1000
+        // });
 
-        return Promise.reject(response);
+        //return Promise.reject(response.data.msg);
     },
     error => {      // when HTTP_STATUS in [ 300 , 599 ]
 

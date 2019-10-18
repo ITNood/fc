@@ -10,6 +10,12 @@
 body {
   background: #051e32;
 }
+.el-loading-mask {
+  background-color: transparent !important;
+}
+.el-message-box {
+  width: 80% !important;
+}
 h1,
 h2,
 h3,
@@ -317,7 +323,14 @@ a {
   float: right;
   line-height: 60px;
 }
-.header .news i {
+.header .news .el-badge {
+  border: none;
+  overflow: visible;
+}
+.header .news .el-badge .el-badge__content {
+  border: none;
+}
+.header .news .el-badge i {
   font-size: 18px;
 }
 .home {
@@ -494,6 +507,7 @@ a {
   border-bottom: 1px solid #1e3547;
   border-radius: 0;
   padding: 0;
+  color: white;
 }
 .currency .coinAmount .el-input__inner:focus {
   border-color: #0fbcfa;
@@ -747,7 +761,7 @@ a {
 }
 #tabs .el-tabs__content .cashList ul li h5 {
   font-family: number;
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   line-height: 25px;
 }
@@ -898,12 +912,12 @@ a {
 }
 .rank .manage h5 {
   font-family: number;
-  color: white;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 180%;
+  color: #0fbcfa;
 }
 .rank .manage p {
-  color: #999999;
+  color: white;
 }
 .partner h5 {
   border-left: 2px solid #0fbcfa;
@@ -917,7 +931,7 @@ a {
   overflow: hidden;
 }
 .partner .partnerList ul {
-  height: calc(-282vh);
+  height: calc(-270vh);
   overflow-y: auto;
 }
 .partner .partnerList ul li {
@@ -939,8 +953,9 @@ a {
 .partner .partnerList ul li span {
   position: absolute;
   right: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-family: number;
+  color: #0fbcfa;
 }
 /**
 **
@@ -1058,6 +1073,8 @@ a {
   right: 0;
   top: 0;
   line-height: 25px;
+  color: #0fbcfa;
+  font-family: number;
 }
 /**
 **
@@ -1086,6 +1103,164 @@ a {
 }
 .newsContent img {
   margin: 10px 0;
+}
+/**
+**
+**
+**------------------------------my>language-----------------------------------
+**
+**
+**/
+.selectLang {
+  padding: 20px 0 0;
+  text-align: center;
+}
+.selectLang p {
+  color: white;
+  text-align: left;
+}
+.selectLang .el-radio-group {
+  width: 100%;
+}
+.selectLang .el-radio {
+  width: 40%;
+  text-align: center;
+  background: #1e3547;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  position: relative;
+}
+.selectLang .el-radio b {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: transparent;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+}
+.selectLang .el-radio .el-radio__inner {
+  display: none;
+}
+.selectLang .el-radio.is-bordered {
+  border: none;
+  border-radius: 20px;
+}
+.selectLang .el-radio.is-bordered.is-checked {
+  background: #0fbcfa;
+}
+.selectLang .el-radio__input.is-checked + .el-radio__label {
+  color: white;
+}
+/**
+**
+**
+**-----------------------------------personality-------------------------------------
+**
+**
+**/
+.personality {
+  padding: 0 10px;
+}
+.photo {
+  width: 100%;
+  padding-top: 20px;
+}
+.selectPhoto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.selectPhoto > img {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+}
+.picter-list {
+  margin-top: 30px;
+  height: 210px;
+}
+.picter-list > li {
+  width: 25%;
+  float: left;
+  display: block;
+  margin-bottom: 30px;
+}
+.picter-list > li > img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+#add-picter {
+  width: 45px;
+  height: 45px;
+}
+#add-picter.avatar-uploader .el-upload {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  line-height: 60px;
+  box-sizing: none;
+  background: #01c176;
+  border: none;
+  display: block;
+}
+#add-picter .el-upload-list--picture-card {
+  display: none;
+}
+#add-picter .avatar-uploader-icon {
+  color: white;
+}
+.seting .el-input__inner {
+  border: none;
+  color: white;
+  border-bottom: 1px solid #1e3547;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+.demo-ruleForm .el-form-item__label {
+  color: white;
+}
+.rondom {
+  width: 20px;
+  display: block;
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+}
+.addAvatar {
+  width: 45px;
+  height: 45px;
+  background: #0fbcfa;
+  border-radius: 50%;
+  position: relative;
+  margin: 0 auto;
+}
+.addAvatar input {
+  opacity: 0;
+  display: block;
+  position: absolute;
+  z-index: 9;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 45px;
+  height: 45px;
+}
+.addAvatar i {
+  color: white;
+  font-size: 24px;
+  display: block;
+  top: 0px;
+  position: absolute;
+  text-align: center;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
 }
 /*
 *
@@ -1141,6 +1316,9 @@ a {
   line-height: 2.08888888rem;
   text-align: center;
   overflow: hidden;
+}
+.pay-tool-title p {
+  color: white;
 }
 .icon1 {
   float: left;

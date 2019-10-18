@@ -117,6 +117,34 @@ export default new Router({
       component: () => {
         return import('../ivews/my/set/mobile/index')
       }
+    },
+    {
+      path: '/my/set/password/index',
+      name: 'password',
+      component: () => {
+        return import('../ivews/my/set/password/index')
+      }
+    },
+    {
+      path: '/my/set/pin/index',
+      name: 'pin',
+      component: () => {
+        return import('../ivews/my/set/pin/index')
+      }
+    },
+    {
+      path: '/my/language/index',
+      name: 'language',
+      component: () => {
+        return import('../ivews/my/language/index')
+      }
+    },
+    {
+      path: '/my/personality/index',
+      name: 'personality',
+      component: () => {
+        return import('../ivews/my/personality/index')
+      }
     }
   ]
 })

@@ -4,8 +4,8 @@
     <div class="layout">
         <div class="bind">
             <p>USDT地址</p>
-            <el-input type="textarea" v-model="address" placeholder="请输入或长按粘贴您的USDT地址"></el-input>
-            <el-button class="submit" style="margin-top:80px;">确认</el-button>
+            <el-input type="textarea" v-model="address" placeholder="请输入或长按粘贴您的USDT地址" :readonly="readonly"></el-input>
+            <el-button class="submit" style="margin-top:80px;" @click="submit()" v-show="btn">确认</el-button>
         </div>
         <div class="tips" style="color:#999">
                 <p>温馨提示：</p>
@@ -16,15 +16,48 @@
 </template>
 
 <script>
+import api from '../../../API/index'
 import Top from "../../../components/top";
 export default {
   components: { Top },
   data() {
     return {
         msg:'USDT绑定',
-        address:''
+        address:'',
+        readonly:false,
+        btn:false,
     };
-  }
+  },
+  mounted() {
+    this.getdata()
+  },
+  methods: {
+    getdata(){
+      api.choices('api/usdt/get').then(result=>{
+        if(result.status==200){
+          if(result.res.usdt){
+            this.readonly=true
+            this.address=result.res.usdt
+            this.btn=false
+          }else{
+            this.btn=true
+          }
+        }
+      }).catch(err=>{
+        console.log(err)
+      })
+    },
+    submit(){
+      api.choices('api/usdt/bind',{usdt:this.address}).then(result=>{
+        if(result.status==200){
+          alert(result.msg)
+          this.$router.puch('/my/index')
+        }
+      }).catch(err=>{
+        console.log(err)
+      })
+    }
+  },
 };
 </script>
 

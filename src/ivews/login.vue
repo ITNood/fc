@@ -96,7 +96,7 @@ export default {
           let data=this.form
           api.choices('api/login/loginIn',data).then(result=>{
             if(result.status==200){
-              this.$store.commit('setToken',result.res.token)
+              localStorage.setItem('token',result.res.token)
               this.$router.push('/home/index')
             }else if(result.status==400){
               alert(result.msg)

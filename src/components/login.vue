@@ -49,7 +49,7 @@
 
 <script>
 import api from '../API/index'
-import store from '../ivews/store/index'
+//import store from '../ivews/store/index'
 import Forget from "../components/forget";
 export default {
   props: ["logo", "userMessage", "type"],

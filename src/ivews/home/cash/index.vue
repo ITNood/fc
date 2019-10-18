@@ -11,7 +11,7 @@
                     </li>
                     <li>
                         <p>提现数量</p>
-                        <el-input v-model="amount" placeholder="请输入100的倍数" class="entry"></el-input>
+                        <el-input v-model="amount" :placeholder="'请输入'+number+'的倍数'" class="entry"></el-input>
                     </li>
                 </ul>
                 <el-button class="submit" style="margin-top:80px;" @click="submit1()">确认</el-button>
@@ -20,9 +20,9 @@
                 <div class="cashList">
                     <ul>
                         <li v-for="(item,index) in items" :key="index">
-                            <h5>{{item.amount}}USDT</h5>
+                            <h5>{{item.usdt}}USDT</h5>
                             <p>{{item.date}}</p>
-                            <span v-if="item.state==1" style="color:#0fdc79">处理中</span>
+                            <span v-if="item.state==0" style="color:#0fdc79">处理中</span>
                             <span v-else style="color:#999">已完成</span>
                         </li>
                     </ul>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import api from '../../../API/index'
 import Top from "../../../components/top";
 import Pin from '../../../components/pin'
 export default {
@@ -43,16 +44,28 @@ export default {
     return {
         msg:'USDT提现',
         activeName:'first',
-        usdt:'100.00',
+        usdt:'',
         amount:'',
         show:false,
-        items:[
-            {amount:'100.00',date:'2019/10/12 15:00',state:1},
-            {amount:'100.00',date:'2019/10/12 15:00',state:2}
-        ]
+        items:[],
+        number:''
     };
   },
+  mounted() {
+      this.getdata()
+  },
   methods: {
+      getdata(){
+          api.choices('api/withdraw/index').then(result=>{
+              if(result.status==200){
+                  this.usdt=result.res.usdt
+                  this.number=result.res.multiple
+                  this.items=this.items.concat(result.res.record)
+              }
+          }).catch(err=>{
+              console.log(err)
+          })
+      },
       submit1(){
           let amount=this.amount
           if(amount){
@@ -62,7 +75,15 @@ export default {
           }
       },
       submit(pwd){
-          console.log(pwd)
+          //console.log(pwd)
+          api.choices('api/withdraw/insert',{amount:this.amount,safePwd:pwd}).then(result=>{
+              if(result.status==200){
+                  alert(result.msg)
+                  window.location.reload()
+              }
+          }).catch(err=>{
+              console.log(err)
+          })
       }
   },
 };

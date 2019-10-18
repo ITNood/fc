@@ -1,8 +1,11 @@
 <template>
   <div>
     <Top :title="msg" />
-    <div class="layout" style="margin-bottom:20px">
-        <div
+    <div
+      class="layout"
+      style="margin-bottom:20px"
+    >
+      <div
         class="infinite-list-wrapper"
         style="overflow:auto;height:calc(100vh - 80px)"
       >
@@ -17,7 +20,7 @@
             class="list-item"
           >
             <p>{{item.date}}</p>
-            <span>{{item.text}}</span>
+            <span>{{item.name}}</span>
             <h6 v-if="item.state==1" style="color:#12c02f">+{{item.amount}}</h6>
             <h6 v-else style="color:#d91717">-{{item.amount}}</h6>
           </li>
@@ -30,23 +33,16 @@
 </template>
 
 <script>
+import api from "../../../API/index";
 import Top from "../../../components/top";
 export default {
   components: { Top },
   data() {
     return {
-        msg:'套利记录',
-        count: 20,
+      msg: "套利记录",
+      count: 20,
       loading: false,
-      items: [
-          {date:'2019/10/12 15:00',text:'BTC',state:1,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'BTC',state:2,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'BTC',state:2,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'BTC',state:2,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'BTC',state:2,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'BTC',state:1,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'BTC',state:2,amount:'100.14'}
-      ],
+      items: [],
       page: 1
     };
   },
@@ -58,12 +54,36 @@ export default {
       return this.loading || this.noMore;
     }
   },
+  mounted() {
+    this.getdata();
+  },
   methods: {
+    getdata() {
+      api
+        .choices("api/home/algebraRecord")
+        .then(result => {
+          if (result.status == 200) {
+            this.items = this.items.concat(result.res);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
     load() {
       this.loading = true;
       setTimeout(() => {
         this.page++;
-        //this.itmes;
+        api
+          .choices("api/home/algebraRecord",{page:this.page})
+          .then(result => {
+            if (result.status == 200) {
+              this.items = this.items.push(result.res);
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
         this.loading = false;
       }, 2000);
     }

@@ -23,11 +23,11 @@
               ></el-input>
             </el-form-item>
             <el-form-item
-              prop="mobileCode"
+              prop="oldCode"
               label="短信验证码"
             >
               <el-input
-                v-model="forgetForm.mobileCode"
+                v-model="forgetForm.oldCode"
                 placeholder="短信验证码"
               ></el-input>
               <el-button
@@ -37,17 +37,18 @@
               >{{text}}{{text2}}</el-button>
             </el-form-item>
             <el-form-item
-              prop="newmobile"
+              prop="newMobile"
               label="新手机号码"
             >
               <el-input
-                v-model="forgetForm.newmobile"
+                v-model="forgetForm.newMobile"
                 placeholder="请输入您的新手机号码"
                 class="phone"
               ></el-input>
               <el-select
                 v-model="value"
                 class="area"
+                @change="select()"
               >
                 <el-option
                   v-for="item in items"
@@ -58,14 +59,18 @@
               </el-select>
             </el-form-item>
             <el-form-item
-              prop="newmobileCode"
+              prop="newCode"
               label="短信验证码"
             >
               <el-input
-                v-model="forgetForm.newmobileCode"
+                v-model="forgetForm.newCode"
                 placeholder="短信验证码"
               ></el-input>
-              <el-button class="send" :disabled="disabled2">{{newtext}}{{newtext2}}</el-button>
+              <el-button
+                class="send"
+                :disabled="disabled2"
+                @click="newsend()"
+              >{{newtext}}{{newtext2}}</el-button>
             </el-form-item>
           </el-form>
           <el-button
@@ -88,16 +93,17 @@ export default {
     return {
       msg: "手机号码",
       disabled: false,
-      disabled2:false,
+      disabled2: false,
       text: "",
       text2: "发送",
       newtext: "",
       newtext2: "发送",
       forgetForm: {
         mobile: "",
-        mobileCode: "",
-        newmobile: "",
-        newmobileCode: ""
+        oldCode: "",
+        newMobile: "",
+        newCode: "",
+        country: ""
       },
       rules: {},
       items: [
@@ -109,15 +115,20 @@ export default {
   },
   mounted() {
     this.getMobile();
+    this.forgetForm.country = this.value;
   },
   methods: {
+    //选择国家
+    select() {
+      this.forgetForm.country = this.value;
+    },
     //获取手机号码
     getMobile() {
       api
         .choices("api/user/getMobile")
         .then(result => {
           if (result.status == 200) {
-            this.forgetForm.mobile = result.res;
+            this.forgetForm.mobile = result.res.mobile;
           } else if (result.status == 400) {
             alert(result.msg);
           }
@@ -155,7 +166,63 @@ export default {
           console.log(err);
         });
     },
-    submit() {}
+
+    //新手机验证码
+    newsend() {
+      let mobile = this.forgetForm.newMobile;
+      let oldCode = this.forgetForm.oldCode;
+      let country = this.forgetForm.country;
+      if (mobile && oldCode) {
+        api
+          .choices("api/safeSet/newPhoneCode", {
+            country: country,
+            oldCode: oldCode,
+            newMobile: mobile
+          })
+          .then(result => {
+            if (result.status == 200) {
+              const TIME_COUNT = 60;
+              if (!this.timer) {
+                this.disabled2 = true;
+                this.newtext = TIME_COUNT;
+                this.newtext2 = "S重新发送";
+                this.timer = setInterval(() => {
+                  if (this.newtext > 0 && this.newtext <= TIME_COUNT) {
+                    this.newtext--;
+                  } else {
+                    this.disabled2 = false;
+                    clearInterval(this.timer);
+                    this.timer = null;
+                    this.newtext = "重新发送";
+                    this.newtext2 = "";
+                  }
+                }, 1000);
+              }
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      } else {
+        alert("验证码和新手机号不能为空");
+      }
+    },
+    submit() {
+        let newCode=this.forgetForm.newCode
+        if(newCode){
+            api.choices('api/safeSet/updatePhone',{newCode:newCode,newMobile:this.forgetForm.newMobile,country:this.forgetForm.country}).then(result=>{
+                if(result.status==200){
+                    alert(result.msg)
+                    this.$router.push('/my/set/index')
+                }
+            }).catch(err=>{
+                console.log(err)
+            })
+        }else {
+            alert('请输入新手机验证码')
+        }
+
+    }
   }
 };
 </script>
