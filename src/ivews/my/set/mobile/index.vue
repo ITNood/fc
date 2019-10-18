@@ -52,9 +52,9 @@
               >
                 <el-option
                   v-for="item in items"
-                  :label="item.label"
-                  :value="item.value"
-                  :key="item.value"
+                  :label="item.name+ '+' +item.value"
+                  :value="item.id"
+                  :key="item.id"
                 ></el-option>
               </el-select>
             </el-form-item>
@@ -106,20 +106,31 @@ export default {
         country: ""
       },
       rules: {},
-      items: [
-        { value: "1", label: "中国 +86" },
-        { value: "2", label: "中国 +88" }
-      ],
-      value: "1"
+      items: [],
+      value: ""
     };
   },
   mounted() {
     this.getMobile();
+    this.getArea()
     this.forgetForm.country = this.value;
   },
   methods: {
+    //国家区号
+    getArea(){
+      api.choices('api/getCountryRegion').then(result=>{
+        if(result.status==200){
+          this.items=this.items.concat(result.res.data)
+          this.value=this.items[0].id
+          console.log(this.value)
+        }
+      }).catch(err=>{
+        console.log(err)
+      })
+    },
     //选择国家
     select() {
+      console.log(this.value)
       this.forgetForm.country = this.value;
     },
     //获取手机号码

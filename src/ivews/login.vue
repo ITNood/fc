@@ -89,6 +89,12 @@ export default {
       openType:''
     };
   },
+  mounted() {
+    let token=localStorage.getItem('token')
+    if(token){
+      this.$router.push('/home/index')
+    }
+  },
   methods: {
     login(form) {
       this.$refs[form].validate(valid=>{

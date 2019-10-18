@@ -137,7 +137,8 @@ export default {
             .choices("api/login/loginOut")
             .then(result => {
               if (result.status == 200) {
-                this.$store.commit("setToken", "");
+                // this.$store.commit("setToken", "");
+                localStorage.removeItem('token')
                 this.$router.push("/");
               } else if (result.status == 400) {
                 alert(result.msg);

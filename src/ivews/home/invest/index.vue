@@ -8,7 +8,7 @@
       <div class="invest">
         <h6>链类型：<span>{{erc}}</span></h6>
         <img :src="code">
-        <el-button class="hold">保存二维码到相册</el-button>
+        <el-button class="hold" @click="hold()">保存二维码到相册</el-button>
         <p>充币地址</p>
         <div class="address">{{address}}</div>
         <el-button
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import api from '../../../API/index'
 import Top from "../../../components/top";
 import Clipboard from "clipboard";
 export default {
@@ -37,12 +38,34 @@ export default {
   data() {
     return {
       msg: "USDT充值",
-      erc: "ERC20",
-      code: require("../../../assets/image/code.png"),
-      address: "2222333adkadlhfa"
+      erc: "",
+      code: '',
+      address: ""
     };
   },
+  mounted() {
+    this.getdata()
+  },
   methods: {
+    getdata(){
+      api.choices('api/user/myEthAddress').then(result=>{
+        if(result.status==200){
+          this.address=result.res.address
+          this.code=result.res.img
+          this.erc=result.res.type
+        }
+      }).catch(err=>{
+        console.log(err)
+      })
+    },
+    //保存图片
+    hold() {
+      //console.log('下载图片')
+      let a = document.createElement("a");
+      a.download = name || "pic"; // 设置图片地址
+      a.href = this.code;
+      a.click();
+    },
     copy() {
       var _this = this;
       var clipboard = new Clipboard("#copy");
