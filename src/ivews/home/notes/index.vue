@@ -13,6 +13,7 @@
           class="list"
           v-infinite-scroll="load"
           infinite-scroll-disabled="disabled"
+          infinite-scroll-immediate='false'
         >
           <li
             v-for="(item,index) in items"
@@ -40,7 +41,7 @@ export default {
   data() {
     return {
       msg: this.$t('message.arbitRecord'),
-      count: 20,
+      count: false,
       loading: false,
       items: [],
       page: 1
@@ -48,7 +49,7 @@ export default {
   },
   computed: {
     noMore() {
-      return this.count >= this.items;
+      return this.count;
     },
     disabled() {
       return this.loading || this.noMore;
@@ -58,6 +59,27 @@ export default {
     this.getdata();
   },
   methods: {
+     load() {
+      setTimeout(() => {
+        this.page++;
+        this.loading = true
+        api
+          .choices("api/home/algebraRecord",{page:this.page})
+          .then(result => {
+            if (result.status == 200) {
+              this.items=this.items.concat(result.res);
+            }
+            if(result.res.length==0||result.res.length<=20){
+              this.count =true
+              this.loading = false;
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }, 1000);
+      console.log(this.loading)
+    },
     getdata() {
       api
         .choices("api/home/algebraRecord")
@@ -65,28 +87,15 @@ export default {
           if (result.status == 200) {
             this.items = this.items.concat(result.res);
           }
+          if(result.res.length==0||result.res.length<=20){
+               this.count =true
+            }
         })
         .catch(err => {
           console.log(err);
         });
     },
-    load() {
-      this.loading = true;
-      setTimeout(() => {
-        this.page++;
-        api
-          .choices("api/home/algebraRecord",{page:this.page})
-          .then(result => {
-            if (result.status == 200) {
-              this.items=this.items.concat(result.res);
-            }
-          })
-          .catch(err => {
-            console.log(err);
-          });
-        this.loading = false;
-      }, 1000);
-    }
+   
   }
 };
 </script>
