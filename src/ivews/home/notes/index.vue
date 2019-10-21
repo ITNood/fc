@@ -60,19 +60,19 @@ export default {
   },
   methods: {
      load() {
+        this.loading = true
       setTimeout(() => {
         this.page++;
-        this.loading = true
         api
           .choices("api/home/algebraRecord",{page:this.page})
           .then(result => {
-            if (result.status == 200) {
-              this.items=this.items.concat(result.res);
+          if (result.status == 200) {
+             if(result.res.length==0||result.res.length < 20){
+               this.count =true
+               this.loading=false
             }
-            if(result.res.length==0||result.res.length<=20){
-              this.count =true
-              this.loading = false;
-            }
+            this.items = this.items.concat(result.res);
+          }
           })
           .catch(err => {
             console.log(err);
@@ -85,16 +85,18 @@ export default {
         .choices("api/home/algebraRecord")
         .then(result => {
           if (result.status == 200) {
+                if(result.res.length==0||result.res.length < 20){
+               this.count =true
+               this.loading=false
+            }
             this.items = this.items.concat(result.res);
           }
-          if(result.res.length==0||result.res.length<=20){
-               this.count =true
-            }
         })
         .catch(err => {
           console.log(err);
         });
     },
+    
    
   }
 };
