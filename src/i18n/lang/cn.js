@@ -110,7 +110,8 @@ const cn = {
         'entryAmount': '请输入套利金额',
         'cannot': '提现数量不能为0',
         'copied': '已复制充币地址',
-        'subdidiary':'USDT明细'
+        'subdidiary': 'USDT明细',
+        'pleasePwd':'请输入密码'
     },
     ...zhLocale
 }

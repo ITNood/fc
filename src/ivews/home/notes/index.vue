@@ -48,7 +48,7 @@ export default {
   },
   computed: {
     noMore() {
-      return this.count >= this.items;
+      return this.count >= this.items.length;
     },
     disabled() {
       return this.loading || this.noMore;
@@ -78,7 +78,8 @@ export default {
           .choices("api/home/algebraRecord",{page:this.page})
           .then(result => {
             if (result.status == 200) {
-              this.items=this.items.concat(result.res);
+              //console.log(this.items.push(result.res))
+              this.items = this.items.concat(result.res);
             }
           })
           .catch(err => {

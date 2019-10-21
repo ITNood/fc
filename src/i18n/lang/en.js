@@ -110,7 +110,8 @@ const en = {
         'entryAmount': 'Please enter the arbitrage amount',
         'cannot': 'The withdrawal quantity cannot be 0',
         'copied': 'The address has been copied',
-        'subdidiary':'The USDT subsidiary'
+        'subdidiary': 'The USDT subsidiary',
+        'pleasePwd':'Please entry the password'
         
     },
     ...enLocale

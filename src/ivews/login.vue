@@ -79,9 +79,9 @@ export default {
       },
       rules: {
         username: [
-          { required: true, message: "请输入账号", trigger: "blur" }
+          { required: true, message:this.$t('message.entryAccount'), trigger: "blur" }
         ],
-        password: [{ required: true, message: "请输入密码", trigger: "blur" }]
+        password: [{ required: true, message: this.$t('message.pleasePwd'), trigger: "blur" }]
       },
       show: false,
       imgSrc: "",
