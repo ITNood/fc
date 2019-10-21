@@ -9,7 +9,7 @@
         v-model="activeName"
         id="tabs"
       >
-        <el-tab-pane label="我的消息" name="first">
+        <el-tab-pane :label="$t('message.mynews')" name="first">
             <div class="infinite-list-wrapper" style="overflow:auto;height:calc(100vh - 134px)" >
                 <ul class="news" >
                 <li v-for="(item,index) in items" :key="index" class="list-item" >
@@ -25,7 +25,7 @@
             </div>
         </el-tab-pane>
         <el-tab-pane
-          label="平台公告"
+          :label="$t('message.notice')"
           name="second"
         >
             <div class="infinite-list-wrapper" style="overflow:auto;height:calc(100vh - 134px)" >
@@ -54,7 +54,7 @@ export default {
   components: { Top },
   data() {
     return {
-      msg: "消息与公告",
+      msg: this.$t('message.News'),
       activeName: "first",
       items:[],
       lists:[]

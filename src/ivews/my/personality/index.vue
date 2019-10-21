@@ -45,12 +45,12 @@
               <el-form-item
                 class="text"
                 prop="nickname"
-                label="请输入2~6个字符昵称"
+                :label="$t('message.nicknames')"
               >
                 <el-input
                   class="seting"
                   v-model="ruleForm.nickname"
-                  placeholder="请输入昵称"
+                  :placeholder="$t('message.nickname')"
                   maxlength="6"
                   minlength="2"
                 >
@@ -61,7 +61,7 @@
             <el-button
               class="submit"
               @click="submitName('ruleForm')"
-            >确认</el-button>
+            >{{$t('message.confirm')}}</el-button>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@ export default {
   components: { Top },
   data() {
     return {
-      msg: "个性设置",
+      msg: this.$t('message.character'),
       imageUrl: require('../../../assets/image/1.png'),
       picters: [
         { list: require("../../../assets/image/1.png") },
@@ -97,7 +97,7 @@ export default {
       },
       rules: {
         username: [
-          { required: true, message: '请输入昵称', trigeger: "blur" }
+          { required: true, message: this.$t('message.nickname'), trigeger: "blur" }
         ]
       }
     };
@@ -155,7 +155,6 @@ export default {
       this.ruleForm.avatar = avatar;
       api.choices("api/user/changeAttr", data)
         .then(response => {
-          console.log("成功");
           if (response.status == 200) {
             alert(response.msg);
             this.$router.push("/my/index");

@@ -6,24 +6,24 @@
       style="margin-top:70px;margin-bottom:20px;"
     >
       <div class="invest">
-        <h6>链类型：<span>{{erc}}</span></h6>
+        <h6>{{$t('message.type')}}：<span>{{erc}}</span></h6>
         <img :src="code">
-        <el-button class="hold" @click="hold()">保存二维码到相册</el-button>
-        <p>充币地址</p>
+        <el-button class="hold" @click="hold()">{{$t('message.save')}}</el-button>
+        <p>{{$t('message.fill')}}</p>
         <div class="address">{{address}}</div>
         <el-button
           ref="copy"
           id="copy"
           :data-clipboard-text="address"
           @click="copy()"
-        >复制</el-button>
+        >{{$t('message.copy')}}</el-button>
       </div>
       <div class="investTips">
-          <h6>充值提示：</h6>
-          <p>*本次充值仅支持ERC20(即ETH层层协议)，先自行确认否则资产不能到帐且无法退回；</p>
-          <p>*请勿向上述地址充值任何非USDT资产，否则资产将不可找回；</p>
-          <p>*您充值至上述地址后，需要整个网络节点的确认，网络确认后到帐，即可正确使用；</p>
-          <p>*最小充值金额为：1 USDT，小于最小金额的充值将不能上帐且无法退回。</p>
+          <h6>{{$t('message.rechargeTips')}}：</h6>
+          <p>*{{$t('message.return')}}；</p>
+          <p>*{{$t('message.deposit')}}；</p>
+          <p>*{{$t('message.use')}}；</p>
+          <p>*{{$t('message.min')}}。</p>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@ export default {
   components: { Top },
   data() {
     return {
-      msg: "USDT充值",
+      msg: this.$t('message.usdtRecharge'),
       erc: "",
       code: '',
       address: ""

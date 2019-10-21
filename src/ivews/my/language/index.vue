@@ -28,13 +28,9 @@ export default {
   components: { Top },
   data() {
     return {
-      msg: "",
-      radio1: "1"
+      msg:'',
+      radio1: ""
     };
-  },
-
-  updated() {
-    this.msg = this.$t("message.language");
   },
   mounted() {
     let lang = window.localStorage.getItem("lang");
@@ -44,28 +40,27 @@ export default {
     } else if (lang === "en") {
       this.radio1 = "1";
     }
+    this.msg=this.$t('message.language')
   },
-
+  
   methods: {
     changeRadio() {
-      console.log(this.radio1);
+      //console.log(this.radio1)
       let that = this;
       let number = that.radio1;
       if (number == 1) {
-        window.localStorage.setItem("lang", "en");
-        this.$i18n.locale = "en";
-        this.radio1 = "1";
+        localStorage.setItem("lang", "en");
+        that.$i18n.locale = "en";
       } else {
-        window.localStorage.setItem("lang", "cn");
-        this.$i18n.locale = "cn";
-        this.radio1 = "2";
+        localStorage.setItem("lang", "cn");
+        that.$i18n.locale = "cn";
       }
+      this.msg = this.$t("message.language");
     }
   },
-  created() {
-    let that = this;
-    localStorage.lang == undefined ? "cn" : localStorage.lang;
-  }
+  // created() {
+  //   localStorage.lang == undefined ? "cn" : localStorage.lang;
+  // }
 };
 </script>
 

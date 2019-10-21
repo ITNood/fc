@@ -15,40 +15,40 @@
           >
             <el-form-item
               prop="oldPwd"
-              label="原登录密码"
+              :label="$t('message.oldPwd')"
             >
               <el-input
                 v-model="forgetForm.oldPwd"
                 type="password"
-                placeholder="请输入原登录密码"
+                :placeholder="$t('message.entryOldPwd')"
               ></el-input>
             </el-form-item>
 
             <el-form-item
               prop="pwd"
-              label="新登录密码"
+              :label="$t('message.newPwd')"
             >
               <el-input
                 type="password"
                 v-model="forgetForm.pwd"
-                placeholder="请输入新登录密码"
+                :placeholder="$t('message.entryNewPwd')"
               ></el-input>
             </el-form-item>
             <el-form-item
               prop="confirmPwd"
-              label="确认新登录密码"
+              :label="$t('message.confirmLoginPwd')"
             >
               <el-input
                 type="password"
                 v-model="forgetForm.confirmPwd"
-                placeholder="请确认新登录密码"
+                :placeholder="$t('message.entryconfirmLgoinPwd')"
               ></el-input>
             </el-form-item>
           </el-form>
           <el-button
             class="submit"
             @click="forgetSub('forgetForm')"
-          >确认</el-button>
+          >{{$t('message.confirm')}}</el-button>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@ export default {
   data() {
     var validatePass = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("请输入密码"));
+        callback(new Error(this.$t('message.entryNewPwd')));
       } else {
         if (this.forgetForm.confirmPwd !== "") {
           this.$refs.forgetForm.validateField("confirmPwd");
@@ -73,17 +73,17 @@ export default {
     };
     var validatePass2 = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("请再次输入密码"));
+        callback(new Error(this.$t('message.againPwd')));
       } else if (value !== this.forgetForm.pwd) {
-        callback(new Error("两次输入密码不一致!"));
+        callback(new Error(this.$t('message.match')));
       } else {
         callback();
       }
     };
     return {
-      msg: "忘记密码",
+      msg: this.$t('message.loginPwd'),
       text: "",
-      text2: "发送",
+      text2: this.$t('message.send'),
       forgetForm: {
         oldPwd: "",
         pwd: "",
@@ -92,7 +92,7 @@ export default {
       disabled: false,
       rules: {
         oldPwd : [
-          { required: true, message: "请输入原登录密码", trigger: "blur" }
+          { required: true, message: this.$t('message.entryOldPwd'), trigger: "blur" }
         ],
         pwd: [{ validator: validatePass, trigger: "blur",required:true }],
         confirmPwd: [{ validator: validatePass2, trigger: "blur",required:true }]

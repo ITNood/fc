@@ -13,21 +13,21 @@
             class="loginWay"
           >
             <el-form-item
-              label="伙伴账号"
+              :label="$t('message.account')"
               prop="username"
             >
               <el-input
                 v-model="forgetForm.username"
-                placeholder="请输入您需邀请的伙伴账号"
+                :placeholder="$t('message.inviteAccount')"
               ></el-input>
             </el-form-item>
             <el-form-item
               prop="mobile"
-              label="伙伴手机号码"
+              :label="$t('message.partnerPhone')"
             >
               <el-input
                 v-model="forgetForm.mobile"
-                placeholder="请输入您伙伴的手机号码"
+                :placeholder="$t('message.phoneNumber')"
                 class="phone"
               ></el-input>
               <el-select
@@ -49,7 +49,7 @@
             class="submit"
             @click="submit()"
             style="margin-top:80px;"
-          >确认</el-button>
+          >{{$t('message.confirm')}}</el-button>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@ export default {
   components: { Top },
   data() {
     return {
-      msg: "邀请伙伴",
+      msg: this.$t('message.invite'),
       forgetForm: {
         username: "",
         mobile: "",

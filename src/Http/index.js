@@ -58,7 +58,7 @@ Axios.interceptors.response.use(
         if (response.data.status === 500) {
             alert(response.data.msg)
             localStorage.removeItem('token')
-            Router.push('/')
+            window.location.href='/'
         }
         if (response.data.status == 400) {
              alert(response.data.msg)

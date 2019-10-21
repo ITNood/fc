@@ -51,12 +51,12 @@ export default {
   components: { Top },
   data() {
     return {
-      msg: "PIN密码",
+      msg: this.$t('message.payPwd'),
       items: [0, 1, 2, 3, 4, 5],
       keys: keys(),
       password: [],
       a: 1,
-      tips:'请设置PIN密码',
+      tips:this.$t('message.setPwd'),
       oldPwd:'',
       pwd:'',
       confirmPwd:''
@@ -97,12 +97,12 @@ export default {
           this.oldPwd = this.password.join("");
           this.clearPasswordHandle();
           this.a = 2;
-          that.tips = '请输入新PIN密码';
+          that.tips = this.$t('message.newPinCode');
         } else if (this.a == 2) {
           this.pwd = this.password.join("");
           this.clearPasswordHandle();
           this.a = 3;
-          that.tips = '请确认新的PIN密码';
+          that.tips = this.$t('message.confirmPinCode');
         } else if (this.a == 3) {
           this.confirmPwd = this.password.join("");
           //提交PIN密码

@@ -6,46 +6,46 @@
             <el-row :gutter="15">
                 <el-col :span="8" class="manage">
                     <h5>{{allPartner}}</h5>
-                    <p>全部伙伴</p>
+                    <p>{{$t('message.allPertner')}}</p>
                 </el-col>
                 <el-col :span="8" class="manage">
                     <h5>{{one}}</h5>
-                    <p>一级伙伴</p>
+                    <p>{{$t('message.level_1')}}</p>
                 </el-col>
                 <el-col :span="8" class="manage">
                     <h5>{{two}}</h5>
-                    <p>二级伙伴</p>
+                    <p>{{$t('message.level_2')}}</p>
                 </el-col>
                 <el-col :span="8" class="manage">
                     <h5>{{three}}</h5>
-                    <p>三级伙伴</p>
+                    <p>{{$t('message.level_3')}}</p>
                 </el-col>
                 <el-col :span="8" class="manage">
                     <h5>{{four}}</h5>
-                    <p>四级伙伴</p>
+                    <p>{{$t('message.level_4')}}</p>
                 </el-col>
                 <el-col :span="8" class="manage">
                     <h5>{{five}}</h5>
-                    <p>五级伙伴</p>
+                    <p>{{$t('message.level_5')}}</p>
                 </el-col>
                 <el-col :span="8" class="manage">
                     <h5>{{rank}}</h5>
-                    <p>当前有效级别</p>
+                    <p>{{$t('message.current')}}</p>
                 </el-col>
                 <el-col :span="8" class="manage">
                     <h5>{{direct}}</h5>
-                    <p>昨日有效直推</p>
+                    <p>{{$t('message.yesterday')}}</p>
                 </el-col>
                 <el-col :span="8" class="manage">
                     <h5>{{team}}</h5>
-                    <p>昨日有效团队</p>
+                    <p>{{$t('message.team')}}</p>
                 </el-col>
             </el-row>
         </div>
 
         <!--直邀伙伴-->
         <div class="partner">
-            <h5>直邀伙伴</h5>
+            <h5>{{$t('message.invitePartner')}}</h5>
             <div class="partnerList">
                 <ul>
                     <li v-for="(item,index) in items" :key="index">
@@ -66,7 +66,7 @@ export default {
   components: { Top },
   data() {
     return {
-        msg:'直接管理',
+        msg:this.$t('message.manage'),
         allPartner:0,
         one:0,
         two:0,

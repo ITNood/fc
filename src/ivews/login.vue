@@ -13,7 +13,7 @@
       <el-form-item prop="username">
         <el-input
           v-model="form.username"
-          placeholder="用户名"
+          :placeholder="$t('message.username')"
         ></el-input>
         <i class="icon iconfont icon-user"></i>
       </el-form-item>
@@ -21,7 +21,7 @@
         <el-input
           type="password"
           v-model="form.password"
-          placeholder="账号密码"
+          :placeholder="$t('message.acoountPwd')"
         ></el-input>
         <i class="icon iconfont icon-password"></i>
       </el-form-item>
@@ -30,13 +30,13 @@
     to="/forget"
       class="forget"
       style="text-align:right;display:block"
-    >忘记密码？</router-link>
+    >{{$t('message.forget')}}？</router-link>
     <el-button
       class="submit"
       @click="login('form')"
-    >登录</el-button>
+    >{{$t('message.login')}}</el-button>
     <div class="otherLoginWay">
-      <el-divider class="otherTitle">其他登录方式</el-divider>
+      <el-divider class="otherTitle">{{$t('message.otherLogin')}}</el-divider>
       <ul class="loginList">
         <li @click="openCtc()">
           <span><img src="../assets/image/ctc.png"></span>
@@ -137,7 +137,7 @@ export default {
       this.userMsg = "SYL";
       this.openType=4
     }
-  }
+  },
 };
 </script>
 

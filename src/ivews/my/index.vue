@@ -67,7 +67,7 @@
         <el-button
           class="submit"
           @click="exit()"
-        >退出登录</el-button>
+        >{{$t('message.exit')}}</el-button>
       </div>
     </div>
 
@@ -81,28 +81,36 @@ export default {
   components: { Footer },
   data() {
     return {
-      avatar: require("../../assets/image/avatar.png"),
+      avatar: "",
       username: "",
       id: "",
       items: [
         {
           url: "/my/invite/index",
           iconClass: "icon-yaoqingzhaobiao",
-          name: "邀请伙伴"
+          name: this.$t('message.invite')
         },
         {
           url: "/my/manage/index",
           iconClass: "icon-yonghu2",
-          name: "直接管理"
+          name: this.$t('message.manage')
         },
-        { url: "/my/usdt/index", iconClass: "icon-T", name: "USDT绑定" },
-        { url: "/my/set/index", iconClass: "icon-ai-safe", name: "安全设置" },
+        { url: "/my/usdt/index", iconClass: "icon-T", name: this.$t('message.bing') },
+        {
+          url: "/my/set/index",
+          iconClass: "icon-ai-safe",
+          name: this.$t("message.security")
+        },
         {
           url: "/my/language/index",
           iconClass: "icon-yuyan",
-          name: "语言设置"
+          name: this.$t("message.language")
         },
-        { url: "", iconClass: "icon-about_fill", name: "关于我们" }
+        {
+          url: "",
+          iconClass: "icon-about_fill",
+          name: this.$t("message.about")
+        }
       ]
     };
   },
@@ -126,11 +134,11 @@ export default {
     },
     //退出登录
     exit() {
-      let that=this
+      let that = this;
       that
-        .$confirm("是否退出登录?", {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消'
+        .$confirm(this.$t('message.logOut')+"?", {
+          confirmButtonText: this.$t('message.confirm'),
+          cancelButtonText: this.$t('message.cancel')
         })
         .then(() => {
           api
@@ -138,7 +146,7 @@ export default {
             .then(result => {
               if (result.status == 200) {
                 // this.$store.commit("setToken", "");
-                localStorage.removeItem('token')
+                localStorage.removeItem("token");
                 this.$router.push("/");
               } else if (result.status == 400) {
                 alert(result.msg);

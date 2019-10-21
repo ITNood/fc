@@ -22,11 +22,11 @@ export default {
   components: { Top },
   data() {
     return {
-        msg:'安全设置',
+        msg:this.$t('message.security'),
         items:[
-            {url:'/my/set/mobile/index',name:'手机号码'},
-            {url:'/my/set/password/index',name:'登录密码'},
-            {url:'/my/set/pin/index',name:'支付密码'}
+            {url:'/my/set/mobile/index',name:this.$t('message.mobile')},
+            {url:'/my/set/password/index',name:this.$t('message.loginPwd')},
+            {url:'/my/set/pin/index',name:this.$t('message.payPwd')}
         ]
     };
   }

@@ -3,7 +3,7 @@
       <Footer/>
       <el-header class="header">
         <el-row :gutter="15">
-          <el-col :span="12" :offset="6" class="title">套利</el-col>
+          <el-col :span="12" :offset="6" class="title">{{$t('message.arbitrage')}}</el-col>
           <el-col :span="6" class="clear">
             <router-link to="/home/news/index" class="news">
                 <el-badge :value="number" :max="99" class="item">
@@ -15,7 +15,7 @@
       </el-header>
       <div class="layout" style="margin-top:0;">
         <div class="home">
-          <el-row :gutter="15">
+          <el-row :gutter="15" style="padding:0 20px;">
             <el-col :span="12">
               <div id="avatar">
                 <el-avatar icon="el-icon-user-solid" :src="avatar" :size="60"></el-avatar>
@@ -29,7 +29,7 @@
               </div>
             </el-col>
           </el-row>
-          <el-row :gutter="15" class="purseLists">
+          <el-row  class="purseLists">
             <el-col :span="8" v-for="(list,index) in lists" :key="index">
               <router-link :to="list.url">
                 <span><i class="icon iconfont" :class="list.icon" :style="list.fontsize"></i></span>{{list.test}}
@@ -40,7 +40,7 @@
 
         <!--套利-->
         <div class="interest">
-          <div class="interest-title">套利<router-link to="/home/notes/index" class="icon iconfont icon-jilu1"></router-link></div>
+          <div class="interest-title">{{$t('message.arbitrage')}}<router-link to="/home/notes/index" class="icon iconfont icon-jilu1"></router-link></div>
           <div class="walletList">
             <ul>
               <li v-for="(item,index) in items" :key="index" @click="interest(item.id,item.img,item.name,$event)">
@@ -84,9 +84,9 @@ export default {
       coinName:'',
       num:'',
       lists:[
-        {url:'/home/invest/index',icon:'icon-meiyuan4',test:'充值'},
-        {url:'/home/cash/index',icon:'icon-yinhangqiashezhi',test:'提现'},
-        {url:'/home/history/index',icon:'icon-lvzhou_mingxi',test:'明细'}
+        {url:'/home/invest/index',icon:'icon-meiyuan4',test:this.$t('message.recharge')},
+        {url:'/home/cash/index',icon:'icon-yinhangqiashezhi',test:this.$t('message.withdrawal')},
+        {url:'/home/history/index',icon:'icon-lvzhou_mingxi',test:this.$t('message.detail')}
       ],
       items:[]
     };

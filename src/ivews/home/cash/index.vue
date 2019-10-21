@@ -3,27 +3,27 @@
     <Top :title="msg" />
     <div class="layout" style="margin-bottom:20px;">
         <el-tabs v-model="activeName" id="tabs">
-            <el-tab-pane label="USDT提现" name="first">
+            <el-tab-pane :label="$t('message.usdtWith')" name="first">
                 <ul class="cash">
                     <li>
-                        <p>我的USDT</p>
+                        <p>{{$t('message.myusdt')}}</p>
                         <h5>$ {{usdt}}</h5>
                     </li>
                     <li>
-                        <p>提现数量</p>
-                        <el-input v-model="amount" :placeholder="'请输入'+number+'的倍数'" class="entry"></el-input>
+                        <p>{{$t('message.withAmount')}}</p>
+                        <el-input v-model="amount" :placeholder="$t('message.please') +number+' '+$t('message.multiple')" class="entry"></el-input>
                     </li>
                 </ul>
-                <el-button class="submit" style="margin-top:80px;" @click="submit1()">确认</el-button>
+                <el-button class="submit" style="margin-top:80px;" @click="submit1()">{{$t('message.confirm')}}</el-button>
             </el-tab-pane>
-            <el-tab-pane label="提现记录" name="second">
+            <el-tab-pane :label="$t('message.record')" name="second">
                 <div class="cashList">
                     <ul>
                         <li v-for="(item,index) in items" :key="index">
                             <h5>{{item.usdt}}USDT</h5>
                             <p>{{item.date}}</p>
-                            <span v-if="item.state==0" style="color:#0fdc79">处理中</span>
-                            <span v-else style="color:#999">已完成</span>
+                            <span v-if="item.state==0" style="color:#0fdc79">{{$t('message.processing')}}</span>
+                            <span v-else style="color:#999">{{$t('message.end')}}</span>
                         </li>
                     </ul>
                 </div>
@@ -42,7 +42,7 @@ export default {
   components: { Top ,Pin},
   data() {
     return {
-        msg:'USDT提现',
+        msg:this.$t('message.usdtWith'),
         activeName:'first',
         usdt:'',
         amount:'',

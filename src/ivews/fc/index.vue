@@ -11,14 +11,14 @@
           class="fc"
         >
           <h5>{{FC}}</h5>
-          <router-link to="">流通FC>></router-link>
+          <router-link to="">{{$t('message.criculation')}}>></router-link>
         </el-col>
         <el-col
           :span="12"
           class="fc"
         >
           <h5>{{closeFC}}</h5>
-          <router-link to="">锁定FC>></router-link>
+          <router-link to="">{{$t('message.lock')}}>></router-link>
         </el-col>
       </el-row>
 
@@ -45,20 +45,20 @@
       <div class="salary">
         <ul>
           <li v-for="(list,index) in lists" :key="index">
-            <h5>{{list.date}}<span>{{list.state}}</span></h5>
+            <h5>{{list.date}}<span v-if="list.state==1">{{$t('message.ongoing')}}</span><span v-else>{{$t('message.end')}}</span></h5>
             <div class="data">
               <div class="progressSet">
                 <el-progress type="circle" :width="100" :stroke-width="3" :show-text="false" color="#0ebcf9" :percentage="list.prcent"></el-progress>
                 <div class="progressData">
                   <h6>{{list.number}}</h6>
-                  <p>剩余周数</p>
+                  <p>{{$t('message.week')}}</p>
                 </div>
               </div>
               <div class="result">
-                <p>薪资总额：<span>{{list.total}}</span></p>
-                <p>薪资标准：<span>{{list.pay}}</span></p>
-                <p>待结算周：<span>{{list.week}}</span></p>
-                <p>已结算周：<span>{{list.end}}</span></p>
+                <p>{{$t('message.total')}}：<span>{{list.total}}</span></p>
+                <p>{{$t('message.salary')}}：<span>{{list.pay}}</span></p>
+                <p>{{$t('message.forWeek')}}：<span>{{list.week}}</span></p>
+                <p>{{$t('message.settlement')}}：<span>{{list.end}}</span></p>
               </div>
             </div>
           </li>
@@ -77,15 +77,15 @@ export default {
       FC: "100.00",
       closeFC: "100.00",
       items: [
-        { url: "", iconClass: "icon-anshengxupailie", name: "增值" },
-        { url: "", iconClass: "icon-jixuduihuan", name: "兑换" },
-        { url: "", iconClass: "icon-qianbao", name: "薪酬" },
-        { url: "", iconClass: "icon-xunhuanxuyuezhuanzhang", name: "回购" }
+        { url: "", iconClass: "icon-anshengxupailie", name: this.$t('message.valueAdd') },
+        { url: "", iconClass: "icon-jixuduihuan", name: this.$t('message.exchange') },
+        { url: "", iconClass: "icon-qianbao", name: this.$t('message.compensation') },
+        { url: "", iconClass: "icon-xunhuanxuyuezhuanzhang", name: this.$t('message.repo') }
       ],
       lists:[
-        {date:'2018/10/12',state:'进行中',prcent:50,number:8,total:100,pay:100,week:100,end:100},
-        {date:'2018/10/12',state:'进行中',prcent:50,number:8,total:100,pay:100,week:100,end:100},
-        {date:'2018/10/12',state:'进行中',prcent:50,number:8,total:100,pay:100,week:100,end:100}
+        {date:'2018/10/12',state:1,prcent:50,number:8,total:100,pay:100,week:100,end:100},
+        {date:'2018/10/12',state:2,prcent:50,number:8,total:100,pay:100,week:100,end:100},
+        {date:'2018/10/12',state:2,prcent:50,number:8,total:100,pay:100,week:100,end:100}
       ]
     };
   }

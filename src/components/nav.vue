@@ -19,9 +19,9 @@ export default {
   data() {
     return {
       nav:[
-        {url:'/home/index',text:'套利',iconClass:'icon-jibenzhexiantu'},
+        {url:'/home/index',text:this.$t('message.arbitrage'),iconClass:'icon-jibenzhexiantu'},
         {url:'/fc/index',text:'FC',iconClass:'icon-shuju'},
-        {url:'/my/index',text:'我',iconClass:'icon-user'}
+        {url:'/my/index',text:this.$t('message.me'),iconClass:'icon-user'}
       ]
     };
   }

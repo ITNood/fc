@@ -14,7 +14,7 @@
             class="loginWay"
           >
             <el-form-item
-              label="当前手机号码"
+              :label="$t('message.currentMobile')"
               prop="mobile"
             >
               <el-input
@@ -24,11 +24,11 @@
             </el-form-item>
             <el-form-item
               prop="oldCode"
-              label="短信验证码"
+              :label="$t('message.messageCode')"
             >
               <el-input
                 v-model="forgetForm.oldCode"
-                placeholder="短信验证码"
+                :placeholder="$t('message.smsCode')"
               ></el-input>
               <el-button
                 class="send"
@@ -38,11 +38,11 @@
             </el-form-item>
             <el-form-item
               prop="newMobile"
-              label="新手机号码"
+              :label="$t('message.newMobile')"
             >
               <el-input
                 v-model="forgetForm.newMobile"
-                placeholder="请输入您的新手机号码"
+                :placeholder="$t('message.entryMobile')"
                 class="phone"
               ></el-input>
               <el-select
@@ -60,11 +60,11 @@
             </el-form-item>
             <el-form-item
               prop="newCode"
-              label="短信验证码"
+              :label="$t('message.messageCode')"
             >
               <el-input
                 v-model="forgetForm.newCode"
-                placeholder="短信验证码"
+                :placeholder="$t('message.smsCode')"
               ></el-input>
               <el-button
                 class="send"
@@ -77,7 +77,7 @@
             class="submit"
             @click="submit()"
             style="margin-top:80px;"
-          >确认</el-button>
+          >{{$t('message.confirm')}}</el-button>
         </div>
       </div>
     </div>
@@ -91,13 +91,13 @@ export default {
   components: { Top },
   data() {
     return {
-      msg: "手机号码",
+      msg: this.$t('message.mobile'),
       disabled: false,
       disabled2: false,
       text: "",
-      text2: "发送",
+      text2: this.$t('message.send'),
       newtext: "",
-      newtext2: "发送",
+      newtext2: this.$t('message.send'),
       forgetForm: {
         mobile: "",
         oldCode: "",
@@ -158,7 +158,7 @@ export default {
             if (!this.timer) {
               this.disabled = true;
               this.text = TIME_COUNT;
-              this.text2 = "S重新发送";
+              this.text2 = "S"+this.$t('message.resend');
               this.timer = setInterval(() => {
                 if (this.text > 0 && this.text <= TIME_COUNT) {
                   this.text--;
@@ -166,7 +166,7 @@ export default {
                   this.disabled = false;
                   clearInterval(this.timer);
                   this.timer = null;
-                  this.text = "重新发送";
+                  this.text = this.$t('message.resend');
                   this.text2 = "";
                 }
               }, 1000);
@@ -196,7 +196,7 @@ export default {
               if (!this.timer) {
                 this.disabled2 = true;
                 this.newtext = TIME_COUNT;
-                this.newtext2 = "S重新发送";
+                this.newtext2 = "S"+this.$t('message.resend');
                 this.timer = setInterval(() => {
                   if (this.newtext > 0 && this.newtext <= TIME_COUNT) {
                     this.newtext--;
@@ -204,7 +204,7 @@ export default {
                     this.disabled2 = false;
                     clearInterval(this.timer);
                     this.timer = null;
-                    this.newtext = "重新发送";
+                    this.newtext = this.$t('message.resend');
                     this.newtext2 = "";
                   }
                 }, 1000);
@@ -215,7 +215,7 @@ export default {
             console.log(err);
           });
       } else {
-        alert("验证码和新手机号不能为空");
+        alert(this.$t('message.empty'));
       }
     },
     submit() {
@@ -230,7 +230,7 @@ export default {
                 console.log(err)
             })
         }else {
-            alert('请输入新手机验证码')
+            alert(this.$t('message.newCode'))
         }
 
     }

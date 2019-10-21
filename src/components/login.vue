@@ -8,7 +8,7 @@
     >
       <div class="otherlogin">
         <img :src="logo">
-        <h5>登录</h5>
+        <h5>{{$t('message.login')}}</h5>
         <el-form
           :model="loginForm"
           :rules="rules"
@@ -18,24 +18,24 @@
           <el-form-item prop="username">
             <el-input
               v-model="loginForm.username"
-              :placeholder="userMessage+'用户名'"
+              :placeholder="userMessage+$t('message.username')"
             ></el-input>
           </el-form-item>
           <el-form-item prop="password">
             <el-input
               v-model="loginForm.password"
-              :placeholder="userMessage+'账号密码'"
+              :placeholder="userMessage+$t('message.acoountPwd')"
             ></el-input>
           </el-form-item>
         </el-form>
         <p
           class="forget"
           @click="forgetPwd()"
-        >忘记密码？</p>
+        >{{$t('message.forget')}}？</p>
         <el-button
           class="submit"
           @click="login1()"
-        >登录</el-button>
+        >{{$t('message.confirm')}}</el-button>
       </div>
     </el-dialog>
     <Forget

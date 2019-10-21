@@ -23,13 +23,13 @@
             <el-form-item prop="username">
               <el-input
                 v-model="forgetForm.username"
-                placeholder="用户名"
+                :placeholder="$t('message.entryAccount')"
               ></el-input>
             </el-form-item>
             <el-form-item prop="mobile">
               <el-input
                 v-model="forgetForm.mobile"
-                placeholder="手机号码"
+                :placeholder="$t('message.phone')"
               ></el-input>
               <!-- <el-select v-model="value">
                 <el-option
@@ -43,7 +43,7 @@
             <el-form-item prop="mobileCode">
               <el-input
                 v-model="forgetForm.mobileCode"
-                placeholder="短信验证码"
+                :placeholder="$t('message.smsCode')"
               ></el-input>
               <el-button
                 class="send"
@@ -55,21 +55,21 @@
               <el-input
                 type="password"
                 v-model="forgetForm.password"
-                placeholder="新登录密码"
+                :placeholder="$t('message.entryNewPwd')"
               ></el-input>
             </el-form-item>
             <el-form-item prop="confirmPwd">
               <el-input
                 type="password"
                 v-model="forgetForm.confirmPwd"
-                placeholder="确认登录密码"
+                :placeholder="$t('message.entryconfirmLgoinPwd')"
               ></el-input>
             </el-form-item>
           </el-form>
           <el-button
             class="submit"
             @click="forgetSub('forgetForm')"
-          >确认</el-button>
+          >{{$t('message.confirm')}}</el-button>
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@ export default {
   data() {
     var validatePass = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("请输入密码"));
+        callback(new Error(this.$t('message.entryNewPwd')));
       } else {
         if (this.forgetForm.confirmPwd !== "") {
           this.$refs.forgetForm.validateField("confirmPwd");
@@ -94,17 +94,17 @@ export default {
     };
     var validatePass2 = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("请再次输入密码"));
+        callback(new Error(this.$t('message.againPwd')));
       } else if (value !== this.forgetForm.password) {
-        callback(new Error("两次输入密码不一致!"));
+        callback(new Error(this.$t('message.match')));
       } else {
         callback();
       }
     };
     return {
-      msg: "忘记密码",
+      msg: this.$t('message.forget'),
       text: "",
-      text2: "发送",
+      text2: this.$t('message.send'),
       forgetForm: {
         username: "",
         mobile: "",
@@ -114,21 +114,21 @@ export default {
       },
       disabled: false,
       rules: {
-        username: [{ required: true, message: "请输入账号", trigger: "blur" }],
+        username: [{ required: true, message: this.$t('message.entryAccount'), trigger: "blur" }],
         mobile: [
-          { required: true, message: "请输入手机号码", trigger: "blur" }
+          { required: true, message: this.$t('message.phone'), trigger: "blur" }
         ],
         mobileCode: [
-          { required: true, message: "请输入短信验证码", trigger: "blur" }
+          { required: true, message: this.$t('message.smsCode'), trigger: "blur" }
         ],
         password: [{ validator: validatePass, trigger: "blur",required:true }],
         confirmPwd: [{ validator: validatePass2, trigger: "blur",required:true }]
       },
-      items: [
-        { value: "1", label: "中国 +86" },
-        { value: "2", label: "中国 +88" }
-      ],
-      value: "1"
+      // items: [
+      //   { value: "1", label: "中国 +86" },
+      //   { value: "2", label: "中国 +88" }
+      // ],
+      // value: "1"
     };
   },
   methods: {
@@ -144,7 +144,7 @@ export default {
             if (!this.timer) {
               this.disabled = true;
               this.text = TIME_COUNT;
-              this.text2 = "S重新发送";
+              this.text2 = "S"+this.$t('message.resend');
               this.timer = setInterval(() => {
                 if (this.text > 0 && this.text <= TIME_COUNT) {
                   this.text--;
@@ -152,7 +152,7 @@ export default {
                   this.disabled = false;
                   clearInterval(this.timer);
                   this.timer = null;
-                  this.text = "重新发送";
+                  this.text = this.$t('message.resend');
                   this.text2 = "";
                 }
               }, 1000);
