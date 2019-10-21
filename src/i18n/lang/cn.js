@@ -106,7 +106,11 @@ const cn = {
         'arbitAmount': '套利金额',
         'open': '套利开放时间为9：00 ~ 18：00 （每周日不支持套利服务）',
         'nextDay': '每日所产生的利润将在次日开盘前结算',
-        'must':'套利金额必须为'
+        'must': '套利金额必须为',
+        'entryAmount': '请输入套利金额',
+        'cannot': '提现数量不能为0',
+        'copied': '已复制充币地址',
+        'subdidiary':'USDT明细'
     },
     ...zhLocale
 }

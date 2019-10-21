@@ -48,7 +48,7 @@ export default {
   },
   computed: {
     noMore() {
-      return this.count >= this.items.length;
+      return this.count >= this.items;
     },
     disabled() {
       return this.loading || this.noMore;
@@ -78,14 +78,14 @@ export default {
           .choices("api/home/algebraRecord",{page:this.page})
           .then(result => {
             if (result.status == 200) {
-              this.items = this.items.push(result.res);
+              this.items=this.items.concat(result.res);
             }
           })
           .catch(err => {
             console.log(err);
           });
         this.loading = false;
-      }, 2000);
+      }, 1000);
     }
   }
 };

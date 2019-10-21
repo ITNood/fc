@@ -46,8 +46,6 @@ export default {
     return {
       amount: "",
       dialogVisible: false,
-      entry: "请输入",
-      text: "的倍数",
       type_id: "",
       show: false
     };
@@ -63,7 +61,7 @@ export default {
         this.dialogVisible = !this.dialogVisible;
         this.$refs.child.open()
       }else{
-        alert('请输入套利金额')
+        alert(this.$t('message.entryAmount'))
       }
     },
     submit(pwd) {

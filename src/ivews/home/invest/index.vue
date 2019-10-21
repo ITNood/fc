@@ -71,7 +71,7 @@ export default {
       var clipboard = new Clipboard("#copy");
 
       clipboard.on("success", e => {
-        alert("已复制充币地址");
+        alert(this.$t('message.copied'));
         // 释放内存
         clipboard.destroy();
       });

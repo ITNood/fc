@@ -71,7 +71,7 @@ export default {
           if(amount){
               this.$refs.child.open()
           }else{
-              alert('提现数量不能为0')
+              alert(this.$t('message.cannot'))
           }
       },
       submit(pwd){

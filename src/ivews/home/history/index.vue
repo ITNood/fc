@@ -25,8 +25,8 @@
             <h6 v-else style="color:#d91717">-{{item.amount}}</h6>
           </li>
         </ul>
-        <p v-if="loading"><i class="el-icon-loading"></i>加载中...</p>
-        <p v-if="noMore">- - - - 没有更多数据了 - - - -</p>
+        <p v-if="loading"><i class="el-icon-loading"></i>Loading...</p>
+        <p v-if="noMore">- - - - {{$t('message.more')}} - - - -</p>
       </div>
     </div>
   </div>
@@ -38,7 +38,7 @@ export default {
   components: { Top },
   data() {
     return {
-      msg: "USDT明细",
+      msg: this.$t('message.subdidiary'),
       count: 20,
       loading: false,
       items: [
