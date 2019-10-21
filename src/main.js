@@ -10,7 +10,6 @@ import './assets/fonts/iconfont.css'
 import vueiInfinite from 'vue-infinite-scroll'
 import i18n from './i18n/i18n'
 
-// import store from './ivews/store/index'
 
 Vue.use(vueiInfinite)
 Vue.use(ElementUI)
@@ -25,7 +24,6 @@ new Vue({
   el: '#app',
   router,
   i18n,
-  //store:store,
   components: { App },
   template: '<App/>'
 })

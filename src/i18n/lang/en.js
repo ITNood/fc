@@ -101,7 +101,12 @@ const en = {
         'login': 'Login',
         'otherLogin': 'Other login methods',
         'entryAccount': 'Please enter account number',
-        'phone':'Please enter your mobile number'
+        'phone': 'Please enter your mobile number',
+        'currency': 'Arbitrage currency',
+        'arbitAmount': 'Arbitrage amount',
+        'open': 'Arbitrage opening time is 9:00 ~ 18:00 (arbitrage service is not supported every Sunday)',
+        'nextDay': 'The profits generated each day will be settled before the opening of the next day',
+        'must':'The arbitrage amount must be'
         
     },
     ...enLocale

@@ -7,24 +7,24 @@
       :close-on-click-modal="false"
     >
       <div class="currency">
-        <p>套利币种</p>
+        <p>{{$t('message.currency')}}</p>
         <div class="coin"><img :src="imgSrc">{{name}}<i class="el-icon-arrow-right"></i></div>
-        <p>套利金额</p>
+        <p>{{$t('message.arbitAmount')}}</p>
         <el-input
           v-model="amount"
-          :placeholder="'请输入'+number+'的倍数'"
+          :placeholder="$t('message.please')+number+$t('message.multiple')"
           class="coinAmount"
         ></el-input>
         <el-button
           class="submit"
           @click="submit1()"
-        >确认</el-button>
+        >{{$t('message.confirm')}}</el-button>
       </div>
       <div class="tips">
-        <p>温馨提示：</p>
-        <p>套利开放时间为9：00 ~ 18：00 （每周日不支持套利服务）</p>
-        <p>每日所产生的利润将在次日开盘前结算</p>
-        <p>套利金额必须为100USDT的倍数</p>
+        <p>{{$t('message.tips')}}：</p>
+        <p>{{$t('message.open')}}</p>
+        <p>{{$t('message.nextDay')}}</p>
+        <p>{{$t('message.must')}}{{number}} USDT {{$t('message.multiple')}}</p>
       </div>
     </el-dialog>
     <Pin

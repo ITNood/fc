@@ -157,8 +157,6 @@ export default {
                 }
               }, 1000);
             }
-          } else if (result.status == 400) {
-            alert(result.msg);
           }
         })
         .catch(err => {
@@ -173,8 +171,6 @@ export default {
             if(result.status==200){
               alert(result.msg)
               this.$router.push('/')
-            }else if(result.status==400){
-              alert(result.msg)
             }
           }).catch(err=>{
             console.log(err)

@@ -101,7 +101,12 @@ const cn = {
         'login': '登录',
         'otherLogin': '其他登录方式',
         'entryAccount': '请输入账号',
-        'phone':'请输入手机号码'
+        'phone': '请输入手机号码',
+        'currency': '套利币种',
+        'arbitAmount': '套利金额',
+        'open': '套利开放时间为9：00 ~ 18：00 （每周日不支持套利服务）',
+        'nextDay': '每日所产生的利润将在次日开盘前结算',
+        'must':'套利金额必须为'
     },
     ...zhLocale
 }
