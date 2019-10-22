@@ -10,6 +10,8 @@
         <div class="tips" style="color:#999">
                 <p>{{$t('message.tips')}}：</p>
                 <p>{{$t('message.protocol')}}</p>
+                <p>{{$t('message.only')}}</p>
+                <p>{{$t('message.error')}}</p>
             </div>
     </div>
   </div>

@@ -111,7 +111,10 @@ const en = {
         'cannot': 'The withdrawal quantity cannot be 0',
         'copied': 'The address has been copied',
         'subdidiary': 'The USDT subsidiary',
-        'pleasePwd':'Please entry the password'
+        'pleasePwd':'Please entry the password',
+        'download': 'Scan download DORNE',
+        'only': 'Only the ERC20 protocol USDT is accepted',
+        'error':'If the account cannot be delivered due to binding error, it is not related to the platform'
         
     },
     ...enLocale

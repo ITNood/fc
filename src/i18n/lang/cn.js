@@ -111,7 +111,10 @@ const cn = {
         'cannot': '提现数量不能为0',
         'copied': '已复制充币地址',
         'subdidiary': 'USDT明细',
-        'pleasePwd':'请输入密码'
+        'pleasePwd': '请输入密码',
+        'download': '扫一扫，下载DORNE',
+        'only': '只接受ERC20协议USDT',
+        'error':'如因绑定错误产生无法到帐与本平台无关'
     },
     ...zhLocale
 }

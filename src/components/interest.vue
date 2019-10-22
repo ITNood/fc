@@ -8,7 +8,8 @@
     >
       <div class="currency">
         <p>{{$t('message.currency')}}</p>
-        <div class="coin"><img :src="imgSrc">{{name}}<i class="el-icon-arrow-right"></i></div>
+        <!-- <i class="el-icon-arrow-right"></i> -->
+        <div class="coin"><img :src="imgSrc">{{name}}</div>
         <p>{{$t('message.arbitAmount')}}</p>
         <el-input
           v-model="amount"

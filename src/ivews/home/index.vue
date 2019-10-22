@@ -53,8 +53,8 @@
                   </el-col>
                   <el-col :span="10" class="percent">
                     <h5>$ {{item.amount}}</h5>
-                    <p v-if="item.ratio>0" style="color:#05ce7e">+{{item.ratio}}%</p>
-                    <p v-else style="color:#ff5e52">{{item.ratio}}%</p>
+                    <!-- <p v-if="item.ratio>0" style="color:#05ce7e">+{{item.ratio}}%</p>
+                    <p v-else style="color:#ff5e52">{{item.ratio}}%</p> -->
                   </el-col>
                 </el-row>
               </li>

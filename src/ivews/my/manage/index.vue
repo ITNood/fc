@@ -49,8 +49,8 @@
             <div class="partnerList">
                 <ul>
                     <li v-for="(item,index) in items" :key="index">
-                        <img :src="item.img">
-                        <p>{{item.name}}</p>
+                        <img :src="item.avatar">
+                        <p>{{item.username}}</p>
                         <span>{{item.amount}}</span>
                     </li>
                 </ul>
@@ -61,28 +61,48 @@
 </template>
 
 <script>
+import api from '../../../API/index'
 import Top from "../../../components/top";
 export default {
   components: { Top },
   data() {
     return {
         msg:this.$t('message.manage'),
-        allPartner:0,
-        one:0,
-        two:0,
-        three:0,
-        four:0,
-        five:0,
-        rank:0,
-        direct:0,
-        team:0,
-        items:[
-            {img:require('../../../assets/image/avatar.png'),name:'1651515',amount:'100.00'},
-            {img:require('../../../assets/image/avatar.png'),name:'1651515',amount:'100.00'}
-
-        ]
+        allPartner:'',
+        one:'',
+        two:'',
+        three:'',
+        four:'',
+        five:'',
+        rank:'',
+        direct:'',
+        team:'',
+        items:[]
     };
-  }
+  },
+  mounted() {
+      this.getdata()
+  },
+  methods: {
+      getdata(){
+          api.choices('api/user/myChild').then(result=>{
+              if(result.status==200){
+                  this.items=this.items.concat(result.res.child)
+                  this.allPartner=result.res.all
+                  this.one=result.res.one
+                  this.two=result.res.two
+                  this.three=result.res.three
+                  this.four=result.res.four
+                  this.five=result.res.five
+                  this.rank=result.res.level
+                  this.direct=result.res.yestDirect
+                  this.team=result.res.yestTeam
+              }
+          }).catch(err=>{
+              console.log(err)
+          })
+      }
+  },
 };
 </script>
 
