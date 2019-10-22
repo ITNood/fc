@@ -33,7 +33,7 @@ export default {
     };
   },
   mounted() {
-    let lang = window.localStorage.getItem("lang");
+    let lang =localStorage.getItem("lang");
     console.log(lang);
     if (lang === "cn") {
       this.radio1 = "2";
@@ -45,7 +45,6 @@ export default {
   
   methods: {
     changeRadio() {
-      //console.log(this.radio1)
       let that = this;
       let number = that.radio1;
       if (number == 1) {
@@ -58,11 +57,12 @@ export default {
       this.msg = this.$t("message.language");
     }
   },
-  // created() {
-  //   localStorage.lang == undefined ? "cn" : localStorage.lang;
-  // }
+  created() {
+    localStorage.lang == undefined ? "cn" : localStorage.lang;
+  }
 };
 </script>
 
 <style scoped>
 </style>
+/

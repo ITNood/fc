@@ -145,6 +145,13 @@ export default new Router({
       component: () => {
         return import('../ivews/my/personality/index')
       }
+    },
+    {
+      path: '/my/about/index',
+      name: 'about',
+      component: () => {
+        return import('../ivews/my/about/index')
+      }
     }
   ]
 })

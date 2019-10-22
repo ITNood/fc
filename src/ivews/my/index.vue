@@ -107,7 +107,7 @@ export default {
           name: this.$t("message.language")
         },
         {
-          url: "",
+          url: "/my/about/index",
           iconClass: "icon-about_fill",
           name: this.$t("message.about")
         }
