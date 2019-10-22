@@ -30,7 +30,7 @@ export default {
       detail:''
     };
   },
-  mounted() {
+  created() {
     this.getdata()
   },
   methods: {

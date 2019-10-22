@@ -89,7 +89,7 @@ export default {
       openType:''
     };
   },
-  mounted() {
+  created() {
     let token=localStorage.getItem('token')
     if(token){
       this.$router.push('/home/index')

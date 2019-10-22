@@ -110,7 +110,7 @@ export default {
       value: ""
     };
   },
-  mounted() {
+  created() {
     this.getMobile();
     this.getArea()
     this.forgetForm.country = this.value;

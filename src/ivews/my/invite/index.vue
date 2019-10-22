@@ -73,7 +73,7 @@ export default {
       value: ""
     };
   },
-  mounted() {
+  created() {
     this.getArea()
     this.forgetForm.country = this.value;
   },

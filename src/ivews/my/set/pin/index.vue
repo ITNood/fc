@@ -62,7 +62,7 @@ export default {
       confirmPwd:''
     };
   },
-  mounted() {
+  created() {
       this.isSetPassword()
   },
   methods: {

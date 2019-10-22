@@ -32,7 +32,7 @@ export default {
       radio1: ""
     };
   },
-  mounted() {
+  created() {
     let lang =localStorage.getItem("lang");
     console.log(lang);
     if (lang === "cn") {

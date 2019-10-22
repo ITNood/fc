@@ -30,7 +30,7 @@ export default {
         btn:false,
     };
   },
-  mounted() {
+  created() {
     this.getdata()
   },
   methods: {

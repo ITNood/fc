@@ -61,7 +61,7 @@ export default {
       return this.loading || this.noMore;
     }
   },
-  mounted() {
+  created() {
     this.getdata();
   },
   methods: {

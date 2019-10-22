@@ -60,7 +60,7 @@ export default {
       lists:[]
     };
   },
-  mounted() {
+  created() {
     this.getdata()
   },
   methods: {

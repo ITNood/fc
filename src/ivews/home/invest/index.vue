@@ -43,7 +43,7 @@ export default {
       address: ""
     };
   },
-  mounted() {
+  created() {
     this.getdata()
   },
   methods: {

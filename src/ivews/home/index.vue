@@ -91,7 +91,7 @@ export default {
       items:[]
     };
   },
-  mounted() {
+  created() {
     this.getdata()
   },
   methods: {

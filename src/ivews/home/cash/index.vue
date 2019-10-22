@@ -51,7 +51,7 @@ export default {
         number:''
     };
   },
-  mounted() {
+  created() {
       this.getdata()
   },
   methods: {
