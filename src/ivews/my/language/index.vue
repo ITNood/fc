@@ -16,7 +16,6 @@
             border
           >简体中文</el-radio>
         </el-radio-group>
-        <!-- <el-button class="submit" style="margin-top:120px;">确认</el-button> -->
       </div>
     </div>
   </div>
@@ -32,7 +31,7 @@ export default {
       radio1: ""
     };
   },
-  created() {
+  mounted() {
     let lang =localStorage.getItem("lang");
     console.log(lang);
     if (lang === "cn") {

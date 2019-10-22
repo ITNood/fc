@@ -28,10 +28,6 @@ export default {
     };
   },
   created() {
-      console.log(333)
-  },
-  created() {
-      console.log(111)
       this.getdata()
   },
   methods: {

@@ -124,11 +124,6 @@ export default {
         password: [{ validator: validatePass, trigger: "blur",required:true }],
         confirmPwd: [{ validator: validatePass2, trigger: "blur",required:true }]
       },
-      // items: [
-      //   { value: "1", label: "中国 +86" },
-      //   { value: "2", label: "中国 +88" }
-      // ],
-      // value: "1"
     };
   },
   methods: {

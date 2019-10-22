@@ -134,9 +134,7 @@ export default {
     },
     //退出登录
     exit() {
-      let that = this;
-      that
-        .$confirm(this.$t('message.logOut')+"?", {
+      this.$confirm(this.$t('message.logOut')+"?", {
           confirmButtonText: this.$t('message.confirm'),
           cancelButtonText: this.$t('message.cancel')
         })
@@ -145,7 +143,6 @@ export default {
             .choices("api/login/loginOut")
             .then(result => {
               if (result.status == 200) {
-                // this.$store.commit("setToken", "");
                 localStorage.removeItem("token");
                 this.$router.push("/");
               } else if (result.status == 400) {
