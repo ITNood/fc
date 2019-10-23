@@ -101,7 +101,7 @@ export default {
       equity: 0,
       cash: 0,
       show: false,
-      prencet: [0.3]
+      prencet: []
     };
   },
   mounted() {
@@ -114,8 +114,11 @@ export default {
         .choices("api/takeOut/index")
         .then(result => {
           if (result.status == 200) {
-              //this.prencet.push(result.res.percent)
-              console.log(this.percent)
+            //this.prencet.push(result.res.percent)
+            console.log(this.percent);
+            this.intest = result.res.income;
+            this.week = result.res.capsAmount;
+            this.card = result.res.result;
           }
         })
         .catch(err => {
@@ -172,11 +175,27 @@ export default {
     back() {
       this.$router.go(-1);
     },
-    takeout() {},
-    submit1() {
-      this.$refs.child.open();
+    takeout() {
+      this.amount = this.card;
     },
-    submit(pwd) {}
+    submit1() {
+      let amount = this.amount;
+      if (amount) {
+        this.$refs.child.open();
+      } else {
+        alert("请输入数量");
+      }
+    },
+    submit(pwd) {
+        api.choices('api/takeOut/insert',{amount:this.amount,safePwd:pwd}).then(result=>{
+            if(result.status==200){
+                alert(result.msg)
+                window.location.reload()
+            }
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
   }
 };
 </script>
