@@ -11,14 +11,14 @@
           class="fc"
         >
           <h5>{{FC}}</h5>
-          <router-link to="/fc/record/index?id=1">{{$t('message.criculation')}}>></router-link>
+          <router-link to="/fc/record/index?id=7">{{$t('message.criculation')}}>></router-link>
         </el-col>
         <el-col
           :span="12"
           class="fc"
         >
           <h5>{{closeFC}}</h5>
-          <router-link to="/fc/record/index?id=2">{{$t('message.lock')}}>></router-link>
+          <router-link to="/fc/record/index?id=12">{{$t('message.lock')}}>></router-link>
         </el-col>
       </el-row>
 
@@ -46,7 +46,7 @@
             </router-link>
           </li>
           <li>
-            <router-link to="">
+            <router-link to="/fc/recycling/index">
               <span class="icon iconfont icon-xunhuanxuyuezhuanzhang"></span>
                  <p>{{$t('message.repo')}}</p>
             </router-link>
@@ -57,39 +57,40 @@
       <div class="salary">
         <ul>
           <li v-for="(list,index) in lists" :key="index">
-            <h5>{{list.date}}<span v-if="list.state==1">{{$t('message.ongoing')}}</span><span v-else>{{$t('message.end')}}</span></h5>
+            <h5>{{list.date}}<span v-if="list.state==0">{{$t('message.ongoing')}}</span><span v-else>{{$t('message.end')}}</span></h5>
             <div class="data">
               <div class="progressSet">
-                <el-progress type="circle" :width="100" :stroke-width="3" :show-text="false" color="#0ebcf9" :percentage="list.prcent"></el-progress>
+                <el-progress type="circle" :width="100" :stroke-width="3" :show-text="false" color="#0ebcf9" :percentage="list.percent"></el-progress>
                 <div class="progressData">
                   <h6>{{list.number}}</h6>
                   <p>{{$t('message.week')}}</p>
                 </div>
               </div>
               <div class="result">
-                <p>{{$t('message.total')}}：<span>{{list.total}}</span></p>
-                <p>{{$t('message.salary')}}：<span>{{list.pay}}</span></p>
-                <p>{{$t('message.forWeek')}}：<span>{{list.week}}</span></p>
-                <p>{{$t('message.settlement')}}：<span>{{list.end}}</span></p>
+                <p>{{$t('message.total')}}：<span>{{list.total_amount}}</span></p>
+                <p>{{$t('message.salary')}}：<span>{{list.every_amount}}</span></p>
+                <p>{{$t('message.forWeek')}}：<span>{{list.number}}</span></p>
+                <p>{{$t('message.settlement')}}：<span>{{list.complete_number}}</span></p>
               </div>
             </div>
           </li>
         </ul>
       </div>
     </div>
-    <Value :dialogVisible="show" :FC="amount" :number="num"/>
+    <Value :dialogVisible="show" :FC="closeFC" :ratio="num" ref="child"/>
   </div>
 </template>
 
 <script>
+import api from '../../API/index'
 import Footer from "../../components/nav";
 import Value from '../../components/value'
 export default {
   components: { Footer ,Value},
   data() {
     return {
-      FC: "100.00",
-      closeFC: "100.00",
+      FC: "",
+      closeFC: "",
       show:true,
       amount:0,
       num:0,
@@ -99,13 +100,30 @@ export default {
       //   { url: "", iconClass: "icon-qianbao", name: this.$t('message.compensation') },
       //   { url: "", iconClass: "icon-xunhuanxuyuezhuanzhang", name: this.$t('message.repo') }
       // ],
-      lists:[
-        {date:'2018/10/12',state:1,prcent:50,number:8,total:100,pay:100,week:100,end:100},
-        {date:'2018/10/12',state:2,prcent:50,number:8,total:100,pay:100,week:100,end:100},
-        {date:'2018/10/12',state:2,prcent:50,number:8,total:100,pay:100,week:100,end:100}
-      ]
+      lists:[]
     };
-  }
+  },
+  created() {
+    this.getdata()
+  },
+  methods: {
+    openValue(){
+      //this.
+      this.$refs.child.opening()
+    },
+    getdata(){
+      api.choices('api/fc/index').then(result=>{
+        if(result.status==200){
+          this.FC=result.res.flowFc
+          this.closeFC=result.res.lockFc
+          this.num=result.res.ratio
+          this.lists=this.lists.concat(result.res.order)
+        }
+      }).catch(err=>{
+        console.log(err)
+      })
+    }
+  },
 };
 </script>
 

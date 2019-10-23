@@ -14,6 +14,7 @@
         <li>
           <p>增值金额</p>
           <el-input
+          @change="change()"
             v-model="amount"
             placeholder="请输入增值金额"
             class="entry"
@@ -42,29 +43,52 @@
 </template>
 
 <script>
+import api from "../API/index";
 import Pin from "../components/pin";
 export default {
   components: { Pin },
-  props: ["FC",'number'],
+  props: ["FC", "ratio"],
   name: "Value",
   data() {
     return {
       dialogVisible: false,
-      show:false,
-      amount:'',
-      get:''
+      show: false,
+      amount: "",
+      number: 0
     };
   },
+  // mounted() {
+  //   console.log(this.ratio)
+  // },
+  updated() {
+      this.number=this.ratio*this.amount
+  },
   methods: {
+    
     opening() {
       this.dialogVisible = !this.dialogVisible;
     },
-    submit1(){
+    submit1() {
+      let amount = this.amount;
+      if (amount) {
         this.dialogVisible = !this.dialogVisible;
-        this.$refs.child.open()
+        this.$refs.child.open();
+      }else {
+        alert('请输入增值金额')
+      }
     },
-    submit(pwd){
-
+    submit(pwd) {
+      api
+        .choices("api/fc/insert", { amount: this.amount, safePwd: pwd })
+        .then(result => {
+          if (result.status == 200) {
+            alert(result.msg)
+            window.location.reload()
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };

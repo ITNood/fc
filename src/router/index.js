@@ -173,6 +173,20 @@ export default new Router({
       component: () => {
         return import('../ivews/fc/compensation/index')
       }
+    },
+    {
+      path: '/fc/compensation/takeHistory/index',
+      name: 'takeHistory',
+      component: () => {
+        return import('../ivews/fc/compensation/takeHistory/index')
+      }
+    },
+    {
+      path: '/fc/recycling/index',
+      name: 'recycling',
+      component: () => {
+        return import('../ivews/fc/recycling/index')
+      }
     }
   ]
 })

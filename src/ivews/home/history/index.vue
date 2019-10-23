@@ -11,8 +11,6 @@
       >
         <ul
           class="list"
-          v-infinite-scroll="load"
-          infinite-scroll-disabled="disabled"
         >
           <li
             v-for="(item,index) in items"
@@ -20,55 +18,42 @@
             class="list-item"
           >
             <p>{{item.date}}</p>
-            <span>{{item.text}}</span>
+            <span>{{item.detail}}</span>
             <h6 v-if="item.state==1" style="color:#12c02f">+{{item.amount}}</h6>
             <h6 v-else style="color:#d91717">-{{item.amount}}</h6>
           </li>
         </ul>
-        <p v-if="loading"><i class="el-icon-loading"></i>Loading...</p>
-        <p v-if="noMore">- - - - {{$t('message.more')}} - - - -</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import api from '../../../API/index'
 import Top from "../../../components/top";
 export default {
   components: { Top },
   data() {
     return {
-      msg: this.$t('message.subdidiary'),
-      count: 20,
-      loading: false,
-      items: [
-          {date:'2019/10/12 15:00',text:'usdt提现',state:1,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'usdt提现',state:2,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'usdt提现',state:2,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'usdt提现',state:2,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'usdt提现',state:2,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'usdt提现',state:1,amount:'100.14'},
-          {date:'2019/10/12 15:00',text:'usdt提现',state:2,amount:'100.14'}
-      ],
+      msg: '',
+      items: [],
       page: 1
     };
   },
-  computed: {
-    noMore() {
-      return this.count >= this.items.length;
-    },
-    disabled() {
-      return this.loading || this.noMore;
-    }
+  created() {
+    this.getdata()
   },
   methods: {
-    load() {
-      this.loading = true;
-      setTimeout(() => {
-        this.page++;
-        //this.itmes;
-        this.loading = false;
-      }, 2000);
+    getdata(){
+      let id=this.$route.query.id
+      api.choices('api/wallet/record',{id:id}).then(result=>{
+        if(result.status==200){
+          this.msg=result.res.name
+          this.items=this.items.concat(result.res.record)
+        }
+      }).catch(err=>{
+        console.log(err)
+      })
     }
   }
 };

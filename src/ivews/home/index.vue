@@ -86,7 +86,7 @@ export default {
       lists:[
         {url:'/home/invest/index',icon:'icon-meiyuan4',test:this.$t('message.recharge')},
         {url:'/home/cash/index',icon:'icon-yinhangqiashezhi',test:this.$t('message.withdrawal')},
-        {url:'/home/history/index',icon:'icon-lvzhou_mingxi',test:this.$t('message.detail')}
+        {url:'/home/history/index?id=14',icon:'icon-lvzhou_mingxi',test:this.$t('message.detail')}
       ],
       items:[]
     };

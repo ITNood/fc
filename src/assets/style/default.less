@@ -1655,13 +1655,163 @@ a {
 }
 
 #waveEchart {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
 }
 
 .compensation {
     margin-top: 20px;
 
+    li {
+        width: 33.333%;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5px;
+        color: @white;
+        float: left;
+        text-align: center;
+
+        h5 {
+            font-family: number;
+            line-height: 30px;
+            font-size: 14px;
+        }
+    }
+}
+
+.takeNumber {
+    margin-top: 20px;
+
+    p {
+        color: @white;
+        line-height: 40px;
+    }
+
+    li {
+        position: relative;
+        margin-bottom: 8px;
+        line-height: 40px;
+        border-bottom: 1px solid @borderColor;
+
+        .el-input__inner {
+            border: none;
+            background: transparent;
+            padding: 0;
+            color: @white;
+            // border-bottom: 1px solid @borderColor;
+        }
+
+        b {
+            color: @white;
+            position: absolute;
+            right: 0;
+            top: 0;
+            line-height: 40px;
+            font-weight: normal;
+        }
+
+        .el-button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: transparent;
+            color: @blue;
+            border: none;
+            border-left: 1px solid @borderColor;
+            border-radius: 0;
+            display: block;
+            width: 80px;
+            text-align: center;
+        }
+
+
+    }
+}
+
+/**
+**
+**------------------------------------fc>compensation>takeHistory-----------------------------
+**
+**/
+.takeout {
+    overflow: hidden;
+
+    ul {
+        height: calc(100vh - 80px);
+        overflow-y: auto;
+
+        li {
+            border-bottom: 1px solid @borderColor;
+            position: relative;
+            padding: 8px 0;
+            margin-bottom: 8px;
+
+            p {
+                color: @gray;
+                line-height: 20px;
+            }
+
+            span {
+                color: @white;
+                line-height: 20px;
+            }
+
+            h5 {
+                color: @red;
+                line-height: 40px;
+                position: absolute;
+                right: 0;
+                top: 8px;
+                line-height: 40px;
+                font-family: number;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.stepNumber {
+    .el-input--small .el-input__inner {
+        background: transparent;
+        color: @white;
+        border: none;
+    }
+
+    .el-input-number__increase,
+    .el-input-number__decrease {
+        border-radius: 50%;
+        width: 20px !important;
+        height: 20px;
+        top: 6px;
+        background: @blue;
+        color: @white;
+        border: none;
+        display: block;
+        line-height: 22px;
+    }
+
+    .el-input-number__decrease:hover,
+    .el-input-number__increase:hover {
+        color: @white
+    }
+}
+
+.max.el-button--small {
+    background: @blue;
+    color: @white;
+    border-radius: 16px;
+    padding: 5px 15px;
+    border: none;
+    margin-left: 30px;
+
+}
+
+.max.el-button:focus,
+.max.el-button:hover {
+    background-color: @blue;
+    color: @white;
 }
 
 /*

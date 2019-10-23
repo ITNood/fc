@@ -10,9 +10,6 @@
         style="overflow:auto;height:calc(100vh - 80px)"
       >
         <ul
-          v-infinite-scroll="load"
-          infinite-scroll-disabled="disabled"
-          infinite-scroll-immediate='false'
         >
           <li
             v-for="(item,index) in items"
@@ -31,8 +28,6 @@
             >-{{item.amount}}</h6>
           </li>
         </ul>
-        <p v-if="loading" ><i class="el-icon-loading"></i>Loading...</p>
-        <p v-if="noMore">- - - - {{$t('message.more')}} - - - -</p>
       </div>
     </div>
     
@@ -47,57 +42,24 @@ export default {
   components: { Top },
   data() {
     return {
-      msg: "锁定FC记录",
-      count: false,
-      loading: false,
+      msg: "",
       items: [],
-      page: 1,
+      //page: 1,
       show:true
     };
-  },
-  computed: {
-    noMore() {
-      return this.count;
-    },
-    disabled() {
-      return this.loading || this.noMore;
-    }
   },
   created() {
     this.getdata();
   },
   methods: {
-    load() {
-      this.loading = true;
-      setTimeout(() => {
-        this.page++;
-        api
-          .choices("api/home/algebraRecord", { page: this.page })
-          .then(result => {
-            if (result.status == 200) {
-              if (result.res.length == 0 || result.res.length < 20) {
-                this.count = true;
-                this.loading = false;
-              }
-              this.items = this.items.concat(result.res);
-            }
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      }, 1000);
-      console.log(this.loading);
-    },
     getdata() {
+      let id=this.$route.query.id
       api
-        .choices("api/home/algebraRecord")
+        .choices("api/wallet/record",{id:id})
         .then(result => {
           if (result.status == 200) {
-            if (result.res.length == 0 || result.res.length < 20) {
-              this.count = true;
-              this.loading = false;
-            }
-            this.items = this.items.concat(result.res);
+            this.items = this.items.concat(result.res.record);
+            this.msg=result.res.name
           }
         })
         .catch(err => {

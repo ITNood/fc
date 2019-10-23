@@ -25,6 +25,7 @@
 
           <el-form-item prop="password">
             <el-input
+            type="password"
               v-model="loginForm.password"
               :placeholder="userMessage+$t('message.acoountPwd')"
             ></el-input>
@@ -107,7 +108,8 @@ export default {
         .choices("api/login/loginIn", data)
         .then(result => {
           if (result.status == 200) {
-            this.$store.commit("setToken", result.res.token);
+            // this.$store.commit("setToken", result.res.token);
+            localStorage.setItem('token',result.res.token)
             this.$router.push("/home/index");
           }
         })
