@@ -101,28 +101,31 @@ export default {
       equity: 0,
       cash: 0,
       show: false,
-      prencet: [0.3]
+      prencet: ["0"]
     };
   },
   mounted() {
     this.getdata();
-    this.echarts();
+    this.echarts(this.prencet)
   },
   methods: {
     getdata() {
+      let that = this
       api
         .choices("api/takeOut/index")
         .then(result => {
           if (result.status == 200) {
               //this.prencet.push(result.res.percent)
-              console.log(this.percent)
+            let newpercent = [(result.res.percent/100).toFixed(1)]
+            that.percent=newpercent
+            that.echarts(that.percent)
           }
         })
         .catch(err => {
           console.log(err);
         });
     },
-    echarts() {
+    echarts(data) {
       var myChart = this.$echarts.init(document.getElementById("waveEchart"));
       let option = {
         title: {
@@ -140,7 +143,7 @@ export default {
           {
             type: "liquidFill",
             radius: "50%",
-            data: this.prencet,
+            data:data,
             color: "rgba(14,188,249,1)",
             label: {
               normal: {
