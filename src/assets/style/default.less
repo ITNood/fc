@@ -878,48 +878,6 @@ a {
     .el-tabs__content {
         padding-top: 54px;
 
-        .cash {
-            margin-top: 20px;
-
-            li {
-                margin-bottom: 10px;
-
-                p {
-                    color: @white;
-                    line-height: 180%;
-                    margin-bottom: 10px;
-                }
-
-                h5 {
-                    border-bottom: 1px solid @borderColor;
-                    line-height: 40px;
-                    color: @blue;
-                    font-size: 16px;
-                    font-family: number
-                }
-
-                .entry {
-                    .el-input__inner {
-                        background-color: transparent;
-                        border: none;
-                        border-bottom: 1px solid @borderColor;
-                        border-radius: 0;
-                        padding: 0;
-                        color: @white;
-
-                        &::-webkit-input-placeholder {
-                            color: @gray;
-                        }
-
-                        &:focus,
-                        &:hover {
-                            border-color: @blue
-                        }
-                    }
-                }
-            }
-        }
-
         .cashList {
             overflow: hidden;
 
@@ -951,6 +909,48 @@ a {
                         top: 8px;
                         line-height: 45px;
                     }
+                }
+            }
+        }
+    }
+}
+
+.cash {
+    margin-top: 20px;
+
+    li {
+        margin-bottom: 10px;
+
+        p {
+            color: @white;
+            line-height: 180%;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            border-bottom: 1px solid @borderColor;
+            line-height: 40px;
+            color: @blue;
+            font-size: 16px;
+            font-family: number
+        }
+
+        .entry {
+            .el-input__inner {
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid @borderColor;
+                border-radius: 0;
+                padding: 0;
+                color: @white;
+
+                &::-webkit-input-placeholder {
+                    color: @gray;
+                }
+
+                &:focus,
+                &:hover {
+                    border-color: @blue
                 }
             }
         }
@@ -1600,6 +1600,68 @@ a {
             margin-top: 15px;
         }
     }
+}
+
+/**
+**
+**-------------------------------------FC记录-----------------------------
+**
+**/
+.record {
+    overflow: hidden;
+
+    p {
+        color: @white;
+        text-align: center;
+    }
+
+    ul {
+        // height: calc(100vh - 80px);
+        overflow-y: auto;
+
+        li {
+            border-bottom: 1px solid @borderColor;
+            padding: 8px 0;
+            position: relative;
+            margin-bottom: 8px;
+
+            p {
+                color: @gray;
+                line-height: 30px;
+                text-align: left;
+            }
+
+            h6 {
+                position: absolute;
+                right: 0;
+                line-height: 30px;
+                top: 8px;
+            }
+        }
+    }
+
+}
+
+/**
+**
+8*-------------------------------------fc>compensation---------------------------------
+**
+**/
+.take {
+    color: @gray;
+    text-align: right;
+    line-height: 60px;
+    display: block
+}
+
+#waveEchart {
+    width: 150px;
+    height: 150px;
+}
+
+.compensation {
+    margin-top: 20px;
+
 }
 
 /*

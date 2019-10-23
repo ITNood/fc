@@ -11,7 +11,6 @@ import vueiInfinite from 'vue-infinite-scroll'
 import i18n from './i18n/i18n'
 import axios from 'axios'
 
-
 Vue.use(vueiInfinite)
 Vue.use(ElementUI)
 

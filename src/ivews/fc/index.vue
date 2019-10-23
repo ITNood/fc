@@ -11,14 +11,14 @@
           class="fc"
         >
           <h5>{{FC}}</h5>
-          <router-link to="">{{$t('message.criculation')}}>></router-link>
+          <router-link to="/fc/record/index?id=1">{{$t('message.criculation')}}>></router-link>
         </el-col>
         <el-col
           :span="12"
           class="fc"
         >
           <h5>{{closeFC}}</h5>
-          <router-link to="">{{$t('message.lock')}}>></router-link>
+          <router-link to="/fc/record/index?id=2">{{$t('message.lock')}}>></router-link>
         </el-col>
       </el-row>
 
@@ -27,16 +27,28 @@
     <div class="fcList">
       <div class="operate">
         <ul class="clear">
-          <li
-            v-for="(item,index) in items"
-            :key="index"
-          >
-            <router-link :to="item.url">
-              <span
-                class="icon iconfont"
-                :class="item.iconClass"
-              ></span>
-              <p>{{item.name}}</p>
+          <li>
+            <a @click="openValue()">
+              <span class="icon iconfont icon-anshengxupailie"></span>
+                 <p>{{$t('message.valueAdd')}}</p>
+            </a>
+          </li>
+          <li>
+            <router-link to="/fc/exchange/index">
+              <span class="icon iconfont icon-jixuduihuan"></span>
+                 <p>{{$t('message.exchange')}}</p>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/fc/compensation/index">
+              <span class="icon iconfont icon-qianbao"></span>
+                 <p>{{$t('message.compensation')}}</p>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="">
+              <span class="icon iconfont icon-xunhuanxuyuezhuanzhang"></span>
+                 <p>{{$t('message.repo')}}</p>
             </router-link>
           </li>
         </ul>
@@ -65,23 +77,28 @@
         </ul>
       </div>
     </div>
+    <Value :dialogVisible="show" :FC="amount" :number="num"/>
   </div>
 </template>
 
 <script>
 import Footer from "../../components/nav";
+import Value from '../../components/value'
 export default {
-  components: { Footer },
+  components: { Footer ,Value},
   data() {
     return {
       FC: "100.00",
       closeFC: "100.00",
-      items: [
-        { url: "", iconClass: "icon-anshengxupailie", name: this.$t('message.valueAdd') },
-        { url: "", iconClass: "icon-jixuduihuan", name: this.$t('message.exchange') },
-        { url: "", iconClass: "icon-qianbao", name: this.$t('message.compensation') },
-        { url: "", iconClass: "icon-xunhuanxuyuezhuanzhang", name: this.$t('message.repo') }
-      ],
+      show:true,
+      amount:0,
+      num:0,
+      // items: [
+      //   { url: "", iconClass: "icon-anshengxupailie", name: this.$t('message.valueAdd') },
+      //   { url: "", iconClass: "icon-jixuduihuan", name: this.$t('message.exchange') },
+      //   { url: "", iconClass: "icon-qianbao", name: this.$t('message.compensation') },
+      //   { url: "", iconClass: "icon-xunhuanxuyuezhuanzhang", name: this.$t('message.repo') }
+      // ],
       lists:[
         {date:'2018/10/12',state:1,prcent:50,number:8,total:100,pay:100,week:100,end:100},
         {date:'2018/10/12',state:2,prcent:50,number:8,total:100,pay:100,week:100,end:100},

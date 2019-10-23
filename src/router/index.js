@@ -152,6 +152,27 @@ export default new Router({
       component: () => {
         return import('../ivews/my/about/index')
       }
+    },
+    {
+      path: '/fc/record/index',
+      name:'record',
+      component:()=>{
+        return import('../ivews/fc/record/index')
+      }
+    },
+    {
+      path: '/fc/exchange/index',
+      name: 'exchange',
+      component: () => {
+        return import('../ivews/fc/exchange/index')
+      }
+    },
+    {
+      path: '/fc/compensation/index',
+      name: 'compensation',
+      component: () => {
+        return import('../ivews/fc/compensation/index')
+      }
     }
   ]
 })
