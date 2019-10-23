@@ -37,7 +37,6 @@ export default {
     return {
       msg: '',
       items: [],
-      page: 1
     };
   },
   created() {

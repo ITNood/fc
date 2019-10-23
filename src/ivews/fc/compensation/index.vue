@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import api from "../../../API/index";
 import "echarts-liquidfill";
 import Pin from "../../../components/pin";
 export default {
@@ -100,13 +101,27 @@ export default {
       equity: 0,
       cash: 0,
       show: false,
-      prencet: [0.6]
+      prencet: [0.3]
     };
   },
   mounted() {
+    this.getdata();
     this.echarts();
   },
   methods: {
+    getdata() {
+      api
+        .choices("api/takeOut/index")
+        .then(result => {
+          if (result.status == 200) {
+              //this.prencet.push(result.res.percent)
+              console.log(this.percent)
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
     echarts() {
       var myChart = this.$echarts.init(document.getElementById("waveEchart"));
       let option = {
@@ -117,8 +132,8 @@ export default {
           textAlign: "left",
           textStyle: {
             color: "white",
-            fontSize:16,
-            fontWeight:'normal'
+            fontSize: 16,
+            fontWeight: "normal"
           }
         },
         series: [
