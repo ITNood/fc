@@ -10,16 +10,16 @@
         id="tabs"
       >
         <el-tab-pane
-          label="回购"
+          :label="$t('message.repo')"
           name="first"
         >
           <ul class="cash">
             <li>
-              <p>我的流通FC</p>
+              <p>{{$t('message.myfc')}}</p>
               <h5>{{fc}}</h5>
             </li>
             <li>
-              <p>选择回购份额（USDT）</p>
+              <p>{{$t('message.selectback')}}</p>
               <h5>
                 <el-input-number
                   v-model="amount"
@@ -32,12 +32,12 @@
                     size="small"
                     @click="getmax()"
                     class="max"
-                  >最大</el-button>
+                  >{{$t('message.max')}}</el-button>
                 </span>
               </h5>
             </li>
             <li>
-              <p>回购到账(USDT)</p>
+              <p>{{$t('message.backAccount')}}(USDT)</p>
               <h5 style="color:white">{{account}}</h5>
             </li>
           </ul>
@@ -45,8 +45,8 @@
             class="tips"
             style="color:#999"
           >
-            <p>交易须知：</p>
-            <p>您将流通FC回购于平台，平台将付于对应价格的USDT作为支付货币，并扣除5%作为手续费。</p>
+            <p>{{$t('message.trading')}}：</p>
+            <p>{{$t('message.hand')}}。</p>
           </div>
           <el-button
             class="submit"
@@ -55,7 +55,7 @@
           >{{$t('message.confirm')}}</el-button>
         </el-tab-pane>
         <el-tab-pane
-          label="回购记录"
+          :label="$t('message.back')"
           name="second"
         >
           <div class="cashList">
@@ -73,7 +73,7 @@
                 <span
                   v-else-if="item.state==2"
                   style="color:red"
-                >已撤销</span>
+                >{{$t('message.had')}}</span>
                 <span
                   v-else-if="item.state==3"
                   style="color:#999"
@@ -100,7 +100,7 @@ export default {
   components: { Top, Pin },
   data() {
     return {
-      msg: "回购",
+      msg: this.$t('message.repo'),
       activeName: "first",
       fc: 0,
       amount: 1,

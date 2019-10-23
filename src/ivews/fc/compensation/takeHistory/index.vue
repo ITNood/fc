@@ -22,7 +22,7 @@ export default {
   components: { Top },
   data() {
     return {
-        msg:'取出记录',
+        msg:this.$t('message.takeRecord'),
         items:[]
     };
   },
