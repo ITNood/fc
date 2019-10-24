@@ -142,7 +142,10 @@ const en = {
         'backAccount': 'Buy back to the account',
         'trading': 'Trading instructions',
         'hand': 'You will buy back the circulating FC on the platform, and the platform will pay USDT at the corresponding price as the payment currency, and deduct 5% as the handling fee',
-        'had':'Had withdrawn'
+        'had': 'Had withdrawn',
+        'quantily': 'Please enter the quantity',
+        'invitation': 'The invitation account number and mobile phone number cannot be empty',
+        'paste':'Please enter or long press paste your USDT address'
         
     },
     ...enLocale

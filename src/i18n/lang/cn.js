@@ -142,7 +142,10 @@ const cn = {
         'backAccount': '回购到账',
         'trading': '交易须知',
         'hand': '您将流通FC回购于平台，平台将付于对应价格的USDT作为支付货币，并扣除5%作为手续费',
-        'had':'已撤销'
+        'had': '已撤销',
+        'quantily': '请输入数量',
+        'invitation': '邀请账号和手机号码不能为空',
+        'paste':'请输入或长按粘贴您的USDT地址'
     },
     ...zhLocale
 }

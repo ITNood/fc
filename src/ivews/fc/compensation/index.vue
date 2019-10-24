@@ -185,7 +185,7 @@ export default {
       if (amount) {
         this.$refs.child.open();
       } else {
-        alert("请输入数量");
+        alert(this.$t('message.quantily'));
       }
     },
     submit(pwd) {
