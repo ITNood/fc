@@ -39,12 +39,12 @@
                  <p>{{$t('message.exchange')}}</p>
             </router-link>
           </li>
-          <li>
+          <!-- <li>
             <router-link to="/fc/compensation/index">
               <span class="icon iconfont icon-qianbao"></span>
                  <p>{{$t('message.compensation')}}</p>
             </router-link>
-          </li>
+          </li> -->
           <li>
             <router-link to="/fc/recycling/index">
               <span class="icon iconfont icon-xunhuanxuyuezhuanzhang"></span>

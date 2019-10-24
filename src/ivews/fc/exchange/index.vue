@@ -15,11 +15,11 @@
         >
           <ul class="cash">
             <li>
-              <p>{{$t('myfc')}}</p>
+              <p>{{$t('message.myfc')}}</p>
               <h5>{{fc}}</h5>
             </li>
             <li>
-              <p>{{lockfc}}</p>
+              <p>{{$t('message.lockfc')}}</p>
               <h5>{{close}}</h5>
             </li>
             <li>

@@ -99,7 +99,7 @@ export default {
         username: [
           { required: true, message: this.$t('message.nickname'), trigeger: "blur" }
         ]
-      }
+      },
     };
   },
   created() {
@@ -130,6 +130,7 @@ export default {
         //监听文件读取结束后事件
         reader.onloadend = function(e) {
           that.imageUrl = e.target.result;
+          that.ruleForm.avatar = e.target.result;
         };
       }
     },
@@ -147,12 +148,7 @@ export default {
 
     //提交设置
     submitName(ruleForm) {
-      let that = this;
       let data = this.ruleForm;
-      console.log(this.imageUrl);
-      let avatar = this.imageUrl; //获取头像
-      console.log(avatar);
-      this.ruleForm.avatar = avatar;
       api.choices("api/user/changeAttr", data)
         .then(response => {
           if (response.status == 200) {
