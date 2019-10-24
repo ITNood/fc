@@ -6,7 +6,11 @@
         <div class="center">
           <div class="photo">
             <div class="selectPhoto">
-              <el-avatar icon="el-icon-user-solid" :src="imageUrl" :size="70"></el-avatar>
+              <el-avatar
+                icon="el-icon-user-solid"
+                :src="imageUrl"
+                :size="70"
+              ></el-avatar>
             </div>
 
             <ul class="picter-list clear">
@@ -71,13 +75,13 @@
 
 <script>
 import Top from "../../../components/top";
-import api from '../../../API/index'
+import api from "../../../API/index";
 export default {
   components: { Top },
   data() {
     return {
-      msg: this.$t('message.character'),
-      imageUrl: require('../../../assets/image/1.png'),
+      msg: this.$t("message.character"),
+      imageUrl: require("../../../assets/image/1.png"),
       picters: [
         { list: require("../../../assets/image/1.png") },
         { list: require("../../../assets/image/2.png") },
@@ -97,19 +101,24 @@ export default {
       },
       rules: {
         username: [
-          { required: true, message: this.$t('message.nickname'), trigeger: "blur" }
+          {
+            required: true,
+            message: this.$t("message.nickname"),
+            trigeger: "blur"
+          }
         ]
-      },
+      }
     };
   },
   created() {
-      this.getUser()
+    this.getUser();
   },
   methods: {
-      //个人信息
+    //个人信息
     getUser() {
       let that = this;
-      api.choices("api/user/info")
+      api
+        .choices("api/user/info")
         .then(response => {
           if (response.status == 200) {
             that.imageUrl = response.res.user.avatar;
@@ -144,12 +153,12 @@ export default {
       var base64 = getBase64Image(image);
       this.imageUrl = base64;
     },
-    
 
     //提交设置
     submitName(ruleForm) {
       let data = this.ruleForm;
-      api.choices("api/user/changeAttr", data)
+      api
+        .choices("api/user/changeAttr", data)
         .then(response => {
           if (response.status == 200) {
             alert(response.msg);

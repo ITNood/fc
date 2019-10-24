@@ -74,7 +74,7 @@ export default {
         this.dialogVisible = !this.dialogVisible;
         this.$refs.child.open();
       }else {
-        alert('请输入增值金额')
+        alert(this.$t('message.entryValue'))
       }
     },
     submit(pwd) {
