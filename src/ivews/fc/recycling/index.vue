@@ -152,7 +152,6 @@ export default {
       }
     },
     submit(pwd) {
-      //console.log(pwd)
       api
         .choices("api/repo/insert", { amount: this.amount, safePwd: pwd })
         .then(result => {
