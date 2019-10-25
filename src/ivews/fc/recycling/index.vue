@@ -76,7 +76,7 @@
                 >{{$t('message.had')}}</span>
                 <span
                   v-else-if="item.state==3"
-                  style="color:#999"
+                  style="color:#fff"
                 >{{$t('message.end')}}</span>
               </li>
             </ul>

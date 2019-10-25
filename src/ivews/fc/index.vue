@@ -11,14 +11,14 @@
           class="fc"
         >
           <h5>{{FC}}</h5>
-          <router-link to="/fc/record/index?id=7">{{$t('message.criculation')}}>></router-link>
+          <router-link to="/fc/record/index?id=15">{{$t('message.criculation')}}>></router-link>
         </el-col>
         <el-col
           :span="12"
           class="fc"
         >
           <h5>{{closeFC}}</h5>
-          <router-link to="/fc/record/index?id=12">{{$t('message.lock')}}>></router-link>
+          <router-link to="/fc/record/index?id=16">{{$t('message.lock')}}>></router-link>
         </el-col>
       </el-row>
 

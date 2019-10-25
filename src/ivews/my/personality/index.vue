@@ -38,14 +38,12 @@
             </ul>
 
             <!--设置名称-->
-
             <el-form
               :rules="rules"
               :model="ruleForm"
               ref="ruleForm"
               class="demo-ruleForm"
             >
-
               <el-form-item
                 class="text"
                 prop="nickname"
@@ -81,7 +79,7 @@ export default {
   data() {
     return {
       msg: this.$t("message.character"),
-      imageUrl: require("../../../assets/image/1.png"),
+      imageUrl: '',
       picters: [
         { list: require("../../../assets/image/1.png") },
         { list: require("../../../assets/image/2.png") },
@@ -152,6 +150,7 @@ export default {
       image.src = url;
       var base64 = getBase64Image(image);
       this.imageUrl = base64;
+      this.ruleForm.avatar=base64
     },
 
     //提交设置
