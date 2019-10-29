@@ -7,9 +7,23 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'fc',
+      component: () => {
+        return import('../ivews/index')
+      }
+    },
+    {
+      path: '/login',
       name: 'login',
       component: () => {
         return import('../ivews/login')
+      }
+    },
+    {
+      path: '/home/financial/index',
+      name: 'financial',
+      component: () => {
+        return import('../ivews/home/financial/index')
       }
     },
     {

@@ -9,7 +9,7 @@ Vue.use(Router)
 // 创建axios实例
 //let token = window.localStorage.getItem("token") 
 const Axios = axios.create({
-    baseURL: process.env.NODE_ENV === 'production' ? "http://fc.home.fc9m.com/" : "/api/",
+    baseURL: process.env.NODE_ENV === 'production' ? "http://de.home.doopup.com/" : "/api/",
     //baseURL:'http://www.hxfc.com/',
     timeout: 10000,//超时请求
     maxRedirects: 1,

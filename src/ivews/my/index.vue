@@ -145,8 +145,6 @@ export default {
               if (result.status == 200) {
                 localStorage.removeItem("token");
                 this.$router.push("/");
-              } else if (result.status == 400) {
-                alert(result.msg);
               }
             })
             .catch(err => {

@@ -14,7 +14,6 @@
         <li>
           <p>{{$t('message.valueAdd')}}</p>
           <el-input
-          @change="change()"
             v-model="amount"
             :placeholder="$t('message.entryValue')"
             class="entry"
@@ -64,9 +63,9 @@ export default {
       this.number=this.ratio*this.amount
   },
   methods: {
-    
     opening() {
       this.dialogVisible = !this.dialogVisible;
+      this.amount=''
     },
     submit1() {
       let amount = this.amount;

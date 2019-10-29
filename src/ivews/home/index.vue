@@ -40,7 +40,7 @@
 
         <!--套利-->
         <div class="interest">
-          <div class="interest-title">{{$t('message.arbitrage')}}<router-link to="/home/notes/index" class="icon iconfont icon-jilu1"></router-link></div>
+          <div class="interest-title">{{$t('message.arbteam')}}<router-link to="/home/notes/index" class="icon iconfont icon-jilu1"></router-link></div>
           <div class="walletList">
             <ul>
               <li v-for="(item,index) in items" :key="index" @click="interest(item.id,item.img,item.name,$event)">
@@ -52,7 +52,7 @@
                     {{item.name}}<span v-if="item.isCheck==true">{{item.balance}}</span>
                   </el-col>
                   <el-col :span="10" class="percent">
-                    <h5>$ {{item.amount}}</h5>
+                    <h5>{{item.amount}}</h5>
                     <!-- <p v-if="item.ratio>0" style="color:#05ce7e">+{{item.ratio}}%</p>
                     <p v-else style="color:#ff5e52">{{item.ratio}}%</p> -->
                   </el-col>
@@ -86,7 +86,7 @@ export default {
       lists:[
         {url:'/home/invest/index',icon:'icon-meiyuan4',test:this.$t('message.recharge')},
         {url:'/home/cash/index',icon:'icon-yinhangqiashezhi',test:this.$t('message.withdrawal')},
-        {url:'/home/history/index?id=14',icon:'icon-lvzhou_mingxi',test:this.$t('message.detail')}
+        {url:'/home/financial/index',icon:'icon-lvzhou_mingxi',test:this.$t('message.detail')}
       ],
       items:[]
     };
@@ -99,7 +99,7 @@ export default {
       api.choices('api/home/index').then(result=>{
         if(result.status==200){
           this.amount=result.res.usdt
-          this.username=result.res.user.username,
+          this.username=result.res.user.nickname,
           this.avatar=result.res.user.avatar
           this.items=this.items.concat(result.res.levelSet)
           if(result.res.msgNumber>0){
