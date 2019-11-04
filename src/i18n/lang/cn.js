@@ -1,7 +1,12 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN' //引入element语言包
 const cn = {
     message: {
-        'arbteam':'套利小组',
+        'noCentent':'没有内容可复制',
+        'picter': '暂图图片',
+        'rechargeRecord': '充值记录',
+        'successful': '充值成功',
+        'failed': '充值失败',
+        'arbteam': '套利小组',
         "language": "语言设置",
         "about": '关于我们',
         'exit': '退出登录',
@@ -146,7 +151,7 @@ const cn = {
         'had': '已撤销',
         'quantily': '请输入数量',
         'invitation': '邀请账号和手机号码不能为空',
-        'paste':'请输入或长按粘贴您的USDT地址'
+        'paste': '请输入或长按粘贴您的USDT地址'
     },
     ...zhLocale
 }

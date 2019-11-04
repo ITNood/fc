@@ -144,6 +144,14 @@ a {
     box-sizing: border-box;
 }
 
+.histry {
+    position: absolute;
+    right: 8px;
+    color: @white;
+    top: 50%;
+    margin-top: -8px;
+}
+
 /*
 /
 /-----------------------login---------------------------------
@@ -1885,19 +1893,47 @@ a {
             margin-bottom: 15px;
             color: @blue;
             position: relative;
-            b{
+
+            b {
                 position: absolute;
                 z-index: 99;
                 width: 100%;
                 height: 40px;
-                top:0;
-                left:0;
+                top: 0;
+                left: 0;
             }
         }
 
-        .el-radio-button__orig-radio:checked+.el-radio-button__inner{
+        .el-radio-button__orig-radio:checked+.el-radio-button__inner {
             background-color: @blue;
             color: @white;
+        }
+    }
+}
+
+.recharge {
+    li {
+        border-bottom: 1px solid @borderColor;
+        padding: 8px 0;
+        position: relative;
+        margin-bottom: 8px;
+        padding-right: 50%;
+        p{
+            color: @white;
+            height: 45px;
+        }
+        .contentRight{
+            position: absolute;
+            right: 0;
+            top: 8px;
+            text-align: right;
+            p{
+                line-height: 25px;
+                height: 25px;
+            }
+            span{
+                line-height: 20px;
+            }
         }
     }
 }

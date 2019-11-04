@@ -8,6 +8,6 @@ const i18n = new VueI18n({
     locale: localStorage.lang ||'cn', //初始未选择默认 cn 中文
     messages,
 })
-locale.i18n((key, value) => i18n.t(key, value)) //兼容element
+locale.i18n((key, value) => i18n.t(key, value)) 
 
 export default i18n
