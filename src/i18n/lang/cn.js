@@ -1,6 +1,7 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN' //引入element语言包
 const cn = {
     message: {
+        'pending':'待受理',
         'noCentent':'没有内容可复制',
         'picter': '暂图图片',
         'rechargeRecord': '充值记录',

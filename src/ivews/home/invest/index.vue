@@ -109,7 +109,6 @@ export default {
       if (address) {
         var _this = this;
         var clipboard = new Clipboard("#copy");
-
         clipboard.on("success", e => {
           alert(this.$t("message.copied"));
           // 释放内存

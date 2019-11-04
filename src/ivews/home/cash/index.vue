@@ -22,7 +22,8 @@
                         <li v-for="(item,index) in items" :key="index">
                             <h5>{{item.usdt}}USDT</h5>
                             <p>{{item.date}}</p>
-                            <span v-if="item.state==0" style="color:#0fdc79">{{$t('message.processing')}}</span>
+                            <span v-if="item.state==0" style="color:white">{{$t('message.pending')}}</span>
+                            <span v-else-if="item.state==1" style="color:#0fdc79">{{$t('message.processing')}}</span>
                             <span v-else style="color:#999">{{$t('message.end')}}</span>
                         </li>
                     </ul>
