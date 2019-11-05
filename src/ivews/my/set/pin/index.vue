@@ -51,22 +51,22 @@ export default {
   components: { Top },
   data() {
     return {
-      msg: this.$t('message.payPwd'),
+      msg: this.$t("message.payPwd"),
       items: [0, 1, 2, 3, 4, 5],
       keys: keys(),
       password: [],
       a: 1,
-      tips:this.$t('message.setPwd'),
-      oldPwd:'',
-      pwd:'',
-      confirmPwd:''
+      tips: this.$t("message.setPwd"),
+      oldPwd: "",
+      pwd: "",
+      confirmPwd: ""
     };
   },
   created() {
-      this.isSetPassword()
+    this.isSetPassword();
   },
   methods: {
-      //是否设置了PIN密码
+    //是否设置了PIN密码
     isSetPassword() {
       let that = this;
       api
@@ -97,21 +97,26 @@ export default {
           this.oldPwd = this.password.join("");
           this.clearPasswordHandle();
           this.a = 2;
-          that.tips = this.$t('message.newPinCode');
+          that.tips = this.$t("message.newPinCode");
         } else if (this.a == 2) {
           this.pwd = this.password.join("");
           this.clearPasswordHandle();
           this.a = 3;
-          that.tips = this.$t('message.confirmPinCode');
+          that.tips = this.$t("message.confirmPinCode");
         } else if (this.a == 3) {
           this.confirmPwd = this.password.join("");
           //提交PIN密码
-          api.choices("api/safeSet/changeSafePwd",{oldPwd:this.oldPwd,pwd:this.pwd,confirmPwd:this.confirmPwd} )
+          api
+            .choices("api/safeSet/changeSafePwd", {
+              oldPwd: this.oldPwd,
+              pwd: this.pwd,
+              confirmPwd: this.confirmPwd
+            })
             .then(response => {
               if (response.status == 200) {
                 alert(response.msg);
-                this.$router.push('/my/index')
-              } 
+                this.$router.push("/my/index");
+              }
             })
             .catch(err => {
               alert(err.msg);
@@ -129,8 +134,11 @@ export default {
     },
     //删除密码
     delHandle() {
-      if (this.password.length <= 0) return false;
-      this.password.shift();
+      if (this.password.length <= 0) {
+        return false;
+      }else{
+        this.password.shift();
+      }
     },
     //清除密码
     clearPasswordHandle: function() {

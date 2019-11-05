@@ -23,7 +23,7 @@
           <router-link
             to="/fc/compensation/takeHistory/index"
             class="take"
-          >取出记录</router-link>
+          >{{$t('message.takeRecord')}}</router-link>
         </el-col>
       </el-row>
     </el-header>
@@ -38,36 +38,36 @@
       <ul class="compensation clear">
         <li>
           <h5>{{week}}</h5>
-          <p>封顶金额/周</p>
+          <p>{{$t('message.cap')}}</p>
         </li>
         <li>
           <h5>{{intest}}</h5>
-          <p>本周收益/周</p>
+          <p>{{$t('message.earning')}}</p>
         </li>
         <li>
           <h5>{{card}}</h5>
-          <p>绩效工资卡</p>
+          <p>{{$t('message.card')}}</p>
         </li>
       </ul>
       <ul class="takeNumber">
-        <p>取出数量</p>
+        <p>{{$t('message.takeNum')}}</p>
         <li>
           <el-input
-            placeholder="请输入你需取出的数量"
+            :placeholder="$t('message.needtake')"
             v-model="amount"
           ></el-input>
-          <el-button @click="takeout()">全部取出</el-button>
+          <el-button @click="takeout()">{{$t('message.allout')}}</el-button>
         </li>
         <li>
-          <p>手续费</p>
+          <p>{{$t('message.poundage')}}</p>
           <b>{{fee}}</b>
         </li>
         <li>
-          <p>自动兑换股权份额</p>
+          <p>{{$t('message.shars')}}</p>
           <b>{{equity}}</b>
         </li>
         <li>
-          <p>自动兑换现金金额</p>
+          <p>{{$t('message.auto')}}</p>
           <b>{{cash}}</b>
         </li>
       </ul>
@@ -92,7 +92,7 @@ export default {
   components: { Pin },
   data() {
     return {
-      title: "薪酬",
+      title: this.$t('message.compensation'),
       week: 0,
       intest: 0,
       card: 0,
@@ -115,10 +115,12 @@ export default {
         .choices("api/takeOut/index")
         .then(result => {
           if (result.status == 200) {
-              //this.prencet.push(result.res.percent)
             let newpercent = [(result.res.percent/100).toFixed(1)]
             that.percent=newpercent
             that.echarts(that.percent)
+            that.card=result.res.result
+            that.intest=result.res.income
+            that.week=result.res.capsAmount
           }
         })
         .catch(err => {
@@ -129,7 +131,7 @@ export default {
       var myChart = this.$echarts.init(document.getElementById("waveEchart"));
       let option = {
         title: {
-          text: "距离封顶",
+          text: this.$t('message.top'),
           x: "center",
           y: "top",
           textAlign: "left",
@@ -175,11 +177,27 @@ export default {
     back() {
       this.$router.go(-1);
     },
-    takeout() {},
-    submit1() {
-      this.$refs.child.open();
+    takeout() {
+      this.amount = this.card;
     },
-    submit(pwd) {}
+    submit1() {
+      let amount = this.amount;
+      if (amount) {
+        this.$refs.child.open();
+      } else {
+        alert(this.$t('message.quantily'));
+      }
+    },
+    submit(pwd) {
+        api.choices('api/takeOut/insert',{amount:this.amount,safePwd:pwd}).then(result=>{
+            if(result.status==200){
+                alert(result.msg)
+                window.location.reload()
+            }
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
   }
 };
 </script>

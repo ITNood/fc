@@ -109,7 +109,7 @@ export default {
           }
         });
       } else {
-        alert("邀请账号和手机号码不能为空");
+        alert(this.$t('message.invitation'));
       }
     }
   }

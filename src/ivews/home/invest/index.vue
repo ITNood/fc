@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import download from "../../../../static/download.js"
 import api from '../../../API/index'
 import Top from "../../../components/top";
 import Clipboard from "clipboard";
@@ -61,10 +62,11 @@ export default {
     //保存图片
     hold() {
       //console.log('下载图片')
-      let a = document.createElement("a");
-      a.download = name || "pic"; // 设置图片地址
-      a.href = this.code;
-      a.click();
+      // let a = document.createElement("a");
+      // a.download = name || "pic"; // 设置图片地址
+      // a.href = this.code;
+      // a.click();
+      download(this.code, "dlDataUrlBin.png", "image/gif");
     },
     copy() {
       var _this = this;

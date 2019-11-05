@@ -1,16 +1,29 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
+      name: 'fc',
+      component: () => {
+        return import('../ivews/index')
+      }
+    },
+    {
+      path: '/login',
       name: 'login',
       component: () => {
         return import('../ivews/login')
+      }
+    },
+    {
+      path: '/home/financial/index',
+      name: 'financial',
+      component: () => {
+        return import('../ivews/home/financial/index')
       }
     },
     {

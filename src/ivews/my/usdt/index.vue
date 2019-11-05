@@ -4,7 +4,7 @@
     <div class="layout">
         <div class="bind">
             <p>{{$t('message.address')}}</p>
-            <el-input type="textarea" v-model="address" placeholder="请输入或长按粘贴您的USDT地址" :readonly="readonly"></el-input>
+            <el-input type="textarea" v-model="address" :placeholder="$t('message.paste')" :readonly="readonly"></el-input>
             <el-button class="submit" style="margin-top:80px;" @click="submit()" v-show="btn">{{$t('message.confirm')}}</el-button>
         </div>
         <div class="tips" style="color:#999">

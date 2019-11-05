@@ -6,7 +6,11 @@
         <div class="center">
           <div class="photo">
             <div class="selectPhoto">
-              <el-avatar icon="el-icon-user-solid" :src="imageUrl" :size="70"></el-avatar>
+              <el-avatar
+                icon="el-icon-user-solid"
+                :src="imageUrl"
+                :size="70"
+              ></el-avatar>
             </div>
 
             <ul class="picter-list clear">
@@ -34,14 +38,12 @@
             </ul>
 
             <!--设置名称-->
-
             <el-form
               :rules="rules"
               :model="ruleForm"
               ref="ruleForm"
               class="demo-ruleForm"
             >
-
               <el-form-item
                 class="text"
                 prop="nickname"
@@ -71,13 +73,13 @@
 
 <script>
 import Top from "../../../components/top";
-import api from '../../../API/index'
+import api from "../../../API/index";
 export default {
   components: { Top },
   data() {
     return {
-      msg: this.$t('message.character'),
-      imageUrl: require('../../../assets/image/1.png'),
+      msg: this.$t("message.character"),
+      imageUrl: '',
       picters: [
         { list: require("../../../assets/image/1.png") },
         { list: require("../../../assets/image/2.png") },
@@ -97,19 +99,24 @@ export default {
       },
       rules: {
         username: [
-          { required: true, message: this.$t('message.nickname'), trigeger: "blur" }
+          {
+            required: true,
+            message: this.$t("message.nickname"),
+            trigeger: "blur"
+          }
         ]
       }
     };
   },
   created() {
-      this.getUser()
+    this.getUser();
   },
   methods: {
-      //个人信息
+    //个人信息
     getUser() {
       let that = this;
-      api.choices("api/user/info")
+      api
+        .choices("api/user/info")
         .then(response => {
           if (response.status == 200) {
             that.imageUrl = response.res.user.avatar;
@@ -130,6 +137,7 @@ export default {
         //监听文件读取结束后事件
         reader.onloadend = function(e) {
           that.imageUrl = e.target.result;
+          that.ruleForm.avatar = e.target.result;
         };
       }
     },
@@ -142,18 +150,14 @@ export default {
       image.src = url;
       var base64 = getBase64Image(image);
       this.imageUrl = base64;
+      this.ruleForm.avatar=base64
     },
-    
 
     //提交设置
     submitName(ruleForm) {
-      let that = this;
       let data = this.ruleForm;
-      console.log(this.imageUrl);
-      let avatar = this.imageUrl; //获取头像
-      console.log(avatar);
-      this.ruleForm.avatar = avatar;
-      api.choices("api/user/changeAttr", data)
+      api
+        .choices("api/user/changeAttr", data)
         .then(response => {
           if (response.status == 200) {
             alert(response.msg);

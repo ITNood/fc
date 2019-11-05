@@ -10,24 +10,24 @@
         id="tabs"
       >
         <el-tab-pane
-          :label="$t('message.usdtWith')"
+          :label="$t('message.exchange')"
           name="first"
         >
           <ul class="cash">
             <li>
-              <p>我的流通FC</p>
+              <p>{{$t('message.myfc')}}</p>
               <h5>{{fc}}</h5>
             </li>
             <li>
-              <p>我的锁定FC</p>
+              <p>{{$t('message.lockfc')}}</p>
               <h5>{{close}}</h5>
             </li>
             <li>
-              <p>流通FC兑换锁定FC</p>
+              <p>{{$t('message.currentfc')}}</p>
               <el-input
                 v-model="amount"
                 class="entry"
-                placeholder="请输入兑换数量"
+                :placeholder="$t('message.exchangeNumber')"
               ></el-input>
             </li>
           </ul>
@@ -38,7 +38,7 @@
           >{{$t('message.confirm')}}</el-button>
         </el-tab-pane>
         <el-tab-pane
-          :label="$t('message.record')"
+          :label="$t('message.forRecord')"
           name="second"
         >
           <div class="cashList">
@@ -110,7 +110,7 @@ export default {
       if (amount) {
         this.$refs.child.open();
       }else{
-          alert('请输入兑换数量')
+          alert(this.$t('message.exchangeNumber'))
       }
     },
     submit(pwd) {
