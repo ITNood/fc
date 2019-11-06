@@ -62,8 +62,6 @@
 </template>
 
 <script>
-const fs = require('fs');
-const path = require('path');
 
 import download from "../../../assets/js/download";
 import api from "../../../API/index";
@@ -99,31 +97,15 @@ export default {
         });
     },
     //保存图片
-    hold(url, filePath) {
-      // let code = this.code;
-      // if (code) {
-      //   download(this.code, "code.png", "png/png");
-      // } else {
-      //   alert(this.$t('message.picter'));
-      // }
-      return new Promise((resolve, reject) => {
-        api.http(this.code, res => {
-          ensurePath(path.dirname(filePath));
-          const writer = fs.createWriteStream(filePath);
-          res.on("data", chunk => {
-            writer.write(chunk, err => {
-              if (err) {
-                reject(err);
-              }
-            });
-          });
-          res.on("end", () => {
-            writer.end();
-            resolve(filePath);
-          });
-        });
-      });
+    hold() {
+      let code = this.code;
+      if (code) {
+        download(this.code, "code.png", "png/png");
+      } else {
+        alert(this.$t('message.picter'));
+      }
     },
+    //复制
     copy() {
       let address = this.address;
       if (address) {

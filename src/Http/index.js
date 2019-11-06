@@ -18,13 +18,11 @@ const Axios = axios.create({
 //拦截所有api请求，重新获取token
 Axios.interceptors.request.use(
     config => {
-        let token = localStorage.getItem('token')
-        //console.log(token)
-        //const token = store.state.token
+        const token = localStorage.getItem('token')
         const lang = localStorage.getItem('lang')
-        if (token&&lang) {
+        if (token||lang) {
             config.headers.Token = token
-           config.headers.lang = lang
+            config.headers.lang = lang
         }
         return config
     },

@@ -10,7 +10,7 @@
         id="tabs"
       >
         <el-tab-pane
-          :label="$t('message.repo')"
+          :label="$t('message.appointment')"
           name="first"
         >
           <ul class="cash">
@@ -55,7 +55,7 @@
           >{{$t('message.confirm')}}</el-button>
         </el-tab-pane>
         <el-tab-pane
-          :label="$t('message.back')"
+          :label="$t('message.forRecord')"
           name="second"
         >
           <div class="cashList">
@@ -100,7 +100,7 @@ export default {
   components: { Top, Pin },
   data() {
     return {
-      msg: this.$t('message.repo'),
+      msg: this.$t('message.appointment'),
       activeName: "first",
       fc: 0,
       amount: 1,

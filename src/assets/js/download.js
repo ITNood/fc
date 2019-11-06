@@ -18,7 +18,7 @@ function download(data, strFileName, strMimeType) {
 		z = function (a) { return String(a); },
 
 
-		B = self.Blob || self.MozBlob || self.WebKitBlob || z,
+		B = self.Blob || self.MozBlob || self.WebKitBlob || z, 
 		BB = self.MSBlobBuilder || self.WebKitBlobBuilder || self.BlobBuilder,
 		fn = strFileName || "download",
 		blob,

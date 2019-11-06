@@ -48,7 +48,7 @@
           <li>
             <router-link to="/fc/recycling/index">
               <span class="icon iconfont icon-xunhuanxuyuezhuanzhang"></span>
-                 <p>{{$t('message.repo')}}</p>
+                 <p>{{$t('message.appointment')}}</p>
             </router-link>
           </li>
         </ul>
