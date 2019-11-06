@@ -3,28 +3,28 @@
     <Top :title="msg" />
     <div class="layout">
         <div class="income">
-            <p>今日收入</p>
+            <p>{{$t('message.today')}}</p>
             <ul>
                 <li>
                     <h5>{{share}}</h5>
-                    <span>分享奖励</span>
+                    <span>{{$t('message.rewards')}}</span>
                 </li>
                 <li>
                     <h5>{{leader}}</h5>
-                    <span>领导奖励</span>
+                    <span>{{$t('message.award')}}</span>
                 </li>
             </ul>
         </div>
         <div class="income">
-            <p>本周收入</p>
+            <p>{{$t('message.weekincome')}}</p>
             <ul>
                 <li>
                     <h5>{{share1}}</h5>
-                    <span>分享奖励</span>
+                    <span>{{$t('message.rewards')}}</span>
                 </li>
                 <li>
                     <h5>{{leader1}}</h5>
-                    <span>领导奖励</span>
+                    <span>{{$t('message.award')}}</span>
                 </li>
             </ul>
         </div>

@@ -38,7 +38,7 @@
           >{{$t('message.confirm')}}</el-button>
         </el-tab-pane>
         <el-tab-pane
-          :label="$t('message.forRecord')"
+          :label="$t('message.forRecord1')"
           name="second"
         >
           <div class="cashList">

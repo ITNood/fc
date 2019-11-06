@@ -12,6 +12,7 @@
                 <p>{{$t('message.protocol')}}</p>
                 <p>{{$t('message.only')}}</p>
                 <p>{{$t('message.error')}}</p>
+                <p>{{$t('message.order')}}</p>
             </div>
     </div>
   </div>

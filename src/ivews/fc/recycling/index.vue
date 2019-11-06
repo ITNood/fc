@@ -46,7 +46,7 @@
             style="color:#999"
           >
             <p>{{$t('message.trading')}}：</p>
-            <p>{{$t('message.hand')}}。</p>
+            <p>{{$t('message.hand')}}</p>
           </div>
           <el-button
             class="submit"

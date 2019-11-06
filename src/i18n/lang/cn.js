@@ -1,6 +1,10 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN' //引入element语言包
 const cn = {
     message: {
+        'weekincome':'本周收入',
+        'award':'领导奖励',
+        'today':'今日收入',
+        'rewards':'分享奖励',
         'appointment':'预约',
         'pending':'待受理',
         'noCentent':'没有内容可复制',
@@ -60,7 +64,7 @@ const cn = {
         'setPwd': '请设置PIN密码',
         'newPinCode': '请输入新PIN密码',
         'confirmPinCode': '请确认新的PIN密码',
-        'oldPin': '请输入原PIN密码',
+        'oldPin': '请输入原支付密码',
         'criculation': '流通FC',
         'lock': '锁定FC',
         'valueAdd': '增值',
@@ -128,6 +132,7 @@ const cn = {
         'entryValue': '请输入增值金额',
         'eventGet': '最终获得',
         'forRecord': '预约记录',
+        'forRecord1':'兑换记录',
         'myfc': '我的流通FC',
         'lockfc': '我的锁定FC',
         'currentfc': '流通FC兑换锁定FC',
@@ -153,7 +158,8 @@ const cn = {
         'had': '已撤销',
         'quantily': '请输入数量',
         'invitation': '邀请账号和手机号码不能为空',
-        'paste': '请输入或长按粘贴您的USDT地址'
+        'paste': '请输入或长按粘贴您的USDT地址',
+        'order':'为保障您的账户安全，绑定后无法修改，请谨慎操作'
     },
     ...zhLocale
 }

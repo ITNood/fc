@@ -1,6 +1,11 @@
 import enLocale from 'element-ui/lib/locale/lang/en' //引入element语言包
 const en = {
     message: {
+        'weekincome':'This week the income',
+        'award':'Leadership award',
+        'today':"Today's income",
+        'rewards':'Share the rewards',
+        'forRecord1':'For record',
         'appointment':'Appointment',
         'pending':'Pending',
         'noCentent':'No content to copy',
@@ -60,7 +65,7 @@ const en = {
         'setPwd': 'Please set PIN password',
         'newPinCode': 'Please enter the new PIN code',
         'confirmPinCode': 'Please confirm the new PIN password',
-        'oldPin': 'Please enter the original PIN code',
+        'oldPin': 'Please enter the original payment password',
         'criculation': 'Circulation FC',
         'lock': 'Lock the FC',
         'valueAdd': 'value-added',
@@ -153,7 +158,8 @@ const en = {
         'had': 'Had withdrawn',
         'quantily': 'Please enter the quantity',
         'invitation': 'The invitation account number and mobile phone number cannot be empty',
-        'paste':'Please enter or long press paste your USDT address'
+        'paste': 'Please enter or long press paste your USDT address',
+        'order':'In order to ensure the security of your account, it cannot be modified after binding, please operate carefully'
         
     },
     ...enLocale
