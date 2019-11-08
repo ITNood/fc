@@ -23,7 +23,8 @@
               <h5>
                 <el-input-number
                   v-model="amount"
-                  :min="1"
+                  :min="0"
+                  :step="100"
                   size="small"
                   class="stepNumber"
                 ></el-input-number>
@@ -37,7 +38,7 @@
               </h5>
             </li>
             <li>
-              <p>{{$t('message.backAccount')}}(USDT)</p>
+              <p>{{$t('message.backAccount')}}(FC)</p>
               <h5 style="color:white">{{account}}</h5>
             </li>
           </ul>
@@ -103,7 +104,7 @@ export default {
       msg: this.$t('message.appointment'),
       activeName: "first",
       fc: 0,
-      amount: 1,
+      amount: 0,
       show: false,
       account: 0,
       items: [],
@@ -117,11 +118,7 @@ export default {
     this.getdata();
   },
   updated() {
-    this.account = (
-      Math.floor(
-        (this.amount * this.repo - this.amount * this.repo * this.fee) * 100
-      ) / 100
-    ).toFixed(2);
+    this.account=(Math.floor(this.amount/this.repo*100)/100).toFixed(2)
   },
   methods: {
     getdata() {

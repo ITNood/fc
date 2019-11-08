@@ -152,7 +152,7 @@ const cn = {
         'repo': '回购',
         'back': '回购记录',
         'selectback': '选择预约份额（USDT）',
-        'backAccount': '预约到账',
+        'backAccount': '需要扣费',
         'trading': '交易须知',
         'hand': '您将流通FC兑换于平台，平台将付于对应价格的USDT作为支付货币。',
         'had': '已撤销',

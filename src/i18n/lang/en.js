@@ -152,7 +152,7 @@ const en = {
         'repo': 'Repo',
         'back': 'The buyback record',
         'selectback': 'Select reservation share (USDT)',
-        'backAccount': 'Appointment to the account',
+        'backAccount': 'Need to deduction',
         'trading': 'Trading instructions',
         'hand': 'You will exchange the circulating FC on the platform, and the platform will pay USDT at the corresponding price as the payment currency.',
         'had': 'Had withdrawn',
