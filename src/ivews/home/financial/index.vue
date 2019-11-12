@@ -1,7 +1,7 @@
 <template>
   <div>
     <Top :title="msg" />
-    <div class="layout">
+    <div class="layout" style="margin-bottom:20px">
         <div class="income">
             <p>{{$t('message.today')}}</p>
             <ul>
@@ -28,6 +28,20 @@
                 </li>
             </ul>
         </div>
+        <div class="shareHistry">
+            <h5>{{$t('message.incomerecord')}}</h5>
+            <div class="shareList">
+                <ul>
+                    <li v-for="(item,index) in items" :key="index">
+                        <el-row :gutter="10">
+                            <el-col :span="8">{{item.text}}</el-col>
+                            <el-col :span="8" style="text-align:center">{{item.amount}}</el-col>
+                            <el-col :span="8" style="text-align:right">{{item.date}}</el-col>
+                        </el-row>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
   </div>
 </template>
@@ -43,7 +57,8 @@ export default {
         share:0,
         leader:0,
         share1:0,
-        leader1:0
+        leader1:0,
+        items:[]
     };
   },
   created() {
@@ -57,6 +72,7 @@ export default {
                   this.leader=result.res.today.leader
                   this.share1=result.res.week.share
                   this.leader1=result.res.week.leader
+                  this.items=result.res.record
               }
           }).catch(err=>{
               console.log(err)

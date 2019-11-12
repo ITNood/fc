@@ -1840,18 +1840,16 @@ a {
 **
 **/
 .income {
-    padding-top: 20px;
 
     p {
         color: @white;
         text-align: center;
-        line-height: 180%;
+        line-height: 35px;
     }
 
     ul {
         background: #062e46;
         padding: 20px;
-        margin-top: 15px;
         border-radius: 6px;
         display: flex;
         align-items: center;
@@ -1870,6 +1868,38 @@ a {
                 color: @blue;
                 font-family: number;
                 font-size: 20px;
+            }
+        }
+    }
+}
+
+.shareHistry {
+    margin-top: 20px;
+
+    h5 {
+        line-height: 30px;
+        color: @white;
+        font-size: 14px;
+    }
+
+    .shareList {
+        overflow: hidden;
+        margin-top: 20px;
+
+        ul {
+            height: calc(100vh - 420px);
+            overflow-y: auto;
+
+            li {
+                border-bottom: 1px solid @borderColor;
+                padding-bottom: 8px;
+                margin-bottom: 8px;
+                color: @white;
+                line-height: 30px;
+
+                .el-col {
+                    font-size: 14px;
+                }
             }
         }
     }
