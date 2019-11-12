@@ -1,6 +1,7 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN' //引入element语言包
 const cn = {
     message: {
+        'undo':'已撤销',
         'weekincome':'本周收入',
         'award':'领导奖励',
         'today':'今日收入',

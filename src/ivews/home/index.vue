@@ -48,10 +48,13 @@
                 <i v-if="item.isCheck== false" class="el-icon-star-off"></i>
                 <i v-else class="el-icon-star-on"></i>
                 <el-row :gutter="15">
-                  <el-col :span="14" class="walletName">
+                  <el-col :span="8" class="walletName">
                     {{item.name}}<span v-if="item.isCheck==true">{{item.balance}}</span>
                   </el-col>
-                  <el-col :span="10" class="percent">
+                  <el-col :span="8" class="amount">
+                    <h5>{{item.income}}</h5>
+                  </el-col>
+                  <el-col :span="8" class="percent">
                     <h5>{{item.amount}}</h5>
                     <!-- <p v-if="item.ratio>0" style="color:#05ce7e">+{{item.ratio}}%</p>
                     <p v-else style="color:#ff5e52">{{item.ratio}}%</p> -->

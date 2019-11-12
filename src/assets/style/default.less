@@ -588,14 +588,21 @@ a {
                     }
                 }
 
+                .amount>h5 {
+                    text-align: center;
+                    color: @white;
+                    font-size: 16px;
+                    line-height: 40px;
+                }
+
                 .percent {
                     text-align: right;
+                    float: right;
 
                     h5 {
                         color: @white;
                         font-size: 16px;
                         font-family: number;
-                        line-height: 25px;
                         line-height: 40px;
                     }
                 }
@@ -1920,20 +1927,24 @@ a {
         position: relative;
         margin-bottom: 8px;
         padding-right: 50%;
-        p{
+
+        p {
             color: @white;
             height: 45px;
         }
-        .contentRight{
+
+        .contentRight {
             position: absolute;
             right: 0;
             top: 8px;
             text-align: right;
-            p{
+
+            p {
                 line-height: 25px;
                 height: 25px;
             }
-            span{
+
+            span {
                 line-height: 20px;
             }
         }
