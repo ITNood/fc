@@ -1,13 +1,12 @@
 import axios from 'axios'
 import { Loading, Message } from 'element-ui'
 import json_response_codes from './codes'
-import config from '../config'
+import config from '../config/index'
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
 // 创建axios实例
-//let token = window.localStorage.getItem("token") 
 const Axios = axios.create({
     baseURL: process.env.NODE_ENV === 'production' ? "http://de.home.doopup.com/" : "/api/",
     //baseURL:'http://www.hxfc.com/',
