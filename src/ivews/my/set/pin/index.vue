@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import * as http from '../../../../public/index'
 import api from "../../../../API/index";
 import Top from "../../../../components/top";
 const keys = () => [1, 2, 3, 4, 5, 6, 7, 8, 9, "", 0];
@@ -70,7 +71,7 @@ export default {
     isSetPassword() {
       let that = this;
       api
-        .choices("api/safeSet/isSetPayPwd")
+        .choices(http.PINSET)
         .then(response => {
           if (response.status == 200) {
             console.log(response);
@@ -107,7 +108,7 @@ export default {
           this.confirmPwd = this.password.join("");
           //提交PIN密码
           api
-            .choices("api/safeSet/changeSafePwd", {
+            .choices(http.EDITORPIN, {
               oldPwd: this.oldPwd,
               pwd: this.pwd,
               confirmPwd: this.confirmPwd

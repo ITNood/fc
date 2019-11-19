@@ -77,6 +77,7 @@
 </template>
 
 <script>
+import *as http from '../public/index'
 import api from "../API/index";
 import Top from "../components/top";
 export default {
@@ -129,7 +130,7 @@ export default {
   methods: {
     //发送验证码
     send() {
-      api.choices("api/resetPwd/sendPhoneCode", {
+      api.choices(http.FORGETCODE, {
           username: this.forgetForm.username,
           mobile: this.forgetForm.mobile
         })
@@ -162,7 +163,7 @@ export default {
       this.$refs[forgetForm].validate(valid => {
         if (valid) {
           let data = this.forgetForm;
-          api.choices("api/resetPwd/update", data).then(result=>{
+          api.choices(http.FORGET, data).then(result=>{
             if(result.status==200){
               alert(result.msg)
               this.$router.push('/')

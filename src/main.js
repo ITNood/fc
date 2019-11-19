@@ -11,10 +11,9 @@ import vueiInfinite from 'vue-infinite-scroll'
 import i18n from './i18n/i18n'
 import axios from 'axios'
 import echarts from 'echarts'
-Vue.prototype.$echarts=echarts
+Vue.prototype.$echarts = echarts
 
-Vue.use(vueiInfinite)
-Vue.use(ElementUI)
+Vue.use(vueiInfinite).use(ElementUI)
 
 Vue.config.productionTip = false
 //添加cookie

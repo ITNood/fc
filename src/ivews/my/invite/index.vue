@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from "../../../API/index";
 import Top from "../../../components/top";
 export default {
@@ -81,7 +82,7 @@ export default {
     //国家区号
     getArea() {
       api
-        .choices("api/getCountryRegion")
+        .choices(http.COUNTRY)
         .then(result => {
           if (result.status == 200) {
             this.items = this.items.concat(result.res.data);
@@ -102,7 +103,7 @@ export default {
       let mobile = this.forgetForm.mobile;
       if (username && mobile) {
         let data = this.forgetForm;
-        api.choices("api/register/index", data).then(result => {
+        api.choices(http.INVITE, data).then(result => {
           if (result.status == 200) {
             alert(result.msg);
             this.$router.push("/my/index");

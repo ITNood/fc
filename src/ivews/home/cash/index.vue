@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from '../../../API/index'
 import Top from "../../../components/top";
 import Pin from '../../../components/pin'
@@ -58,7 +59,7 @@ export default {
   },
   methods: {
       getdata(){
-          api.choices('api/withdraw/index').then(result=>{
+          api.choices(http.CASH).then(result=>{
               if(result.status==200){
                   this.usdt=result.res.usdt
                   this.number=result.res.multiple
@@ -78,7 +79,7 @@ export default {
       },
       submit(pwd){
           //console.log(pwd)
-          api.choices('api/withdraw/insert',{amount:this.amount,safePwd:pwd}).then(result=>{
+          api.choices(http.CASHSUBMIT,{amount:this.amount,safePwd:pwd}).then(result=>{
               if(result.status==200){
                   alert(result.msg)
                   window.location.reload()

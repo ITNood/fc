@@ -94,6 +94,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from "../../../API/index";
 import Top from "../../../components/top";
 import Pin from "../../../components/pin";
@@ -123,7 +124,7 @@ export default {
   methods: {
     getdata() {
       api
-        .choices("api/repo/index")
+        .choices(http.RECYCLING)
         .then(result => {
           if (result.status == 200) {
             this.fc = result.res.flowFc;
@@ -150,7 +151,7 @@ export default {
     },
     submit(pwd) {
       api
-        .choices("api/repo/insert", { amount: this.amount, safePwd: pwd })
+        .choices(http.RECYCLINGSUBMIT, { amount: this.amount, safePwd: pwd })
         .then(result => {
           if (result.status == 200) {
             alert(result.msg);

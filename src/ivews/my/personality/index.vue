@@ -72,6 +72,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import Top from "../../../components/top";
 import api from "../../../API/index";
 export default {
@@ -116,7 +117,7 @@ export default {
     getUser() {
       let that = this;
       api
-        .choices("api/user/info")
+        .choices(http.USER)
         .then(response => {
           if (response.status == 200) {
             that.imageUrl = response.res.user.avatar;
@@ -157,7 +158,7 @@ export default {
     submitName(ruleForm) {
       let data = this.ruleForm;
       api
-        .choices("api/user/changeAttr", data)
+        .choices(http.EDITORPERSONALITY, data)
         .then(response => {
           if (response.status == 200) {
             alert(response.msg);

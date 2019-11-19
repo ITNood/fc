@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from '../../../API/index'
 import Top from "../../../components/top";
 export default {
@@ -32,7 +33,7 @@ export default {
   },
   methods: {
       getdata(){
-          api.choices('api/home/uploadAddress').then(result=>{
+          api.choices(http.ABOUT).then(result=>{
               if(result.status==200){
                   this.code=result.res.img
               }

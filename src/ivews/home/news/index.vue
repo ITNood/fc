@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import *as http from '../../../public/index'
 import Top from "../../../components/top";
 import api from '../../../API/index'
 export default {
@@ -65,7 +66,7 @@ export default {
   },
   methods: {
     getdata(){
-      api.choices('api/msg/index').then(result=>{
+      api.choices(http.NEWS).then(result=>{
         if(result.status==200){
           this.items=this.items.concat(result.res.msg)
           this.lists=this.lists.concat(result.res.notice)

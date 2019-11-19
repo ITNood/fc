@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import * as http from '../../public/index'
 import Interest from '../../components/interest'
 import Footer from "../../components/nav";
 import api from '../../API/index'
@@ -99,7 +100,7 @@ export default {
   },
   methods: {
     getdata(){
-      api.choices('api/home/index').then(result=>{
+      api.choices(http.HOME).then(result=>{
         if(result.status==200){
           this.amount=result.res.usdt
           this.username=result.res.user.nickname,

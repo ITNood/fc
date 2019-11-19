@@ -82,6 +82,7 @@
 </template>
 
 <script>
+import *as http from '../../public/index'
 import api from '../../API/index'
 import Footer from "../../components/nav";
 import Value from '../../components/value'
@@ -112,7 +113,7 @@ export default {
       this.$refs.child.opening()
     },
     getdata(){
-      api.choices('api/fc/index').then(result=>{
+      api.choices(http.FC).then(result=>{
         if(result.status==200){
           this.FC=result.res.flowFc
           this.closeFC=result.res.lockFc

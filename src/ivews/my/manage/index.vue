@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from '../../../API/index'
 import Top from "../../../components/top";
 export default {
@@ -85,7 +86,7 @@ export default {
   },
   methods: {
       getdata(){
-          api.choices('api/user/myChild').then(result=>{
+          api.choices(http.MANAGE).then(result=>{
               if(result.status==200){
                   this.items=this.items.concat(result.res.child)
                   this.allPartner=result.res.all

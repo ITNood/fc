@@ -75,6 +75,7 @@
 </template>
 
 <script>
+import * as http from '../../public/index'
 import Footer from "../../components/nav";
 import api from "../../API/index";
 export default {
@@ -120,7 +121,7 @@ export default {
   methods: {
     getdata() {
       api
-        .choices("api/user/info")
+        .choices(http.USER)
         .then(result => {
           if (result.status == 200) {
             this.avatar = result.res.user.avatar;
@@ -140,7 +141,7 @@ export default {
         })
         .then(() => {
           api
-            .choices("api/login/loginOut")
+            .choices(http.LOGINOUT)
             .then(result => {
               if (result.status == 200) {
                 localStorage.removeItem("token");

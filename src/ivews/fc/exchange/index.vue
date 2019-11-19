@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from "../../../API/index";
 import Pin from "../../../components/pin";
 import Top from "../../../components/top";
@@ -93,7 +94,7 @@ export default {
   methods: {
     getdata() {
       api
-        .choices("api/change/index")
+        .choices(http.EXCHANGE)
         .then(result => {
           if (result.status == 200) {
             this.fc = result.res.flowFc;
@@ -114,7 +115,7 @@ export default {
       }
     },
     submit(pwd) {
-        api.choices('api/change/insert',{amount:this.amount,type:1,safePwd:pwd}).then(result=>{
+        api.choices(http.EXCHANGESUBMIT,{amount:this.amount,type:1,safePwd:pwd}).then(result=>{
             if(result.status==200){
                 alert(result.msg)
                 window.location.reload()

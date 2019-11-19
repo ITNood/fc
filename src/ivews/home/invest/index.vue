@@ -62,7 +62,7 @@
 </template>
 
 <script>
-
+import * as http from '../../../public/index'
 import download from "../../../assets/js/download";
 import api from "../../../API/index";
 import Clipboard from "clipboard";
@@ -84,7 +84,7 @@ export default {
     },
     getdata() {
       api
-        .choices("api/user/myEthAddress")
+        .choices(http.INVEST)
         .then(result => {
           if (result.status == 200) {
             this.address = result.res.address;
