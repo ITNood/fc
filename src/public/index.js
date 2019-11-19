@@ -57,4 +57,8 @@ export const MANAGE = 'api/user/myChild'//直接管理
 
 export const INVITE = 'api/register/index'//邀请伙伴
 
-export const ABOUT ='api/home/uploadAddress'//关于我们
+export const ABOUT = 'api/home/uploadAddress'//关于我们
+
+export const VALUE = 'api/fc/insert'//增值
+
+export const INTEREST ='api/home/algebraSubmit'//套利
