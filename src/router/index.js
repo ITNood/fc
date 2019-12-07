@@ -207,6 +207,13 @@ export default new Router({
       component: () => {
         return import('../ivews/home/invest/histry/index')
       }
+    },
+    {
+      path: '/contract/index',
+      name: 'contract',
+      component: () => {
+        return import('../ivews/contract/index')
+      }
     }
   ]
 })

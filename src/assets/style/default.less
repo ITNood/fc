@@ -1189,6 +1189,8 @@ a {
 
                 p {
                     font-size: 14px;
+                    width: 33.33%;
+                    float: left;
                 }
 
                 span {
@@ -1978,6 +1980,183 @@ a {
                 line-height: 20px;
             }
         }
+    }
+}
+
+/*
+*
+*
+*-------------------------------------合约---------------------------
+*
+*
+*/
+.selectContract {
+    p {
+        border-left: 2px solid @blue;
+        color: @white;
+        line-height: 20px;
+        padding-left: 8px
+    }
+
+    .selectDay {
+        margin-top: 10px;
+        width: 100%;
+
+        .el-input__inner {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid @borderColor;
+            border-radius: 0;
+            color: @white;
+            padding-left: 40px;
+        }
+    }
+
+    .icon_day {
+        position: absolute;
+        width: 30px;
+        top: 10px;
+        left: 0;
+    }
+}
+
+.myContract {
+    margin-top: 20px;
+
+    span {
+        border-left: 2px solid @blue;
+        color: @white;
+        line-height: 20px;
+        padding-left: 8px;
+    }
+
+    .el-row {
+        margin-top: 15px;
+
+        .el-col {
+            text-align: center;
+            border-bottom: 1px solid @borderColor;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+
+            h5 {
+                font-family: number;
+                height: 25px;
+                font-size: 14px;
+                color: @white;
+            }
+
+            p {
+                color: @white;
+            }
+        }
+    }
+}
+
+.contractHistory {
+    overflow: hidden;
+
+    ul {
+        overflow-y: auto;
+        height: calc(100vh - 441px);
+
+        li {
+            border-bottom: 1px solid @borderColor;
+            padding: 8px 0 8px 40px;
+            position: relative;
+            margin-bottom: 10px;
+
+            img {
+                width: 30px;
+                position: absolute;
+                left: 0;
+                top: 8px;
+            }
+
+            span {
+                width: 33.333%;
+                float: left;
+                color: @white;
+                line-height: 30px;
+
+                &:nth-child(3) {
+                    text-align: center;
+                }
+
+                &:nth-child(4) {
+                    text-align: right;
+
+                    p {
+                        line-height: 15px;
+
+                        b {
+                            color: @blue;
+                            margin: 0 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contractDay {
+    p {
+        color: @white;
+    }
+
+    .contractContent {
+        position: relative;
+        border-bottom: 1px solid @borderColor;
+        margin-top: 15px;
+        padding-bottom: 8px;
+        padding-left: 40px;
+        height: 30px;
+        margin-bottom: 10px;
+
+        img {
+            width: 30px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        p {
+            width: 50%;
+            float: left;
+            color: @white;
+            line-height: 30px;
+
+            &:nth-child(3) {
+                text-align: right;
+            }
+        }
+
+
+    }
+}
+
+.amounttotal {
+    margin-top: 10px;
+    height: 40px;
+    color: @blue;
+    line-height: 40px;
+    font-family: number;
+    border-bottom: 1px solid @borderColor;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.allTotal {
+    margin-top: 10px;
+
+    .el-input__inner {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid @borderColor;
+        padding: 0;
+        border-radius: 0;
+        color: @white;
     }
 }
 

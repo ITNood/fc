@@ -48,10 +48,11 @@
             <h5>{{$t('message.invitePartner')}}</h5>
             <div class="partnerList">
                 <ul>
-                    <li v-for="(item,index) in items" :key="index">
+                    <li v-for="(item,index) in items" :key="index" class="clear">
                         <img :src="item.avatar">
                         <p>{{item.username}}</p>
-                        <span>{{item.amount}}</span>
+                        <p>{{item.total_amount}}</p>
+                        <span>{{item.yesterday_amount}}</span>
                     </li>
                 </ul>
             </div>
