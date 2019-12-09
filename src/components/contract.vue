@@ -19,7 +19,7 @@
         <el-input
           v-model="price"
           class="allTotal"
-          :placeholder="$t('message.enter100')+number+$t('message.enter100')"
+          :placeholder="$t('message.enter100')+number+$t('message.times')"
         ></el-input>
         <el-button
           @click="submit1()"
