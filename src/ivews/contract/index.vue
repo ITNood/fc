@@ -75,8 +75,14 @@
             <img :src="list.img">
             <span>{{list.day}}Day</span>
             <span>{{list.amount}}</span>
+            <span>+{{list.ratio}}%</span>
             <span>
-              <p>+{{list.ratio}}%</p>
+              <!-- <p>+{{list.ratio}}%</p> -->
+              <el-button
+                @click="over(list.id,list.img,list.day,list.amount,list.ratio,list.period)"
+                class="over"
+                v-if="list.state==0"
+              >终止</el-button>
               <p>{{$t('message.Surplus')}}<b>{{list.period}}</b>Day</p>
             </span>
           </li>
@@ -93,17 +99,33 @@
       :id="valId"
       :number="times"
     />
+    <OverContract
+      :imgSrc="src"
+      :days="theday"
+      :prt="percents"
+      :totals="prices"
+      :overday="allday"
+      :ids="overId"
+      ref="children"
+    />
   </div>
 </template>
 
 <script>
 import api from "../../API/index";
 import Contract from "../../components/contract";
+import OverContract from "../../components/overContract";
 import Footer from "../../components/nav";
 export default {
-  components: { Footer, Contract },
+  components: { Footer, Contract, OverContract },
   data() {
     return {
+      overId: "",
+      src: "",
+      theday: "",
+      percents: "",
+      prices: "",
+      allday: "",
       times: "",
       date: "",
       show: false,
@@ -139,7 +161,7 @@ export default {
             this.num = this.options[0].multiple;
             this.image = this.options[0].img;
             this.valId = this.options[0].id;
-            this.times=result.res.multiple
+            this.times = result.res.multiple;
           }
         })
         .catch(err => {
@@ -161,6 +183,16 @@ export default {
           this.valId = item.id;
         }
       });
+    },
+    over(id, img, day, amount, ratio, period) {
+      console.log(id, img, day, amount, ratio, period);
+      this.$refs.children.close();
+      this.src = img;
+      this.theday = day;
+      this.percents = ratio;
+      this.prices = amount;
+      this.allday = period;
+      this.overId=id
     }
   }
 };

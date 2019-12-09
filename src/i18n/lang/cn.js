@@ -1,6 +1,10 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN' //引入element语言包
 const cn = {
     message: {
+        'over':'提前终止',
+        'those':'未到期提前终止的将收取20%进入风控基金。',
+        'remainday':'剩余合约天数',
+        'currcontractamount':'当前合约金额',
         'contractbe':'合约金额不能为0',
         'enter100': '请输入',
         'times':'倍数的USDT',
