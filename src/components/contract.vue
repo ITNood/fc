@@ -49,9 +49,6 @@ export default {
       dialogVisible: false
     };
   },
-  updated() {
-    console.log(this.id);
-  },
   methods: {
     opening() {
       this.dialogVisible = !this.dialogVisible;
