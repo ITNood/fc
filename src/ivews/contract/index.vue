@@ -91,6 +91,7 @@
       :img="image"
       :percent="num"
       :id="valId"
+      :number="times"
     />
   </div>
 </template>
@@ -103,6 +104,7 @@ export default {
   components: { Footer, Contract },
   data() {
     return {
+      times: "",
       date: "",
       show: false,
       valId: "",
@@ -137,6 +139,7 @@ export default {
             this.num = this.options[0].multiple;
             this.image = this.options[0].img;
             this.valId = this.options[0].id;
+            this.times=result.res.multiple
           }
         })
         .catch(err => {

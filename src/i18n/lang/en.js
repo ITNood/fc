@@ -2,7 +2,8 @@ import enLocale from 'element-ui/lib/locale/lang/en' //引入element语言包
 const en = {
     message: {
         'contractbe':'Contract amount cannot be 0',
-        'enter100':'Please enter usdt of 100 times',
+        'enter100': 'Please enter ',
+        'times':'usdt of times',
         'buycontract':'Purchase contract amount',
         'conday':'Contract days',
         'Surplus':'Surplus',

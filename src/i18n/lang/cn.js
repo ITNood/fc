@@ -2,7 +2,8 @@ import zhLocale from 'element-ui/lib/locale/lang/zh-CN' //引入element语言包
 const cn = {
     message: {
         'contractbe':'合约金额不能为0',
-        'enter100':'请输入100倍数的USDT',
+        'enter100': '请输入',
+        'times':'倍数的USDT',
         'buycontract':'购买合约金额',
         'conday':'合约天数',
         'Surplus':'剩余',

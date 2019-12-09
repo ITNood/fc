@@ -19,7 +19,7 @@
         <el-input
           v-model="price"
           class="allTotal"
-          :placeholder="$t('message.enter100')"
+          :placeholder="$t('message.enter100')+number+$t('message.enter100')"
         ></el-input>
         <el-button
           @click="submit1()"
@@ -39,7 +39,7 @@
 import api from "../API/index";
 import Pin from "../components/pin";
 export default {
-  props: ["moeny", "img", "day", "percent", "id"],
+  props: ["moeny", "img", "day", "percent", "id",'number'],
   components: { Pin },
   name: "Contract",
   data() {
