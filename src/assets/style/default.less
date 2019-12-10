@@ -2070,14 +2070,14 @@ a {
                 width: 30px;
                 position: absolute;
                 left: 0;
-                top: 8px;
+                top: 15px;
             }
 
             span {
                 width: 25%;
                 float: left;
                 color: @white;
-                line-height: 30px;
+                line-height: 47px;
 
                 &:nth-child(4) {
                     text-align: center;
@@ -2085,6 +2085,7 @@ a {
 
                 &:nth-child(5) {
                     text-align: right;
+                    line-height: 30px;
 
                     p {
                         line-height: 15px;
@@ -2099,10 +2100,15 @@ a {
                     border: 1px solid @borderColor;
                     line-height: 15px;
                     background: transparent;
-                    padding: 0 20px;
                     border-radius: 10px;
+                    padding: 0;
+                    width: 100%;
+                    box-sizing: border-box;
                     span{
                         line-height: 20px;
+                        text-align: center;
+                        display: block;
+                        width: 100%;
                     }
                 }
             }

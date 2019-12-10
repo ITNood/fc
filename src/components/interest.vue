@@ -31,7 +31,6 @@
     <Pin
       @submit="submit"
       ref="child"
-      :centerDialogVisible="show"
     />
   </div>
 </template>
@@ -49,7 +48,6 @@ export default {
       amount: "",
       dialogVisible: false,
       type_id: "",
-      show: false
     };
   },
   updated() {

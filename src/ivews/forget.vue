@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import *as http from '../public/index'
+import * as http from "../public/index";
 import api from "../API/index";
 import Top from "../components/top";
 export default {
@@ -85,7 +85,7 @@ export default {
   data() {
     var validatePass = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error(this.$t('message.entryNewPwd')));
+        callback(new Error(this.$t("message.entryNewPwd")));
       } else {
         if (this.forgetForm.confirmPwd !== "") {
           this.$refs.forgetForm.validateField("confirmPwd");
@@ -95,17 +95,17 @@ export default {
     };
     var validatePass2 = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error(this.$t('message.againPwd')));
+        callback(new Error(this.$t("message.againPwd")));
       } else if (value !== this.forgetForm.password) {
-        callback(new Error(this.$t('message.match')));
+        callback(new Error(this.$t("message.match")));
       } else {
         callback();
       }
     };
     return {
-      msg: this.$t('message.forget'),
+      msg: this.$t("message.forget"),
       text: "",
-      text2: this.$t('message.send'),
+      text2: this.$t("message.send"),
       forgetForm: {
         username: "",
         mobile: "",
@@ -115,22 +115,37 @@ export default {
       },
       disabled: false,
       rules: {
-        username: [{ required: true, message: this.$t('message.entryAccount'), trigger: "blur" }],
+        username: [
+          {
+            required: true,
+            message: this.$t("message.entryAccount"),
+            trigger: "blur"
+          }
+        ],
         mobile: [
-          { required: true, message: this.$t('message.phone'), trigger: "blur" }
+          { required: true, message: this.$t("message.phone"), trigger: "blur" }
         ],
         mobileCode: [
-          { required: true, message: this.$t('message.smsCode'), trigger: "blur" }
+          {
+            required: true,
+            message: this.$t("message.smsCode"),
+            trigger: "blur"
+          }
         ],
-        password: [{ validator: validatePass, trigger: "blur",required:true }],
-        confirmPwd: [{ validator: validatePass2, trigger: "blur",required:true }]
-      },
+        password: [
+          { validator: validatePass, trigger: "blur", required: true }
+        ],
+        confirmPwd: [
+          { validator: validatePass2, trigger: "blur", required: true }
+        ]
+      }
     };
   },
   methods: {
     //发送验证码
     send() {
-      api.choices(http.FORGETCODE, {
+      api
+        .choices(http.FORGETCODE, {
           username: this.forgetForm.username,
           mobile: this.forgetForm.mobile
         })
@@ -140,7 +155,7 @@ export default {
             if (!this.timer) {
               this.disabled = true;
               this.text = TIME_COUNT;
-              this.text2 = "S"+this.$t('message.resend');
+              this.text2 = "S" + this.$t("message.resend");
               this.timer = setInterval(() => {
                 if (this.text > 0 && this.text <= TIME_COUNT) {
                   this.text--;
@@ -148,7 +163,7 @@ export default {
                   this.disabled = false;
                   clearInterval(this.timer);
                   this.timer = null;
-                  this.text = this.$t('message.resend');
+                  this.text = this.$t("message.resend");
                   this.text2 = "";
                 }
               }, 1000);
@@ -163,14 +178,17 @@ export default {
       this.$refs[forgetForm].validate(valid => {
         if (valid) {
           let data = this.forgetForm;
-          api.choices(http.FORGET, data).then(result=>{
-            if(result.status==200){
-              alert(result.msg)
-              this.$router.push('/')
-            }
-          }).catch(err=>{
-            console.log(err)
-          });
+          api
+            .choices(http.FORGET, data)
+            .then(result => {
+              if (result.status == 200) {
+                alert(result.msg);
+                this.$router.push("/");
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            });
         }
       });
     }

@@ -82,7 +82,7 @@
                 @click="over(list.id,list.img,list.day,list.amount,list.ratio,list.period)"
                 class="over"
                 v-if="list.state==0"
-              >终止</el-button>
+              >{{$t('message.term')}}</el-button>
               <p>{{$t('message.Surplus')}}<b>{{list.period}}</b>Day</p>
             </span>
           </li>
@@ -90,7 +90,6 @@
       </div>
     </div>
     <Contract
-      :dialogVisible="show"
       ref="child"
       :day="date"
       :moeny="total"
@@ -112,6 +111,7 @@
 </template>
 
 <script>
+import * as http from '../../public/index'
 import api from "../../API/index";
 import Contract from "../../components/contract";
 import OverContract from "../../components/overContract";
@@ -128,7 +128,6 @@ export default {
       allday: "",
       times: "",
       date: "",
-      show: false,
       valId: "",
       num: "",
       total: "0.00",
@@ -147,7 +146,7 @@ export default {
   methods: {
     getdata() {
       api
-        .choices("api/investment/index")
+        .choices(http.CONTRACT)
         .then(result => {
           if (result.status == 200) {
             this.total = result.res.usdt;

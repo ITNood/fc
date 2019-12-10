@@ -30,22 +30,21 @@
     <Pin
       @submit="submit"
       ref="childs"
-      :centerDialogVisible="show"
     />
   </div>
 </template>
 
 <script>
+import * as http from "../public/index";
 import api from "../API/index";
 import Pin from "../components/pin";
 export default {
-  props: ["moeny", "img", "day", "percent", "id",'number'],
+  props: ["moeny", "img", "day", "percent", "id", "number"],
   components: { Pin },
   name: "Contract",
   data() {
     return {
       price: "",
-      show: false,
       dialogVisible: false
     };
   },
@@ -58,19 +57,26 @@ export default {
       if (val) {
         this.dialogVisible = !this.dialogVisible;
         this.$refs.childs.open();
-      }else{
-          alert(this.$t('message.contractbe'))
+      } else {
+        alert(this.$t("message.contractbe"));
       }
     },
     submit(pwd) {
-        api.choices('api/investment/insert',{id:this.id,amount:this.price,safePwd:pwd}).then(result=>{
-            if(result.status==200){
-                alert(result.msg)
-                window.location.reload()
-            }
-        }).catch(err=>{
-            console.log(err)
+      api
+        .choices(http.BUYCONTRACT, {
+          id: this.id,
+          amount: this.price,
+          safePwd: pwd
         })
+        .then(result => {
+          if (result.status == 200) {
+            alert(result.msg);
+            window.location.reload();
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };

@@ -62,3 +62,7 @@ export const ABOUT = 'api/home/uploadAddress'//关于我们
 export const VALUE = 'api/fc/insert'//增值
 
 export const INTEREST ='api/home/algebraSubmit'//套利
+
+export const CONTRACT = 'api/investment/index'//合约
+export const OVERCONTRACT = 'api/investment/cancelOrer'//终止合约
+export const BUYCONTRACT ='api/investment/insert'//购买合约

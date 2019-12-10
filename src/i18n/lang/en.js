@@ -1,6 +1,7 @@
 import enLocale from 'element-ui/lib/locale/lang/en' //引入element语言包
 const en = {
     message: {
+        'term':'Termination',
         'over':'Early termination',
         'those':'Those not expired and terminated in advance will be charged 20% to enter the risk control fund.',
         'remainday':'Remaining contract days',

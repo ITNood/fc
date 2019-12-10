@@ -65,7 +65,7 @@
           </div>
         </div>
       </div>
-      <Interest :dialogVisible="show" ref="child" :imgSrc="img" :id="typeId" :name="coinName" :number="num"/>
+      <Interest ref="child" :imgSrc="img" :id="typeId" :name="coinName" :number="num"/>
   </div>
 </template>
 

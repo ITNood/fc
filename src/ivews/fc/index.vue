@@ -77,7 +77,7 @@
         </ul>
       </div>
     </div>
-    <Value :dialogVisible="show" :FC="closeFC" :ratio="num" ref="child"/>
+    <Value :FC="closeFC" :ratio="num" ref="child"/>
   </div>
 </template>
 
@@ -92,7 +92,6 @@ export default {
     return {
       FC: "",
       closeFC: "",
-      show:true,
       amount:0,
       num:0,
       // items: [
