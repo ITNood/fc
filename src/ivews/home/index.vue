@@ -78,7 +78,6 @@ export default {
   components: { Footer ,Interest},
   data() {
     return {
-      show:false,
       avatar:'',
       username:'',
       amount:'',
