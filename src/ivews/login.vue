@@ -57,7 +57,6 @@
       </ul>
     </div>
     <Login
-      :dialogVisible="show"
       :logo="imgSrc"
       :userMessage="userMsg"
       :type="openType"
@@ -94,7 +93,6 @@ export default {
           }
         ]
       },
-      show: false,
       imgSrc: "",
       userMsg: "",
       openType: ""

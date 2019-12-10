@@ -145,7 +145,7 @@ export default {
             .then(result => {
               if (result.status == 200) {
                 localStorage.removeItem("token");
-                this.$router.push("/");
+                this.$router.push("/login");
               }
             })
             .catch(err => {
