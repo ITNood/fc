@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { Loading, Message } from 'element-ui'
 import json_response_codes from './codes'
-import config from '../config/index'
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
