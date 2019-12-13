@@ -200,6 +200,13 @@ export default new Router({
       component: () => {
         return import('../ivews/fc/recycling/index')
       }
+    },
+    {
+      path: '/home/invest/histry/index',
+      name: 'histry',
+      component: () => {
+        return import('../ivews/home/invest/histry/index')
+      }
     }
   ]
 })

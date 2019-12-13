@@ -1,6 +1,12 @@
 import enLocale from 'element-ui/lib/locale/lang/en' //引入element语言包
 const en = {
     message: {
+        'pending':'Pending',
+        'noCentent':'No content to copy',
+        'picter':'No picture',
+        'rechargeRecord':'Recharge record',
+        'successful':'Recharge successful',
+        'failed':'Recharge failed',
         'arbteam':'Arbitrage team',
         "language": "Language Settings",
         'about': 'About Us',
