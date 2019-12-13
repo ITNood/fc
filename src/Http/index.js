@@ -13,7 +13,6 @@ const Axios = axios.create({
     maxRedirects: 1,
     headers: { "Content-Type": 'application/json' },
 })
-console.log(Axios)
 //拦截所有api请求，重新获取token
 Axios.interceptors.request.use(
     config => {
@@ -57,6 +56,7 @@ Axios.interceptors.response.use(
             window.location.href = '#/login'
         } else if (response.data.status == 400) {//返回错误
             alert(response.data.msg)
+            return Promise.resolve(response.data)
         } else if (response.data.status === json_response_codes.status) {//返回数据
             return Promise.resolve(response.data);
         }
