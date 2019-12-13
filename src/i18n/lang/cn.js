@@ -1,6 +1,8 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN' //引入element语言包
 const cn = {
     message: {
+        'code':'验证码',
+        'enterCode':'请输入验证码',
         'term':'终止',
         'over':'提前终止',
         'those':'未到期提前终止的将收取20%进入风控基金。',

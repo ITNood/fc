@@ -13,6 +13,7 @@ const Axios = axios.create({
     maxRedirects: 1,
     headers: { "Content-Type": 'application/json' },
 })
+console.log(Axios)
 //拦截所有api请求，重新获取token
 Axios.interceptors.request.use(
     config => {
