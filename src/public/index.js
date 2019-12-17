@@ -66,3 +66,12 @@ export const INTEREST ='api/home/algebraSubmit'//套利
 export const CONTRACT = 'api/investment/index'//合约
 export const OVERCONTRACT = 'api/investment/cancelOrer'//终止合约
 export const BUYCONTRACT ='api/investment/insert'//购买合约
+
+export const CREATECONTRACT = 'api/investment/insert'//创建合约
+export const CHECKOUT = 'api/investment/cancelOrer'//出仓
+export const COVERING = 'api/investment/cover'//补仓
+export const CONTRACTDETAILS = 'api/wallet/record'//财务明细
+
+export const GUESS = 'api/guess/index'//小组竞猜
+export const SUBMITGUESS = 'api/guess/insert'//竞猜提交
+export const GUESSHISTRY ='api/guess/record'//竞猜记录
