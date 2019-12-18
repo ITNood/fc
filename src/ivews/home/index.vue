@@ -172,6 +172,7 @@
       :number="num"
       :wallet="bag"
     />
+    <!--创建合约-->
     <Treaty
       :todos="select"
       :amount="amount"

@@ -15,7 +15,7 @@ const cn = {
         'each':'每个用户每日只能参与一次，每次只能选择一个交易小组',
         'explain':'竞猜说明',
         'contestusdt':'请输入竞猜的USDT',
-        'waitopen':'等待开奖',
+        'waitopen':'等待开放',
         'guessed':'已竞猜',
         'gus':'竞猜',
         'myguess':'我的竞猜',
