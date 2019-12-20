@@ -46,7 +46,7 @@
               :key="index"
             >
               <img :src="item.img">
-              <el-row :gutter="15">
+              <el-row>
                 <el-col
                   :span="8"
                   class="walletName"
@@ -57,7 +57,7 @@
                   :span="8"
                   class="amount"
                 >
-                  <h5>{{item.income}}</h5>
+                  <h5 style="font-family:number">{{item.income}}</h5>
                 </el-col>
                 <el-col
                   :span="8"

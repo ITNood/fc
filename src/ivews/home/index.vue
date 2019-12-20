@@ -85,11 +85,11 @@
             class="treatyContent clear"
           >
             <li>
-              <h5>{{day}} Day</h5>
+              <h5 style="font-family:number">{{day}} Day</h5>
               <p>{{date}}</p>
             </li>
             <li>
-              <h5>+{{percent}}%</h5>
+              <h5 style="font-family:number">+{{percent}}%</h5>
               <p>{{$t('message.Surplus')}}<span style="color:#0fbcfa">{{days}}</span>Day</p>
             </li>
             <li>
@@ -148,7 +148,7 @@
                   :span="8"
                   class="amount"
                 >
-                  <h5>{{item.income}}</h5>
+                  <h5 style="font-family:number">{{item.income}}</h5>
                 </el-col>
                 <el-col
                   :span="8"
@@ -277,9 +277,9 @@ export default {
             if (result.res.contract.record.id) {
               this.id = result.res.contract.record.id;
               this.percent = result.res.contract.record.ratio;
-              this.days = result.res.contract.record.period;
-              this.day = result.res.contract.record.day;
-              this.date = result.res.contract.record.date;
+              this.days = result.res.contract.record.period;//剩余天数
+              this.day = result.res.contract.record.day;//天数
+              this.date = result.res.contract.record.date;//日期
             }
           }
         })

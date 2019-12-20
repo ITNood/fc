@@ -54,7 +54,6 @@ import api from "../API/index";
 import Pin from "../components/pin";
 export default {
   name: "Treaty",
-  //   props: ["amount", "number"],
   props: { todos: Array, amount: "", number: "" },
   components: { Pin },
   data() {
@@ -66,8 +65,8 @@ export default {
   },
   mounted() {
    setTimeout(() => {
-       console.log(this.todos[0].id);
-       this.value = this.todos[0].id;
+      // console.log(this.todos[0].id);
+        this.value = this.todos[0].id;
    }, 1000);
   },
   methods: {

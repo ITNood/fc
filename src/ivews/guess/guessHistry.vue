@@ -24,7 +24,7 @@
               >{{$t('message.correctly')}}</h5>
               <h5 v-else style="color:#999999">{{$t('message.quiz')}}</h5>
               <p v-if="item.state==0"></p>
-              <p v-else-if="item.state==1" style="color:white">+${{item.text}}</p>
+              <p v-else-if="item.state==1" style="color:white;font-family:number">+ $ {{item.text}}</p>
               <p v-else style="color:#0ebcf9">{{$t('message.champion')}}：{{item.text}}</p>
             </div>
           </li>
