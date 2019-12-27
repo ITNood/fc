@@ -130,7 +130,7 @@ export default {
           }
         })
         .catch(err => {
-          consolr.log(err);
+          console.log(err);
         });
     },
     //退出登录

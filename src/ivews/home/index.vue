@@ -81,7 +81,7 @@
         </div>
         <div class="addTreaty">
           <ul
-            v-if="this.id"
+            v-if="show"
             class="treatyContent clear"
           >
             <li>
@@ -232,6 +232,7 @@ export default {
       treatyAmount: "",
       id: "",
       bs: "",
+      show: false,
       lists: [
         {
           url: "/home/invest/index",
@@ -252,7 +253,7 @@ export default {
       items: []
     };
   },
-  created() {
+  mounted() {
     this.getdata();
   },
   methods: {
@@ -274,12 +275,18 @@ export default {
             this.bs = result.res.contract.multiple;
             //创建合约
             this.select = result.res.contract.set;
+            console.log(result.res.contract.record.id);
             if (result.res.contract.record.id) {
-              this.id = result.res.contract.record.id;
-              this.percent = result.res.contract.record.ratio;
-              this.days = result.res.contract.record.period;//剩余天数
-              this.day = result.res.contract.record.day;//天数
-              this.date = result.res.contract.record.date;//日期
+              setTimeout(() => {
+                this.show = true;
+                this.id = result.res.contract.record.id;
+                this.percent = result.res.contract.record.ratio;
+                this.days = result.res.contract.record.period; //剩余天数
+                this.day = result.res.contract.record.day; //天数
+                this.date = result.res.contract.record.date; //日期
+              }, 500);
+            } else {
+              this.show = false;
             }
           }
         })

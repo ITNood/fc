@@ -34,11 +34,16 @@
             </el-form-item> -->
             <li style="position:relative">
               <p>{{$t('message.code')}}</p>
-              <img
+              <!-- <img
                 :src="imageCode"
                 class="imgCode"
                 @click="code1"
-              >
+              > -->
+              <el-button
+                class="imgCode"
+                @click="send"
+                :disabled="disabled"
+              >{{text}}{{text2}}</el-button>
               <el-input
                 v-model="code"
                 :placeholder="$t('message.enterCode')"
@@ -119,12 +124,14 @@ export default {
       amount: "",
       show: false,
       items: [],
-      number: ""
+      number: "",
+      text:'',
+      text2: this.$t('message.send'),
+      disabled:false,
     };
   },
   created() {
     this.getdata();
-    this.getCode();
   },
   methods: {
     getdata() {
@@ -135,6 +142,35 @@ export default {
             this.usdt = result.res.usdt;
             this.number = result.res.multiple;
             this.items = this.items.concat(result.res.record);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    //发送验证码
+    send() {
+      api
+        .choices(http.CASHCODE)
+        .then(result => {
+          if (result.status == 200) {
+            const TIME_COUNT = 60;
+            if (!this.timer) {
+              this.disabled = true;
+              this.text = TIME_COUNT;
+              this.text2 = "S" + this.$t("message.resend");
+              this.timer = setInterval(() => {
+                if (this.text > 0 && this.text <= TIME_COUNT) {
+                  this.text--;
+                } else {
+                  this.disabled = false;
+                  clearInterval(this.timer);
+                  this.timer = null;
+                  this.text = this.$t("message.resend");
+                  this.text2 = "";
+                }
+              }, 1000);
+            }
           }
         })
         .catch(err => {
@@ -158,13 +194,13 @@ export default {
           code: this.code
         })
         .then(result => {
-            console.log(result)
+          console.log(result);
           if (result.status == 200) {
             alert(result.msg);
             window.location.reload();
-          }else if(result.status==400){
-              this.code1()
-          } 
+          } else if (result.status == 400) {
+            this.code1();
+          }
         })
         .catch(err => {
           console.log(err);

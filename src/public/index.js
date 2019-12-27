@@ -74,4 +74,6 @@ export const CONTRACTDETAILS = 'api/wallet/record'//财务明细
 
 export const GUESS = 'api/guess/index'//小组竞猜
 export const SUBMITGUESS = 'api/guess/insert'//竞猜提交
-export const GUESSHISTRY ='api/guess/record'//竞猜记录
+export const GUESSHISTRY = 'api/guess/record'//竞猜记录
+
+export const CASHCODE ='withdraw/sendPhoneCOde'//提现发送手机验证码

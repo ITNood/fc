@@ -286,6 +286,13 @@ a {
     bottom: 0;
     width: 100px !important;
     z-index: 99;
+    background: @blue  !important;
+    border: none !important;
+
+    span {
+        color: @white;
+    }
+
 }
 
 .submit.el-button {
@@ -472,7 +479,7 @@ a {
     position: relative;
     line-height: 40px;
     color: @white;
-    font-family:number;
+    font-family: number;
 
     span {
         right: 0;
@@ -596,6 +603,8 @@ a {
         }
 
         .treatyContent {
+            display: block;
+
             li {
                 width: 25%;
                 float: left;
@@ -2448,18 +2457,21 @@ a {
                 width: 40px;
             }
 
-            .half{
+            .half {
                 width: 50%;
-                &:last-child{
+
+                &:last-child {
                     text-align: right;
                 }
-                h5{
+
+                h5 {
                     color: @blue;
                     line-height: 20px;
                     font-size: 14px;
                     font-family: number;
                 }
-                p{
+
+                p {
                     color: @gray;
                     line-height: 20px;
                 }

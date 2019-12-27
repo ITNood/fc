@@ -108,7 +108,7 @@ export default {
               if(result.status==200){
                   this.amount=result.res.usdt
                   this.champion=result.res.yesterdayName
-                  this.yestedayAmount=result.resyesterdayBouns
+                  this.yestedayAmount=result.res.yesterdayBouns
                   this.total=result.res.todayBouns
                   this.items=result.res.data
                   if(result.res.isTime==true){
