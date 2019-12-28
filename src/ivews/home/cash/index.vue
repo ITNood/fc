@@ -32,13 +32,13 @@
                 v-model="forgetForm.code"
               ></el-input>
             </el-form-item> -->
-            <li style="position:relative">
+            <!-- <li style="position:relative">
               <p>{{$t('message.code')}}</p>
-              <!-- <img
+              <img
                 :src="imageCode"
                 class="imgCode"
                 @click="code1"
-              > -->
+              >
               <el-button
                 class="imgCode"
                 @click="send"
@@ -49,7 +49,7 @@
                 :placeholder="$t('message.enterCode')"
                 class="entry"
               ></el-input>
-            </li>
+            </li> -->
             <li>
               <p>{{$t('message.withAmount')}}</p>
               <el-input
@@ -102,7 +102,6 @@
     <Pin
       @submit="submit"
       ref="child"
-      :centerDialogVisible="show"
     />
   </div>
 </template>
@@ -122,7 +121,6 @@ export default {
       activeName: "first",
       usdt: "",
       amount: "",
-      show: false,
       items: [],
       number: "",
       text:'',
@@ -190,8 +188,7 @@ export default {
       api
         .choices(http.CASHSUBMIT, {
           amount: this.amount,
-          safePwd: pwd,
-          code: this.code
+          safePwd: pwd
         })
         .then(result => {
           console.log(result);

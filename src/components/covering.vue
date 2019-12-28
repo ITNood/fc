@@ -28,7 +28,7 @@
             <h4 style="color:white">{{addSurplus}} Day</h4>
           </li>
           <li>
-            <p>{{$t('message.margin')}}</p>
+            <p>{{$t('message.margin1')}}</p>
             <el-input
               v-model="total"
               :placeholder="$t('message.enter100')+beishu+$t('message.times')"

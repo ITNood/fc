@@ -275,16 +275,14 @@ export default {
             this.bs = result.res.contract.multiple;
             //创建合约
             this.select = result.res.contract.set;
-            console.log(result.res.contract.record.id);
+            // console.log(result.res.contract.record.id);
             if (result.res.contract.record.id) {
-              setTimeout(() => {
-                this.show = true;
-                this.id = result.res.contract.record.id;
-                this.percent = result.res.contract.record.ratio;
-                this.days = result.res.contract.record.period; //剩余天数
-                this.day = result.res.contract.record.day; //天数
-                this.date = result.res.contract.record.date; //日期
-              }, 500);
+              this.show = true;
+              this.id = result.res.contract.record.id;
+              this.percent = result.res.contract.record.ratio;
+              this.days = result.res.contract.record.period; //剩余天数
+              this.day = result.res.contract.record.day; //天数
+              this.date = result.res.contract.record.date; //日期
             } else {
               this.show = false;
             }
