@@ -61,18 +61,21 @@ import api from "../API/index";
 import Pin from "../components/pin";
 export default {
   name: "CTC",
-  props: { todos: Array, amount: "", number: "",ids:'',price:'' },
+  props: { todos: Array, amount: "", number: "", ids: "", price: "" },
   components: { Pin },
   data() {
     return {
       dialogVisible: false,
       value: "",
-      val:'',
-      total:''
+      val: "",
+      total: ""
     };
   },
   updated() {
-    this.total=(Math.floor(this.val*this.price)).toFixed(2)
+    this.total = (Math.floor(this.val * this.price*100)/100).toFixed(2);
+    if (this.val > this.number) {
+      this.val = this.number;
+    }
   },
   methods: {
     changId() {
@@ -83,11 +86,11 @@ export default {
     },
     submit1() {
       let val = this.val;
-      let value=this.value
-      if (val&&value) {
+      let value = this.value;
+      if (val && value) {
         this.$refs.child.open();
       } else {
-        alert(this.$t('message.errtips'));
+        alert(this.$t("message.errtips"));
       }
     },
     submit(pwd) {
@@ -95,7 +98,7 @@ export default {
         .choices(http.SUBMITCTC, {
           id: this.ids,
           pay_id: this.value,
-          number:this.val,
+          number: this.val,
           safePwd: pwd
         })
         .then(result => {
