@@ -1,6 +1,21 @@
 import enLocale from 'element-ui/lib/locale/lang/en' //引入element语言包
 const en = {
     message: {
+        'errtips':'Subscription quantity or payment method cannot be empty',
+        'method':'Choose payment method',
+        'totalsub':'Total subscription',
+        'needto':'Please enter the quantity you need to subscribe',
+        'available':'Number of subscriptions available',
+        'buyRecord':'Subscription record',
+        'buyed':'Subscribed',
+        'buy':'Subscription',
+        'notopen':'Not open',
+        'Subscriptionprice':'Subscription price',
+        'subscription':'Subscription quantity',
+        'the':'The',
+        'stage':'stage',
+        'myctc':'My CTC',
+        'ctc':'CTC private placement',
         'pleaseamount':'Please enter the contract amount',
         'treatryAmount':'Contract amount',
         'champion':'Champion',

@@ -1,6 +1,21 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN' //引入element语言包
 const cn = {
     message: {
+        'method':'选择支付方式',
+        'totalsub':'认购总额',
+        'needto': '请输入您需认购的数量',
+        'errtips':'认购数量或支付方式不能为空',
+        'available':'可认购数量',
+        'buyRecord':'认购记录',
+        'buyed':'已认购',
+        'buy':'认购',
+        'notopen':'未开放',
+        'Subscriptionprice':'认购单价',
+        'subscription':'认购数量',
+        'the':'第',
+        'stage':'期',
+        'myctc':'我的CTC',
+        'ctc':'CTC私募',
         'pleaseamount': '请输入合约金额',
         'treatryAmount':'合约金额',
         'champion':'冠军',

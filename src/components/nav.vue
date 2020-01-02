@@ -21,7 +21,7 @@ export default {
       nav:[
         {url:'/home/index',text:this.$t('message.arbitrage'),iconClass:'icon-jibenzhexiantu'},
         {url:'/guess/index',text:this.$t('message.gus'),iconClass:"icon-icon-"},
-        {url:'/fc/index',text:'FC',iconClass:'icon-shuju'},
+         {url:'/ctc/index',text:'CTC',iconClass:'icon-shuju'},
         {url:'/my/index',text:this.$t('message.me'),iconClass:'icon-user'}
       ]
     };

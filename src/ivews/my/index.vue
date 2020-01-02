@@ -50,6 +50,12 @@
           </li>
         </ul> -->
         <ul>
+          <li>
+            <router-link to="/fc/index">
+            <img src="../../assets/image/fc.png">
+              <span class="el-icon-arrow-right"></span>FC
+            </router-link>
+          </li>
           <li
             v-for="(item,index) in items"
             :key="index"
@@ -75,7 +81,7 @@
 </template>
 
 <script>
-import * as http from '../../public/index'
+import * as http from "../../public/index";
 import Footer from "../../components/nav";
 import api from "../../API/index";
 export default {
@@ -89,14 +95,18 @@ export default {
         {
           url: "/my/invite/index",
           iconClass: "icon-yaoqingzhaobiao",
-          name: this.$t('message.invite')
+          name: this.$t("message.invite")
         },
         {
           url: "/my/manage/index",
           iconClass: "icon-yonghu2",
-          name: this.$t('message.manage')
+          name: this.$t("message.manage")
         },
-        { url: "/my/usdt/index", iconClass: "icon-T", name: this.$t('message.bing') },
+        {
+          url: "/my/usdt/index",
+          iconClass: "icon-T",
+          name: this.$t("message.bing")
+        },
         {
           url: "/my/set/index",
           iconClass: "icon-ai-safe",
@@ -135,10 +145,10 @@ export default {
     },
     //退出登录
     exit() {
-      this.$confirm(this.$t('message.logOut')+"?", {
-          confirmButtonText: this.$t('message.confirm'),
-          cancelButtonText: this.$t('message.cancel')
-        })
+      this.$confirm(this.$t("message.logOut") + "?", {
+        confirmButtonText: this.$t("message.confirm"),
+        cancelButtonText: this.$t("message.cancel")
+      })
         .then(() => {
           api
             .choices(http.LOGINOUT)

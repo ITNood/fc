@@ -116,10 +116,10 @@
       <!--套利-->
       <div class="interest">
         <div class="interest-title">{{$t('message.arbteam')}}
-          <!-- <router-link
+          <router-link
             to="/home/notes/index"
             class="icon iconfont icon-jilu1"
-          ></router-link> -->
+          ></router-link>
         </div>
         <div class="walletList">
           <ul>
@@ -263,9 +263,9 @@ export default {
         .then(result => {
           if (result.status == 200) {
             this.amount = result.res.usdt;
-            (this.username = result.res.user.nickname),
-              (this.avatar = result.res.user.avatar);
-            this.items = this.items.concat(result.res.levelSet);
+            this.username = result.res.user.nickname
+              this.avatar = result.res.user.avatar
+            this.items =result.res.levelSet
             if (result.res.msgNumber > 0) {
               this.number = result.res.msgNumber;
             }

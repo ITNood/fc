@@ -1,9 +1,10 @@
 <template>
   <div>
-    <Footer />
+    <!-- <Footer /> -->
+    <Top :title="msg" />
     <div
       class="layout"
-      style="margin:20px;"
+      style="margin:60px 20px 20px;"
     >
       <el-row :gutter="15">
         <el-col
@@ -100,15 +101,17 @@ import * as http from "../../public/index";
 import api from "../../API/index";
 import Footer from "../../components/nav";
 import Value from "../../components/value";
+import Top from '../../components/top'
 export default {
-  components: { Footer, Value },
+  components: { Footer, Value,Top },
   data() {
     return {
       FC: "",
       closeFC: "",
       amount: 0,
       num: 0,
-      lists: []
+      lists: [],
+      msg:'CTC私募'
     };
   },
   created() {

@@ -76,4 +76,8 @@ export const GUESS = 'api/guess/index'//小组竞猜
 export const SUBMITGUESS = 'api/guess/insert'//竞猜提交
 export const GUESSHISTRY = 'api/guess/record'//竞猜记录
 
-export const CASHCODE ='withdraw/sendPhoneCOde'//提现发送手机验证码
+export const CASHCODE = 'withdraw/sendPhoneCOde'//提现发送手机验证码
+
+export const CTC = 'api/ctc/index'//CTC
+export const SUBMITCTC = 'api/ctc/insert'//提交ctc
+export const CTCRECORD ='api/ctc/record'//ctc记录

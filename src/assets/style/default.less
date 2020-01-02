@@ -1217,6 +1217,13 @@ a {
                     display: block;
                     color: @white;
 
+                    img {
+                        width: 15px;
+                        position: absolute;
+                        top: 13px;
+                        left: 5px;
+                    }
+
                     i {
                         color: @blue;
                         position: absolute;
@@ -1408,7 +1415,7 @@ a {
     background-color: #07263e;
     padding: 20px;
     margin-top: 20px;
-    height: calc(100vh - 192px);
+    height: calc(100vh - 172px);
 
     .operate {
         li {
@@ -1445,7 +1452,7 @@ a {
         overflow: hidden;
 
         ul {
-            height: calc(100vh - 278px);
+            height: calc(100vh - 258px);
             overflow-y: auto;
 
             li {
@@ -2474,6 +2481,90 @@ a {
                 p {
                     color: @gray;
                     line-height: 20px;
+                }
+            }
+        }
+    }
+}
+
+.ctc {
+    text-align: center;
+    padding: 15px;
+    color: @white;
+
+    h2 {
+        font-family: number;
+        font-size: 24px;
+    }
+}
+
+.ctclist {
+    overflow: hidden;
+
+    ul {
+        height: calc(100vh - 195px);
+        overflow-y: auto;
+
+        li {
+            background: #062e46;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+
+            .ctcdate {
+                border-bottom: 1px solid @borderColor;
+                padding-bottom: 8px;
+                position: relative;
+                color: @white;
+
+                p {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+
+                span {
+                    color: @blue;
+                }
+            }
+
+            .contentlist {
+                padding-top: 10px;
+
+                .itemcontent {
+                    width: 33.333%;
+                    box-sizing: border-box;
+                    float: left;
+                    padding: 0 3px;
+
+                    h5 {
+                        color: @white;
+                        font-size: 16px;
+                        font-family: number;
+                        line-height: 30px;
+                        width: 100%;
+                    }
+
+                    p {
+                        line-height: 30px;
+                        color: @white;
+                        width: 100%;
+                    }
+                    .el-button{
+                        margin-top: 17px;
+                        background: @blue;
+                        color: @white;
+                        border: none;
+                        padding: 0 20px;
+                        line-height: 20px;
+                        border-radius: 10px;
+                    }
+                    &:last-child{
+                        p{
+                            margin-top: 15px;
+                            color: @gray;
+                        }
+                    }
                 }
             }
         }
