@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from "../../../API/index";
 import Top from "../../../components/top";
 export default {
@@ -70,7 +71,7 @@ export default {
       setTimeout(() => {
         this.page++;
         api
-          .choices("api/home/algebraRecord", { page: this.page })
+          .choices(http.NOTES, { page: this.page })
           .then(result => {
             if (result.status == 200) {
               if (result.res.length == 0 || result.res.length < 20) {
@@ -88,7 +89,7 @@ export default {
     },
     getdata() {
       api
-        .choices("api/home/algebraRecord")
+        .choices(http.NOTES)
         .then(result => {
           if (result.status == 200) {
             if (result.res.length == 0 || result.res.length < 20) {

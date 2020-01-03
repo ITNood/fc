@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import * as http from '../../../../public/index'
 import api from '../../../../API/index'
 import Top from "../../../../components/top";
 export default {
@@ -31,7 +32,7 @@ export default {
   },
   methods: {
       getdata(){
-          api.choices('api/takeOut/record').then(result=>{
+          api.choices(http.TAKERECORD).then(result=>{
               if(result.status==200){
                   this.items=this.items.concat(result.res.record)
               }

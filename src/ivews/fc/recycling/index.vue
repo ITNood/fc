@@ -10,7 +10,7 @@
         id="tabs"
       >
         <el-tab-pane
-          :label="$t('message.repo')"
+          :label="$t('message.appointment')"
           name="first"
         >
           <ul class="cash">
@@ -23,7 +23,8 @@
               <h5>
                 <el-input-number
                   v-model="amount"
-                  :min="1"
+                  :min="0"
+                  :step="100"
                   size="small"
                   class="stepNumber"
                 ></el-input-number>
@@ -37,7 +38,7 @@
               </h5>
             </li>
             <li>
-              <p>{{$t('message.backAccount')}}(USDT)</p>
+              <p>{{$t('message.backAccount')}}(FC)</p>
               <h5 style="color:white">{{account}}</h5>
             </li>
           </ul>
@@ -46,7 +47,7 @@
             style="color:#999"
           >
             <p>{{$t('message.trading')}}：</p>
-            <p>{{$t('message.hand')}}。</p>
+            <p>{{$t('message.hand')}}</p>
           </div>
           <el-button
             class="submit"
@@ -55,7 +56,7 @@
           >{{$t('message.confirm')}}</el-button>
         </el-tab-pane>
         <el-tab-pane
-          :label="$t('message.back')"
+          :label="$t('message.forRecord')"
           name="second"
         >
           <div class="cashList">
@@ -93,6 +94,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from "../../../API/index";
 import Top from "../../../components/top";
 import Pin from "../../../components/pin";
@@ -100,10 +102,10 @@ export default {
   components: { Top, Pin },
   data() {
     return {
-      msg: this.$t('message.repo'),
+      msg: this.$t('message.appointment'),
       activeName: "first",
       fc: 0,
-      amount: 1,
+      amount: 0,
       show: false,
       account: 0,
       items: [],
@@ -117,16 +119,12 @@ export default {
     this.getdata();
   },
   updated() {
-    this.account = (
-      Math.floor(
-        (this.amount * this.repo - this.amount * this.repo * this.fee) * 100
-      ) / 100
-    ).toFixed(2);
+    this.account=(Math.floor(this.amount/this.repo*100)/100).toFixed(2)
   },
   methods: {
     getdata() {
       api
-        .choices("api/repo/index")
+        .choices(http.RECYCLING)
         .then(result => {
           if (result.status == 200) {
             this.fc = result.res.flowFc;
@@ -153,7 +151,7 @@ export default {
     },
     submit(pwd) {
       api
-        .choices("api/repo/insert", { amount: this.amount, safePwd: pwd })
+        .choices(http.RECYCLINGSUBMIT, { amount: this.amount, safePwd: pwd })
         .then(result => {
           if (result.status == 200) {
             alert(result.msg);

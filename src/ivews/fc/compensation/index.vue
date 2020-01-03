@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from "../../../API/index";
 import "echarts-liquidfill";
 import Pin from "../../../components/pin";
@@ -112,7 +113,7 @@ export default {
     getdata() {
       let that = this
       api
-        .choices("api/takeOut/index")
+        .choices(http.TAKE)
         .then(result => {
           if (result.status == 200) {
             let newpercent = [(result.res.percent/100).toFixed(1)]
@@ -189,7 +190,7 @@ export default {
       }
     },
     submit(pwd) {
-        api.choices('api/takeOut/insert',{amount:this.amount,safePwd:pwd}).then(result=>{
+        api.choices(http.TAKESUBMIT,{amount:this.amount,safePwd:pwd}).then(result=>{
             if(result.status==200){
                 alert(result.msg)
                 window.location.reload()

@@ -62,8 +62,7 @@
 </template>
 
 <script>
-const fs = require('fs');
-const path = require('path');
+import * as http from '../../../public/index'
 import download from "../../../assets/js/download";
 import api from "../../../API/index";
 import Clipboard from "clipboard";
@@ -85,7 +84,7 @@ export default {
     },
     getdata() {
       api
-        .choices("api/user/myEthAddress")
+        .choices(http.INVEST)
         .then(result => {
           if (result.status == 200) {
             this.address = result.res.address;
@@ -118,43 +117,15 @@ export default {
         },
     //保存图片
     hold() {
-        let sUrl= this.code
-    //iOS devices do not support downloading. We have to inform user about this.
-    if (/(iP)/g.test(navigator.userAgent)) {
-        alert('Your device does not support files downloading. Please try again in desktop browser.');
-        return false;
-    }
-
-    //If in Chrome or Safari - download via virtual link click
-    if (window.downloadFile.isChrome || window.downloadFile.isSafari) {
-        //Creating new link node.
-        var link = document.createElement('a');
-        link.href = sUrl;
-
-        if (link.download !== undefined) {
-            //Set HTML5 download attribute. This will prevent file from opening if supported.
-            var fileName = sUrl.substring(sUrl.lastIndexOf('/') + 1, sUrl.length);
-            link.download = fileName;
-        }
-
-        //Dispatching click event.
-        if (document.createEvent) {
-            var e = document.createEvent('MouseEvents');
-            e.initEvent('click', true, true);
-            link.dispatchEvent(e);
-            return true;
-        }
-    }
-
-    // Force file download (whether supported by server).
-    if (sUrl.indexOf('?') === -1) {
-        sUrl += '?download';
-    }
-
-    window.open(sUrl, '_self');
-    return true;
+      let code = this.code; 
+      if (code) {
+        download(this.code, "code.png", "png/png");
+      } else {
+        alert(this.$t('message.picter'));
+      }
     },
-    copy(){
+    //复制
+    copy() {
       let address = this.address;
       if (address) {
         var _this = this;

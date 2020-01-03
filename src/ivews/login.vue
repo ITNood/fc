@@ -27,7 +27,7 @@
       </el-form-item>
     </el-form>
     <router-link
-    to="/forget"
+      to="/forget"
       class="forget"
       style="text-align:right;display:block"
     >{{$t('message.forget')}}？</router-link>
@@ -57,7 +57,6 @@
       </ul>
     </div>
     <Login
-      :dialogVisible="show"
       :logo="imgSrc"
       :userMessage="userMsg"
       :type="openType"
@@ -67,7 +66,8 @@
 </template>
 
 <script>
-import api from '../API/index'
+import * as http from "../public/index";
+import api from "../API/index";
 import Login from "../components/login";
 export default {
   components: { Login },
@@ -79,65 +79,77 @@ export default {
       },
       rules: {
         username: [
-          { required: true, message:this.$t('message.entryAccount'), trigger: "blur" }
+          {
+            required: true,
+            message: this.$t("message.entryAccount"),
+            trigger: "blur"
+          }
         ],
-        password: [{ required: true, message: this.$t('message.pleasePwd'), trigger: "blur" }]
+        password: [
+          {
+            required: true,
+            message: this.$t("message.pleasePwd"),
+            trigger: "blur"
+          }
+        ]
       },
-      show: false,
       imgSrc: "",
       userMsg: "",
-      openType:''
+      openType: ""
     };
   },
   created() {
-    let token=localStorage.getItem('token')
-    if(token){
-      this.$router.push('/home/index')
+    let token = localStorage.getItem("token");
+    if (token) {
+      this.$router.push("/home/index");
     }
   },
   methods: {
     login(form) {
-      this.$refs[form].validate(valid=>{
-        if(valid){
-          let data=this.form
-          api.choices('api/login/loginIn',data).then(result=>{
-            if(result.status==200){
-              localStorage.setItem('token',result.res.token)
-              this.$router.push('/home/index')
-            }else if(result.status==400){
-              alert(result.msg)
-            }
-          }).catch(err=>{
-            console.log(err)
-          })
+      this.$refs[form].validate(valid => {
+        if (valid) {
+          let data = this.form;
+          api
+            .choices(http.LOGIN, data)
+            .then(result => {
+              if (result.status == 200) {
+                localStorage.setItem("token", result.res.token);
+                this.$router.push("/home/index");
+              } else if (result.status == 400) {
+                alert(result.msg);
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            });
         }
-      })
+      });
     },
     openCtc() {
       this.$refs.child.open();
       this.imgSrc = require("../assets/image/ctclogo.png");
       this.userMsg = "CTC";
-      this.openType=1
+      this.openType = 1;
     },
     openFc() {
       this.$refs.child.open();
-      this.imgSrc=require('../assets/image/fclogo.png')
+      this.imgSrc = require("../assets/image/fclogo.png");
       this.userMsg = "FC";
-      this.openType=2
+      this.openType = 2;
     },
     openRtl() {
       this.$refs.child.open();
       this.imgSrc = require("../assets/image/rtllogo.png");
       this.userMsg = "RTL";
-      this.openType=3
+      this.openType = 3;
     },
     openSyl() {
       this.$refs.child.open();
       this.imgSrc = require("../assets/image/syllogo.png");
       this.userMsg = "SYL";
-      this.openType=4
+      this.openType = 4;
     }
-  },
+  }
 };
 </script>
 

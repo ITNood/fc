@@ -31,12 +31,12 @@
     <Pin
       @submit="submit"
       ref="child"
-      :centerDialogVisible="show"
     />
   </div>
 </template>
 
 <script>
+import * as http  from '../public/index'
 import api from "../API/index";
 import Pin from "../components/pin";
 export default {
@@ -48,7 +48,6 @@ export default {
       amount: "",
       dialogVisible: false,
       type_id: "",
-      show: false
     };
   },
   updated() {
@@ -66,7 +65,7 @@ export default {
       }
     },
     submit(pwd) {
-      api.choices('api/home/algebraSubmit',{safePwd:pwd,type_id:this.type_id,amount:this.amount}).then(result=>{
+      api.choices(http.INTEREST,{safePwd:pwd,type_id:this.type_id,amount:this.amount}).then(result=>{
         if(result.status==200){
           alert(result.msg)
           window.location.reload()

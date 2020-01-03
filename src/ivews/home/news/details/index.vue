@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import * as http from '../../../../public/index'
 import api from '../../../../API/index'
 import Top from "../../../../components/top";
 export default {
@@ -36,7 +37,7 @@ export default {
   methods: {
     getdata(){
       let id=this.$route.query.id
-      api.choices('api/msg/get',{id:id}).then(result=>{
+      api.choices(http.NEWSDETAIL,{id:id}).then(result=>{
         if(result.status==200){
           this.date=result.res.date
           this.newTitle=result.res.title

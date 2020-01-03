@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from '../../../API/index'
 import Top from "../../../components/top";
 
@@ -55,7 +56,7 @@ export default {
     getdata() {
       let id=this.$route.query.id
       api
-        .choices("api/wallet/record",{id:id})
+        .choices(http.FCRECORD,{id:id})
         .then(result => {
           if (result.status == 200) {
             this.items = this.items.concat(result.res.record);

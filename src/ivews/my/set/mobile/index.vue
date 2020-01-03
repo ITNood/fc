@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import * as http from '../../../../public/index'
 import api from "../../../../API/index";
 import Top from "../../../../components/top";
 export default {
@@ -118,7 +119,7 @@ export default {
   methods: {
     //国家区号
     getArea(){
-      api.choices('api/getCountryRegion').then(result=>{
+      api.choices(http.COUNTRY).then(result=>{
         if(result.status==200){
           this.items=this.items.concat(result.res.data)
           this.value=this.items[0].id
@@ -136,7 +137,7 @@ export default {
     //获取手机号码
     getMobile() {
       api
-        .choices("api/user/getMobile")
+        .choices(http.MOBILE)
         .then(result => {
           if (result.status == 200) {
             this.forgetForm.mobile = result.res.mobile;
@@ -151,7 +152,7 @@ export default {
     //旧手机验证码
     send() {
       api
-        .choices("api/safeSet/oldPhoneCode")
+        .choices(http.OLDMOBILECODE)
         .then(result => {
           if (result.status == 200) {
             const TIME_COUNT = 60;
@@ -185,7 +186,7 @@ export default {
       let country = this.forgetForm.country;
       if (mobile && oldCode) {
         api
-          .choices("api/safeSet/newPhoneCode", {
+          .choices(http.NEWMOBILECODE, {
             country: country,
             oldCode: oldCode,
             newMobile: mobile
@@ -221,7 +222,7 @@ export default {
     submit() {
         let newCode=this.forgetForm.newCode
         if(newCode){
-            api.choices('api/safeSet/updatePhone',{newCode:newCode,newMobile:this.forgetForm.newMobile,country:this.forgetForm.country}).then(result=>{
+            api.choices(http.EDITORMOBILE,{newCode:newCode,newMobile:this.forgetForm.newMobile,country:this.forgetForm.country}).then(result=>{
                 if(result.status==200){
                     alert(result.msg)
                     this.$router.push('/my/set/index')

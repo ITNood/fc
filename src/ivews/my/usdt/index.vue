@@ -12,12 +12,14 @@
                 <p>{{$t('message.protocol')}}</p>
                 <p>{{$t('message.only')}}</p>
                 <p>{{$t('message.error')}}</p>
+                <p>{{$t('message.order')}}</p>
             </div>
     </div>
   </div>
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from '../../../API/index'
 import Top from "../../../components/top";
 export default {
@@ -35,7 +37,7 @@ export default {
   },
   methods: {
     getdata(){
-      api.choices('api/usdt/get').then(result=>{
+      api.choices(http.USDTBING).then(result=>{
         if(result.status==200){
           if(result.res.usdt){
             this.readonly=true
@@ -50,7 +52,7 @@ export default {
       })
     },
     submit(){
-      api.choices('api/usdt/bind',{usdt:this.address}).then(result=>{
+      api.choices(http.USDTSUBMIT,{usdt:this.address}).then(result=>{
         if(result.status==200){
           alert(result.msg)
           this.$router.puch('/my/index')

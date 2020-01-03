@@ -48,10 +48,11 @@
             <h5>{{$t('message.invitePartner')}}</h5>
             <div class="partnerList">
                 <ul>
-                    <li v-for="(item,index) in items" :key="index">
+                    <li v-for="(item,index) in items" :key="index" class="clear">
                         <img :src="item.avatar">
                         <p>{{item.username}}</p>
-                        <span>{{item.amount}}</span>
+                        <p>{{item.total_amount}}</p>
+                        <span>{{item.yesterday_amount}}</span>
                     </li>
                 </ul>
             </div>
@@ -61,6 +62,7 @@
 </template>
 
 <script>
+import * as http from '../../../public/index'
 import api from '../../../API/index'
 import Top from "../../../components/top";
 export default {
@@ -85,7 +87,7 @@ export default {
   },
   methods: {
       getdata(){
-          api.choices('api/user/myChild').then(result=>{
+          api.choices(http.MANAGE).then(result=>{
               if(result.status==200){
                   this.items=this.items.concat(result.res.child)
                   this.allPartner=result.res.all

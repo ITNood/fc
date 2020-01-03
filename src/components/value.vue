@@ -36,12 +36,12 @@
     <Pin
       @submit="submit"
       ref="child"
-      :centerDialogVisible="show"
     />
   </div>
 </template>
 
 <script>
+import * as http from '../public/index'
 import api from "../API/index";
 import Pin from "../components/pin";
 export default {
@@ -51,7 +51,6 @@ export default {
   data() {
     return {
       dialogVisible: false,
-      show: false,
       amount: "",
       number: 0
     };
@@ -78,7 +77,7 @@ export default {
     },
     submit(pwd) {
       api
-        .choices("api/fc/insert", { amount: this.amount, safePwd: pwd })
+        .choices(http.VALUE, { amount: this.amount, safePwd: pwd })
         .then(result => {
           if (result.status == 200) {
             alert(result.msg)

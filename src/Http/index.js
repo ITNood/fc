@@ -1,13 +1,11 @@
 import axios from 'axios'
 import { Loading, Message } from 'element-ui'
 import json_response_codes from './codes'
-import config from '../config'
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
 // 创建axios实例
-//let token = window.localStorage.getItem("token") 
 const Axios = axios.create({
     baseURL: process.env.NODE_ENV === 'production' ? "http://de.home.doopup.com/" : "/api/",
     //baseURL:'http://www.hxfc.com/',
@@ -15,16 +13,15 @@ const Axios = axios.create({
     maxRedirects: 1,
     headers: { "Content-Type": 'application/json' },
 })
+console.log(Axios)
 //拦截所有api请求，重新获取token
 Axios.interceptors.request.use(
     config => {
-        let token = localStorage.getItem('token')
-        //console.log(token)
-        //const token = store.state.token
+        const token = localStorage.getItem('token')
         const lang = localStorage.getItem('lang')
-        if (token&&lang) {
+        if (token || lang) {
             config.headers.Token = token
-           config.headers.lang = lang
+            config.headers.lang = lang
         }
         return config
     },
@@ -54,17 +51,13 @@ Axios.interceptors.response.use(
     response => {   // when HTTP_STATUS in [ 200 , 299 ]
         loadinginstace.close()
         //判断登录状态，跳转路由
-        if (response.data.status === 500) {
+        if (response.data.status === 500) {//退出登录
             alert(response.data.msg)
             localStorage.removeItem('token')
-            window.location.href='#/login'
-        }
-        if (response.data.status == 400) {
-             alert(response.data.msg)
-        }
-
-        //返回数据
-        if (response.data.status === json_response_codes.status) {
+            window.location.href = '#/login'
+        } else if (response.data.status == 400) {//返回错误
+            alert(response.data.msg)
+        } else if (response.data.status === json_response_codes.status) {//返回数据
             return Promise.resolve(response.data);
         }
 

@@ -21,6 +21,22 @@
                 :placeholder="$t('message.inviteAccount')"
               ></el-input>
             </el-form-item>
+
+            <el-form-item
+              :label="$t('message.code')"
+              prop="code"
+            >
+              <img
+                :src="imageCode"
+                class="imgCode"
+                @click="code"
+              >
+              <el-input
+                :placeholder="$t('message.enterCode')"
+                v-model="forgetForm.code"
+              ></el-input>
+            </el-form-item>
+
             <el-form-item
               prop="mobile"
               :label="$t('message.partnerPhone')"
@@ -57,31 +73,35 @@
 </template>
 
 <script>
+import * as http from "../../../public/index";
 import api from "../../../API/index";
 import Top from "../../../components/top";
 export default {
   components: { Top },
   data() {
     return {
-      msg: this.$t('message.invite'),
+      imageCode: "",
+      msg: this.$t("message.invite"),
       forgetForm: {
         username: "",
         mobile: "",
-        country: ""
+        country: "",
+        code: ""
       },
       items: [],
       value: ""
     };
   },
   created() {
-    this.getArea()
+    this.getArea();
     this.forgetForm.country = this.value;
+    this.getCode()
   },
   methods: {
     //国家区号
     getArea() {
       api
-        .choices("api/getCountryRegion")
+        .choices(http.COUNTRY)
         .then(result => {
           if (result.status == 200) {
             this.items = this.items.concat(result.res.data);
@@ -94,7 +114,7 @@ export default {
         });
     },
     select() {
-      console.log(this.value)
+      console.log(this.value);
       this.forgetForm.country = this.value;
     },
     submit() {
@@ -102,16 +122,24 @@ export default {
       let mobile = this.forgetForm.mobile;
       if (username && mobile) {
         let data = this.forgetForm;
-        api.choices("api/register/index", data).then(result => {
+        api.choices(http.INVITE, data).then(result => {
           if (result.status == 200) {
             alert(result.msg);
             this.$router.push("/my/index");
           }
         });
       } else {
-        alert(this.$t('message.invitation'));
+        alert(this.$t("message.invitation"));
       }
-    }
+    },
+    getCode(){
+      api.choices('api/code').then(res=>{
+        //console.log(Axios)
+      })
+     
+    },
+    //刷新验证码
+    code() {}
   }
 };
 </script>

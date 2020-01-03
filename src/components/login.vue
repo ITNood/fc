@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import * as http from '../public/index'
 import api from "../API/index";
 import Forget from "../components/forget";
 export default {
@@ -105,7 +106,7 @@ export default {
     login1() {
       let data = this.loginForm;
       api
-        .choices("api/login/loginIn", data)
+        .choices(http.LOGIN, data)
         .then(result => {
           if (result.status == 200) {
             // this.$store.commit("setToken", result.res.token);

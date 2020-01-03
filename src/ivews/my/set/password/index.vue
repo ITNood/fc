@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import * as http from '../../../../public/index'
 import api from "../../../../API/index";
 import Top from "../../../../components/top";
 export default {
@@ -105,7 +106,7 @@ export default {
         if (valid) {
           let data = this.forgetForm;
           api
-            .choices("api/safeSet/changPwd", data)
+            .choices(http.LOGINPASSWORD, data)
             .then(result => {
               if (result.status == 200) {
                 alert(result.msg);

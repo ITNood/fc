@@ -31,9 +31,8 @@
                 <el-input type="password" v-model="forgetForm.confirmPwd" :placeholder="$t('message.entryconfirmLgoinPwd')"></el-input>
             </el-form-item>
         </el-form>
-        <el-button class="submit" @click="forgetSub()" >{{$t('message.login')}}</el-button>
+        <el-button class="submit" @click="forgetSub()">{{$t('message.login')}}</el-button>
       </div>
-
     </el-dialog>
   </div>
 </template>
@@ -88,14 +87,7 @@ export default {
             { validator: validatePass2, trigger: 'blur' }
           ],
       },
-      // items:[
-      //   {value:'1',label:'中国 +86'}
-      // ],
-      // value:'1'
     };
-  },
-  updated() {
-    console.log(this.forgetDialog);
   },
   methods: {
       close(){

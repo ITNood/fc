@@ -48,7 +48,7 @@
           <li>
             <router-link to="/fc/recycling/index">
               <span class="icon iconfont icon-xunhuanxuyuezhuanzhang"></span>
-                 <p>{{$t('message.repo')}}</p>
+                 <p>{{$t('message.appointment')}}</p>
             </router-link>
           </li>
         </ul>
@@ -77,11 +77,12 @@
         </ul>
       </div>
     </div>
-    <Value :dialogVisible="show" :FC="closeFC" :ratio="num" ref="child"/>
+    <Value :FC="closeFC" :ratio="num" ref="child"/>
   </div>
 </template>
 
 <script>
+import *as http from '../../public/index'
 import api from '../../API/index'
 import Footer from "../../components/nav";
 import Value from '../../components/value'
@@ -91,7 +92,6 @@ export default {
     return {
       FC: "",
       closeFC: "",
-      show:true,
       amount:0,
       num:0,
       // items: [
@@ -112,7 +112,7 @@ export default {
       this.$refs.child.opening()
     },
     getdata(){
-      api.choices('api/fc/index').then(result=>{
+      api.choices(http.FC).then(result=>{
         if(result.status==200){
           this.FC=result.res.flowFc
           this.closeFC=result.res.lockFc
