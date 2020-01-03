@@ -2494,7 +2494,7 @@ a {
 
     h2 {
         font-family: number;
-        font-size: 24px;
+        font-size: 20px;
     }
 }
 
@@ -2502,7 +2502,7 @@ a {
     overflow: hidden;
 
     ul {
-        height: calc(100vh - 195px);
+        height: calc(100vh - 190px);
         overflow-y: auto;
 
         li {
@@ -2549,6 +2549,10 @@ a {
                         line-height: 30px;
                         color: @white;
                         width: 100%;
+                        text-overflow:ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+
                     }
                     .el-button{
                         margin-top: 17px;
