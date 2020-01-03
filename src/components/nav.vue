@@ -20,8 +20,8 @@ export default {
     return {
       nav:[
         {url:'/home/index',text:this.$t('message.arbitrage'),iconClass:'icon-jibenzhexiantu'},
-        {url:'/contract/index',text:this.$t('message.contract'),iconClass:"icon-icon-"},
-        {url:'/fc/index',text:'FC',iconClass:'icon-shuju'},
+        {url:'/guess/index',text:this.$t('message.gus'),iconClass:"icon-icon-"},
+         {url:'/ctc/index',text:'CTC',iconClass:'icon-shuju'},
         {url:'/my/index',text:this.$t('message.me'),iconClass:'icon-user'}
       ]
     };

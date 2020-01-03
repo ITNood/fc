@@ -10,6 +10,8 @@
         <p>{{$t('message.currency')}}</p>
         <!-- <i class="el-icon-arrow-right"></i> -->
         <div class="coin"><img :src="imgSrc">{{name}}</div>
+        <p>我的合约钱包</p>
+         <div class="coin" style="color:#0fbcfa">{{wallet}}</div>
         <p>{{$t('message.arbitAmount')}}</p>
         <el-input
           v-model="amount"
@@ -40,7 +42,7 @@ import * as http  from '../public/index'
 import api from "../API/index";
 import Pin from "../components/pin";
 export default {
-  props: ["name", "imgSrc", "id", "name", "number"],
+  props: ["name", "imgSrc", "id", "name", "number",'wallet'],
   name: "Interest",
   components: { Pin },
   data() {

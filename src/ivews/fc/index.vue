@@ -1,9 +1,10 @@
 <template>
   <div>
-    <Footer />
+    <!-- <Footer /> -->
+    <Top :title="msg" />
     <div
       class="layout"
-      style="margin:20px;"
+      style="margin:60px 20px 20px;"
     >
       <el-row :gutter="15">
         <el-col
@@ -30,13 +31,13 @@
           <li>
             <a @click="openValue()">
               <span class="icon iconfont icon-anshengxupailie"></span>
-                 <p>{{$t('message.valueAdd')}}</p>
+              <p>{{$t('message.valueAdd')}}</p>
             </a>
           </li>
           <li>
             <router-link to="/fc/exchange/index">
               <span class="icon iconfont icon-jixuduihuan"></span>
-                 <p>{{$t('message.exchange')}}</p>
+              <p>{{$t('message.exchange')}}</p>
             </router-link>
           </li>
           <!-- <li>
@@ -48,7 +49,7 @@
           <li>
             <router-link to="/fc/recycling/index">
               <span class="icon iconfont icon-xunhuanxuyuezhuanzhang"></span>
-                 <p>{{$t('message.appointment')}}</p>
+              <p>{{$t('message.appointment')}}</p>
             </router-link>
           </li>
         </ul>
@@ -56,11 +57,21 @@
       <!--list-->
       <div class="salary">
         <ul>
-          <li v-for="(list,index) in lists" :key="index">
+          <li
+            v-for="(list,index) in lists"
+            :key="index"
+          >
             <h5>{{list.date}}<span v-if="list.state==0">{{$t('message.ongoing')}}</span><span v-else>{{$t('message.end')}}</span></h5>
             <div class="data">
               <div class="progressSet">
-                <el-progress type="circle" :width="100" :stroke-width="3" :show-text="false" color="#0ebcf9" :percentage="list.percent"></el-progress>
+                <el-progress
+                  type="circle"
+                  :width="100"
+                  :stroke-width="3"
+                  :show-text="false"
+                  color="#0ebcf9"
+                  :percentage="list.percent"
+                ></el-progress>
                 <div class="progressData">
                   <h6>{{list.number}}</h6>
                   <p>{{$t('message.week')}}</p>
@@ -77,53 +88,55 @@
         </ul>
       </div>
     </div>
-    <Value :FC="closeFC" :ratio="num" ref="child"/>
+    <Value
+      :FC="closeFC"
+      :ratio="num"
+      ref="child"
+    />
   </div>
 </template>
 
 <script>
-import *as http from '../../public/index'
-import api from '../../API/index'
+import * as http from "../../public/index";
+import api from "../../API/index";
 import Footer from "../../components/nav";
-import Value from '../../components/value'
+import Value from "../../components/value";
+import Top from '../../components/top'
 export default {
-  components: { Footer ,Value},
+  components: { Footer, Value,Top },
   data() {
     return {
       FC: "",
       closeFC: "",
-      amount:0,
-      num:0,
-      // items: [
-      //   { url: "", iconClass: "icon-anshengxupailie", name: this.$t('message.valueAdd') },
-      //   { url: "", iconClass: "icon-jixuduihuan", name: this.$t('message.exchange') },
-      //   { url: "", iconClass: "icon-qianbao", name: this.$t('message.compensation') },
-      //   { url: "", iconClass: "icon-xunhuanxuyuezhuanzhang", name: this.$t('message.repo') }
-      // ],
-      lists:[]
+      amount: 0,
+      num: 0,
+      lists: [],
+      msg:'CTC私募'
     };
   },
   created() {
-    this.getdata()
+    this.getdata();
   },
   methods: {
-    openValue(){
-      //this.
-      this.$refs.child.opening()
+    openValue() {
+      this.$refs.child.opening();
     },
-    getdata(){
-      api.choices(http.FC).then(result=>{
-        if(result.status==200){
-          this.FC=result.res.flowFc
-          this.closeFC=result.res.lockFc
-          this.num=result.res.ratio
-          this.lists=this.lists.concat(result.res.order)
-        }
-      }).catch(err=>{
-        console.log(err)
-      })
+    getdata() {
+      api
+        .choices(http.FC)
+        .then(result => {
+          if (result.status == 200) {
+            this.FC = result.res.flowFc;
+            this.closeFC = result.res.lockFc;
+            this.num = result.res.ratio;
+            this.lists = this.lists.concat(result.res.order);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
-  },
+  }
 };
 </script>
 

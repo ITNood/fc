@@ -80,7 +80,7 @@ export default {
   components: { Top },
   data() {
     return {
-      imageCode: "",
+      imageCode:'',
       msg: this.$t("message.invite"),
       forgetForm: {
         username: "",
@@ -126,6 +126,8 @@ export default {
           if (result.status == 200) {
             alert(result.msg);
             this.$router.push("/my/index");
+          }else if(result.status==400){
+            this.code()
           }
         });
       } else {
@@ -133,13 +135,20 @@ export default {
       }
     },
     getCode(){
-      api.choices('api/code').then(res=>{
-        //console.log(Axios)
+      api.choiced('api/code').then(res=>{
+        this.imageCode=res.res
+      }).catch(err=>{
+
       })
-     
     },
     //刷新验证码
-    code() {}
+    code() {
+      api.choiced('api/code').then(res=>{
+        this.imageCode=res.res
+      }).catch(err=>{
+
+      })
+    }
   }
 };
 </script>

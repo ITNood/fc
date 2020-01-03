@@ -214,6 +214,42 @@ export default new Router({
       component: () => {
         return import('../ivews/contract/index')
       }
+    },
+    {
+      path: '/home/contractdetails/index',
+      name: 'contractdetails',
+      component: () => {
+        return import('../ivews/home/contractdetails/index')
+      }
+    },
+    {
+      path: '/guess/index',
+      name: 'guess',
+      component: () => {
+        return import('../ivews/guess/index')
+      }
+    },
+    {
+      path: '/guess/guessHistry',
+      name: 'guessHistry',
+      component: () => {
+        return import('../ivews/guess/guessHistry')
+      }
+    },
+    {
+      path: '/ctc/index',
+      name: 'ctc',
+      component: () => {
+        return import('../ivews/ctc/index')
+      }
+    },
+    {
+      path: '/ctc/record/index',
+      name: 'ctcrecord',
+      component: () => {
+        return import('../ivews/ctc/record/index')
+      }
     }
+
   ]
 })

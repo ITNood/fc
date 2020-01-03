@@ -30,6 +30,9 @@ export default {
     }
   },
   methods: {
+    // changeRadio(){
+    //   console.log(this.radio1)
+    // },
     entry() {
       let that=this
       window.localStorage.setItem("lang", "en");

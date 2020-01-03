@@ -29,6 +29,36 @@ body {
     width: 80% !important;
 }
 
+.btn-guess.el-button {
+    padding: 0 7px;
+    border: 1px solid @gray;
+    color: @gray;
+    background: transparent;
+    line-height: 20px;
+    border-radius: 11px;
+    margin-top: 9px;
+
+    &:focus,
+    &:hover {
+        background: transparent;
+        color: @gray;
+        border-color: @gray;
+    }
+
+    &.is-disabled {
+        background: transparent;
+        color: @gray;
+        border-color: @gray;
+
+        &:focus,
+        &:hover {
+            background: transparent;
+            color: @gray;
+            border-color: @gray;
+        }
+    }
+}
+
 h1,
 h2,
 h3,
@@ -249,12 +279,20 @@ a {
     color: @white;
 
 }
-.imgCode{
+
+.imgCode {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 100px !important; 
+    width: 100px !important;
     z-index: 99;
+    background: @blue  !important;
+    border: none !important;
+
+    span {
+        color: @white;
+    }
+
 }
 
 .submit.el-button {
@@ -437,20 +475,33 @@ a {
     }
 }
 
+.daycontent {
+    position: relative;
+    line-height: 40px;
+    color: @white;
+    font-family: number;
+
+    span {
+        right: 0;
+        top: 0;
+        position: absolute;
+    }
+}
+
 .home {
     border-radius: 6px;
     overflow: hidden;
     background: url(../image/bg.png) no-repeat bottom, linear-gradient(to top right, #0a75ff, #10c5f9);
     background-size: 100%;
-    padding: 20px 0;
-    min-height: 150px;
+    padding: 15px 0;
+    min-height: 120px;
     box-sizing: border-box;
     align-items: center;
 
     #avatar {
         p {
             color: @white;
-            font-size: 16px;
+            font-size: 14px;
             margin-top: 8px
         }
     }
@@ -509,6 +560,115 @@ a {
     }
 }
 
+.treaty {
+    background: #062a42;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+
+    .treatybag {
+        border-bottom: 1px solid @borderColor;
+        padding-bottom: 8px;
+        color: @white;
+        line-height: 30px;
+        position: relative;
+
+        span {
+            color: @blue;
+            font-family: number;
+            font-size: 14px;
+        }
+
+        a {
+            position: absolute;
+            right: 0;
+            top: 0;
+            color: @white;
+        }
+    }
+
+    .addTreaty {
+        margin-top: 15px;
+        height: 30px;
+
+        .el-button {
+            background: @blue;
+            color: @white;
+            border: none;
+            padding: 0 15px;
+            line-height: 24px;
+            border-radius: 12px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .treatyContent {
+            display: block;
+
+            li {
+                width: 25%;
+                float: left;
+                box-sizing: border-box;
+                padding: 0 3px;
+
+                h5 {
+                    color: @white;
+                }
+
+                p {
+                    color: @gray;
+                }
+
+                .sizebuttom {
+                    padding: 0 10px;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.newTreaty {
+    h5 {
+        color: @white;
+        font-size: 16px,
+    }
+
+    ul {
+        margin-top: 20px;
+
+        li {
+            border-bottom: 1px solid @borderColor;
+            margin-bottom: 10px;
+
+            p {
+                color: @white;
+                margin-bottom: 10px;
+            }
+
+            h4 {
+                line-height: 40px;
+                font-size: 14px;
+                height: 40px;
+                color: @blue;
+                font-family: number;
+            }
+
+            .el-select {
+                width: 100%;
+
+            }
+
+            .el-input__inner {
+                border: none;
+                background: transparent;
+                padding: 0;
+                color: @white;
+            }
+        }
+    }
+}
+
 .interest {
     margin-top: 20px;
 
@@ -533,13 +693,13 @@ a {
         margin-top: 20px;
 
         ul {
-            height: calc(100vh - 373px);
+            height: calc(100vh - 471px);
             overflow-y: auto;
 
             li {
                 position: relative;
                 border-bottom: 1px solid @borderColor;
-                padding: 8px 35px 8px 48px;
+                padding: 8px 35px 8px 45px;
                 height: 40px;
 
                 img {
@@ -671,6 +831,15 @@ a {
     }
 }
 
+.classA {
+    background: transparent !important;
+    color: @blue  !important;
+    border-color: @blue  !important;
+}
+
+.classB {
+    display: none !important;
+}
 
 /*
 *
@@ -1048,6 +1217,13 @@ a {
                     display: block;
                     color: @white;
 
+                    img {
+                        width: 15px;
+                        position: absolute;
+                        top: 13px;
+                        left: 5px;
+                    }
+
                     i {
                         color: @blue;
                         position: absolute;
@@ -1239,7 +1415,7 @@ a {
     background-color: #07263e;
     padding: 20px;
     margin-top: 20px;
-    height: calc(100vh - 192px);
+    height: calc(100vh - 172px);
 
     .operate {
         li {
@@ -1276,7 +1452,7 @@ a {
         overflow: hidden;
 
         ul {
-            height: calc(100vh - 278px);
+            height: calc(100vh - 258px);
             overflow-y: auto;
 
             li {
@@ -1998,6 +2174,7 @@ a {
 *
 *
 */
+
 .selectContract {
     p {
         border-left: 2px solid @blue;
@@ -2183,6 +2360,214 @@ a {
         padding: 0;
         border-radius: 0;
         color: @white;
+    }
+}
+
+/**
+**
+**
+**--------------------------------guess---------------------
+**
+**/
+.guessAmount {
+    background: #062e46;
+    padding: 20px;
+    padding-top: 70px;
+
+    .allAmount {
+        text-align: center;
+
+        h1 {
+            color: @blue;
+            font-size: 14px;
+            font-family: number;
+
+            span {
+                font-size: 24px;
+                margin-left: 5px;
+            }
+        }
+
+        p {
+            color: @white;
+            margin-top: 8px;
+        }
+    }
+
+    .yesteday {
+        margin-top: 15px;
+
+        li {
+            box-sizing: border-box;
+            width: 50%;
+            float: left;
+            display: block;
+            text-align: center;
+            border-right: 1px solid @borderColor;
+
+            &:last-child {
+                border-right: none
+            }
+
+            h5 {
+                font-size: 16px;
+                color: @white;
+                font-family: number;
+                height: 19px;
+                line-height: 19px;
+            }
+
+            p {
+                color: @gray;
+
+            }
+        }
+    }
+}
+
+.guess-logo {
+    width: 60px;
+    height: 60px;
+    border: 5px solid @borderColor;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+/**
+**
+**---------------------------guesshistry-------------------------
+**
+**/
+.guesshistry {
+    overflow: hidden;
+    padding-top: 10px;
+
+    ul {
+        height: calc(100vh - 80px);
+        overflow-y: auto;
+
+        li {
+            position: relative;
+            border-bottom: 1px solid @borderColor;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            padding-left: 50px;
+            display: flex;
+            justify-items: left;
+            align-items: left;
+            height: 40px;
+
+            img {
+                top: 0;
+                left: 0;
+                position: absolute;
+                width: 40px;
+            }
+
+            .half {
+                width: 50%;
+
+                &:last-child {
+                    text-align: right;
+                }
+
+                h5 {
+                    color: @blue;
+                    line-height: 20px;
+                    font-size: 14px;
+                    font-family: number;
+                }
+
+                p {
+                    color: @gray;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}
+
+.ctc {
+    text-align: center;
+    padding: 15px;
+    color: @white;
+
+    h2 {
+        font-family: number;
+        font-size: 24px;
+    }
+}
+
+.ctclist {
+    overflow: hidden;
+
+    ul {
+        height: calc(100vh - 195px);
+        overflow-y: auto;
+
+        li {
+            background: #062e46;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+
+            .ctcdate {
+                border-bottom: 1px solid @borderColor;
+                padding-bottom: 8px;
+                position: relative;
+                color: @white;
+
+                p {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
+
+                span {
+                    color: @blue;
+                }
+            }
+
+            .contentlist {
+                padding-top: 10px;
+
+                .itemcontent {
+                    width: 33.333%;
+                    box-sizing: border-box;
+                    float: left;
+                    padding: 0 3px;
+
+                    h5 {
+                        color: @white;
+                        font-size: 16px;
+                        font-family: number;
+                        line-height: 30px;
+                        width: 100%;
+                    }
+
+                    p {
+                        line-height: 30px;
+                        color: @white;
+                        width: 100%;
+                    }
+                    .el-button{
+                        margin-top: 17px;
+                        background: @blue;
+                        color: @white;
+                        border: none;
+                        padding: 0 20px;
+                        line-height: 20px;
+                        border-radius: 10px;
+                    }
+                    &:last-child{
+                        p{
+                            margin-top: 15px;
+                            color: @gray;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

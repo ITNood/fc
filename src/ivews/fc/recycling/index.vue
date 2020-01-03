@@ -88,7 +88,6 @@
     <Pin
       @submit="submit"
       ref="child"
-      :centerDialogVisible="show"
     />
   </div>
 </template>
@@ -106,7 +105,6 @@ export default {
       activeName: "first",
       fc: 0,
       amount: 0,
-      show: false,
       account: 0,
       items: [],
       number: "",
