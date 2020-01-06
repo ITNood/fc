@@ -12,7 +12,7 @@
         >
           <p>{{item.date}}</p>
           <div class="contentRight">
-            <p>{{$t('message.buy')}}{{item.number}}CTC</p>
+            <p>{{$t('message.buy')}} {{item.number}} CTC</p>
             <span
               style="color:#0fbcfa"
             >{{$t('message.buyed')}}</span>

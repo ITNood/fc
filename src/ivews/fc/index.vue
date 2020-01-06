@@ -111,7 +111,7 @@ export default {
       amount: 0,
       num: 0,
       lists: [],
-      msg:'CTC私募'
+      msg:'FC'
     };
   },
   created() {
