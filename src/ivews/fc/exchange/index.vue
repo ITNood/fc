@@ -99,7 +99,7 @@ export default {
           if (result.status == 200) {
             this.fc = result.res.flowFc;
             this.close = result.res.lockFc;
-            this.items=this.items.concat(result.res.record)
+            this.items=result.res.record
           }
         })
         .catch(err => {

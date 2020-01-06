@@ -73,10 +73,7 @@ export default {
   components: { Login },
   data() {
     return {
-      form: {
-        username: "",
-        password: ""
-      },
+      form: {},
       rules: {
         username: [
           {

@@ -129,7 +129,7 @@ export default {
             this.max = result.res.max;
             this.repo = result.res.repoPrice;
             this.fee = result.res.fee;
-            this.items=this.items.concat(result.res.record)
+            this.items=result.res.record
           }
         })
         .catch(err => {

@@ -89,7 +89,7 @@ export default {
       getdata(){
           api.choices(http.MANAGE).then(result=>{
               if(result.status==200){
-                  this.items=this.items.concat(result.res.child)
+                  this.items=result.res.child
                   this.allPartner=result.res.all
                   this.one=result.res.one
                   this.two=result.res.two

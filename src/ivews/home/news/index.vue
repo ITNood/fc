@@ -68,8 +68,8 @@ export default {
     getdata(){
       api.choices(http.NEWS).then(result=>{
         if(result.status==200){
-          this.items=this.items.concat(result.res.msg)
-          this.lists=this.lists.concat(result.res.notice)
+          this.items=result.res.msg
+          this.lists=result.res.notice
         }
       }).catch(err=>{
         console.log(err)

@@ -31,14 +31,6 @@
                 v-model="forgetForm.mobile"
                 :placeholder="$t('message.phone')"
               ></el-input>
-              <!-- <el-select v-model="value">
-                <el-option
-                  v-for="item in items"
-                  :label="item.label"
-                  :value="item.value"
-                  :key="item.value"
-                ></el-option>
-              </el-select> -->
             </el-form-item>
             <el-form-item prop="mobileCode">
               <el-input
@@ -106,13 +98,7 @@ export default {
       msg: this.$t("message.forget"),
       text: "",
       text2: this.$t("message.send"),
-      forgetForm: {
-        username: "",
-        mobile: "",
-        mobileCode: "",
-        password: "",
-        confirmPwd: ""
-      },
+      forgetForm: {},
       disabled: false,
       rules: {
         username: [
