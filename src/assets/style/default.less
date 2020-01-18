@@ -181,7 +181,7 @@ a {
 .histry {
     position: absolute;
     right: 8px;
-    color: @white;
+    color: @black;
     top: 50%;
     margin-top: -8px;
 }
@@ -192,12 +192,37 @@ a {
 /
 */
 #login {
-    padding: 30px 0;
-    margin: 0 20px;
+    padding: 30px 20px;
+    // margin: 0 20px;
     position: relative;
     min-height: 100vh;
     align-items: center;
     box-sizing: border-box;
+    background: url('../image/loginbgk.jpg') no-repeat top right;
+    background-size: 100%;
+
+    .logincontent {
+        margin: 0 30px;
+        position: absolute;
+        width: 90%;
+        box-sizing: border-box;
+        bottom: 80px;
+        left: 50%;
+        margin-left: -45%;
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .loginbgk {
+            background: @white;
+            box-shadow: 0 0 5px #dedede;
+            padding: 30px 0;
+        }
+    }
+
+
 
     .logo {
         width: 30%;
@@ -206,7 +231,128 @@ a {
     }
 
     .loginForm {
-        margin-top: 50px;
+        margin: 0 20px;
+
+        .el-input__inner {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid @borderColor;
+            border-radius: 0;
+            padding-left: 35px;
+            color: @black;
+
+            &::-webkit-input-placeholder {
+                color: @gray
+            }
+
+            &:focus {
+                border-color: @blue;
+            }
+        }
+
+        i {
+            position: absolute;
+            left: 8px;
+            color: @blue;
+            top: 0;
+        }
+    }
+
+    .otherLoginWay {
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+
+        .otherTitle {
+            background-color: @gray;
+
+            .el-divider__text {
+                background-color: @bgk;
+                color: @gray;
+            }
+        }
+
+        .loginList {
+            margin-top: 30px;
+            text-align: center;
+
+            li {
+                margin: 0 10px;
+                display: inline-block;
+
+                span {
+                    border: 1px solid @blue;
+                    border-radius: 50%;
+                    width: 45px;
+                    height: 45px;
+                    padding: 8px;
+                    display: block;
+                    box-sizing: border-box;
+                    align-items: center;
+                    display: flex;
+                }
+
+                P {
+                    margin-top: 8px;
+                    color: @white;
+                }
+            }
+        }
+    }
+
+}
+
+#login1 {
+    background: url('../image/loginbgk.jpg') no-repeat top right;
+    background-size: 100%;
+    padding: 30px 20px;
+    // margin: 0 20px;
+    position: relative;
+    min-height: calc(100vh - 60px);
+    align-items: center;
+    box-sizing: border-box;
+
+    .logincontent {
+        margin: 0 30px;
+        position: absolute;
+        width: 90%;
+        box-sizing: border-box;
+        bottom: 80px;
+        left: 50%;
+        margin-left: -45%;
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .loginbgk {
+            background: @white;
+            box-shadow: 0 0 5px #dedede;
+            padding: 30px 0;
+        }
+    }
+
+    .login {
+        position: absolute;
+        bottom: 120px;
+        width: 90%;
+        left: 50%;
+        margin-left: -45%;
+    }
+
+
+
+    .logo {
+        width: 30%;
+        margin: 50px auto;
+        display: block;
+    }
+
+    .loginForm {
+        margin: 0 20px;
 
         .el-input__inner {
             background: transparent;
@@ -500,14 +646,16 @@ a {
     min-height: 120px;
     box-sizing: border-box;
     align-items: center;
-    .newshref{
+
+    .newshref {
         color: @white;
         position: absolute;
         top: 15px;
         right: 20px;
-        .items{
-            i{
-                font-size:20px
+
+        .items {
+            i {
+                font-size: 20px
             }
         }
     }
@@ -689,13 +837,13 @@ a {
     .interest-title {
         position: relative;
         border-left: 2px solid @blue;
-        color: @white;
+        color: @black;
         font-size: 14px;
         padding-left: 8px;
         line-height: 25px;
 
         a {
-            color: @white;
+            color: @black;
             position: absolute;
             right: 0;
             font-size: 18px;
@@ -863,13 +1011,13 @@ a {
 *
 */
 .invest {
-    background: #051725;
+    background: @bgkblue;
     padding: 30px 20px;
     text-align: center;
 
     h6 {
         font-size: 16px;
-        color: @white;
+        color: @black;
 
         span {
             color: @blue;
@@ -899,13 +1047,13 @@ a {
     }
 
     p {
-        color: @white;
+        color: @black;
         font-size: 14px;
         margin: 20px 0;
     }
 
     .address {
-        color: @white;
+        color: @black;
         font-family: number;
         letter-spacing: 2px;
         line-height: 150%;
@@ -2048,7 +2196,7 @@ a {
     }
 
     ul {
-        background: @color;
+        background: @bgkblue;
         padding: 20px;
         border-radius: 6px;
         display: flex;
@@ -2057,7 +2205,7 @@ a {
         li {
             width: 50%;
             text-align: center;
-            color: @white;
+            color: @black;
             line-height: 250%;
 
             &:last-child {
@@ -2128,9 +2276,9 @@ a {
             border-radius: 20px !important;
             width: 250px;
             background: transparent;
-            border: @blue 1px solid;
+            border: @white 1px solid;
             margin-bottom: 15px;
-            color: @blue;
+            color: @white;
             position: relative;
 
             b {
@@ -2144,8 +2292,8 @@ a {
         }
 
         .el-radio-button__orig-radio:checked+.el-radio-button__inner {
-            background-color: @blue;
-            color: @white;
+            background-color: @white;
+            color: @blue;
         }
     }
 }
@@ -2601,8 +2749,8 @@ a {
     #login {
         padding: 50px 0;
 
-        .loginForm {
-            margin-top: 150px;
+        .logincontent {
+            bottom: 180px;
         }
 
         .submit.el-button {

@@ -2,13 +2,13 @@
   <div>
     <Top :title="msg" />
     <div
-      id="login"
-      style="margin-top:60px;min-height:100%"
+      id="login1"
+      style="margin-top:60px;"
     >
-      <img
+      <!-- <img
         src="../assets/image/logo.png"
         class="logo"
-      >
+      > -->
       <div
         class="login"
         style="margin-top:30px;"
