@@ -7,7 +7,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'fc',
+      name: 'fcc',
       component: () => {
         return import('../ivews/index')
       }

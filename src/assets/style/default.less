@@ -2,9 +2,12 @@
 @gray: #999999;
 @red: #e01d43;
 @white: white;
-@bgk: #051e32;
-@borderColor: #1e3547;
+@black: black;
+@bgk: white;
+@borderColor: #e5e5e5;
 @footer: #051624;
+@color: #062e46;
+@bgkblue: #ecfaff;
 
 @font-face {
     font-family: number;
@@ -31,8 +34,8 @@ body {
 
 .btn-guess.el-button {
     padding: 0 7px;
-    border: 1px solid @gray;
-    color: @gray;
+    border: 1px solid @black;
+    color: @black;
     background: transparent;
     line-height: 20px;
     border-radius: 11px;
@@ -41,20 +44,20 @@ body {
     &:focus,
     &:hover {
         background: transparent;
-        color: @gray;
-        border-color: @gray;
+        color: @black;
+        border-color: @black;
     }
 
     &.is-disabled {
         background: transparent;
-        color: @gray;
-        border-color: @gray;
+        color: @black;
+        border-color: @black;
 
         &:focus,
         &:hover {
             background: transparent;
-            color: @gray;
-            border-color: @gray;
+            color: @black;
+            border-color: @black;
         }
     }
 }
@@ -119,7 +122,7 @@ a {
     z-index: 999;
 
     a {
-        color: @white;
+        color: @bgk;
         text-align: center;
         display: block;
         padding: 5px 0;
@@ -157,12 +160,12 @@ a {
     z-index: 999;
 
     .back {
-        color: @white;
+        color: @black;
         font-size: 18px
     }
 
     .title {
-        color: @white;
+        color: @black;
         font-size: 16px;
         text-align: center;
         line-height: 60px;
@@ -198,7 +201,7 @@ a {
 
     .logo {
         width: 30%;
-        margin: 0 auto;
+        margin: 50px auto;
         display: block;
     }
 
@@ -211,7 +214,7 @@ a {
             border-bottom: 1px solid @borderColor;
             border-radius: 0;
             padding-left: 35px;
-            color: @white;
+            color: @black;
 
             &::-webkit-input-placeholder {
                 color: @gray
@@ -276,7 +279,7 @@ a {
 }
 
 .forget {
-    color: @white;
+    color: @black;
 
 }
 
@@ -345,7 +348,7 @@ a {
     }
 
     h5 {
-        color: @white;
+        color: @black;
         font-size: 16px;
         margin: 20px 0;
     }
@@ -357,7 +360,7 @@ a {
             border: none;
             border-bottom: 1px solid @borderColor;
             border-radius: 0;
-            color: @white;
+            color: @black;
             padding: 0;
 
 
@@ -377,7 +380,7 @@ a {
         }
 
         .el-form-item__label {
-            color: @white;
+            color: @black;
         }
 
         .el-form-item__content {
@@ -413,7 +416,7 @@ a {
     border-color: @blue  !important;
 
     .el-select-dropdown__item {
-        color: @white;
+        color: @black;
         height: 38px !important;
         line-height: 38px !important;
     }
@@ -449,14 +452,14 @@ a {
     overflow: hidden;
 
     .title {
-        color: @white;
+        color: @black;
         font-size: 16px;
         line-height: 60px;
         text-align: center;
     }
 
     .news {
-        color: @white;
+        color: @black;
         float: right;
         line-height: 60px;
 
@@ -478,7 +481,7 @@ a {
 .daycontent {
     position: relative;
     line-height: 40px;
-    color: @white;
+    color: @black;
     font-family: number;
 
     span {
@@ -489,14 +492,25 @@ a {
 }
 
 .home {
-    border-radius: 6px;
     overflow: hidden;
     background: url(../image/bg.png) no-repeat bottom, linear-gradient(to top right, #0a75ff, #10c5f9);
     background-size: 100%;
-    padding: 15px 0;
+    padding: 20px 0;
+    padding-top: 50px;
     min-height: 120px;
     box-sizing: border-box;
     align-items: center;
+    .newshref{
+        color: @white;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        .items{
+            i{
+                font-size:20px
+            }
+        }
+    }
 
     #avatar {
         p {
@@ -531,7 +545,7 @@ a {
         margin-top: 20px;
 
         a {
-            color: @white;
+            color: @bgk;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -542,7 +556,7 @@ a {
                 height: 30px;
                 padding: 3px;
                 border-radius: 50%;
-                background: @white;
+                background: @bgk;
                 box-sizing: border-box;
                 line-height: 25px;
                 margin-right: 5px;
@@ -561,7 +575,7 @@ a {
 }
 
 .treaty {
-    background: #062a42;
+    background: #ecfaff;
     padding: 15px;
     border-radius: 6px;
     margin-top: 15px;
@@ -569,7 +583,7 @@ a {
     .treatybag {
         border-bottom: 1px solid @borderColor;
         padding-bottom: 8px;
-        color: @white;
+        color: @black;
         line-height: 30px;
         position: relative;
 
@@ -583,7 +597,7 @@ a {
             position: absolute;
             right: 0;
             top: 0;
-            color: @white;
+            color: @black;
         }
     }
 
@@ -612,7 +626,7 @@ a {
                 padding: 0 3px;
 
                 h5 {
-                    color: @white;
+                    color: @black;
                 }
 
                 p {
@@ -630,7 +644,7 @@ a {
 
 .newTreaty {
     h5 {
-        color: @white;
+        color: @black;
         font-size: 16px,
     }
 
@@ -642,7 +656,7 @@ a {
             margin-bottom: 10px;
 
             p {
-                color: @white;
+                color: @black;
                 margin-bottom: 10px;
             }
 
@@ -663,7 +677,7 @@ a {
                 border: none;
                 background: transparent;
                 padding: 0;
-                color: @white;
+                color: @black;
             }
         }
     }
@@ -693,7 +707,7 @@ a {
         margin-top: 20px;
 
         ul {
-            height: calc(100vh - 471px);
+            height: calc(100vh - 451px);
             overflow-y: auto;
 
             li {
@@ -718,7 +732,7 @@ a {
                 }
 
                 .el-icon-star-off {
-                    color: @white;
+                    color: @black;
                 }
 
                 .el-icon-star-on {
@@ -728,7 +742,7 @@ a {
                 .walletName {
                     line-height: 40px;
                     font-size: 16px;
-                    color: @white;
+                    color: @black;
                     display: flex;
                     align-items: center;
 
@@ -758,7 +772,7 @@ a {
 
                 .amount>h5 {
                     text-align: center;
-                    color: @white;
+                    color: @black;
                     font-size: 16px;
                     line-height: 40px;
                 }
@@ -768,7 +782,7 @@ a {
                     float: right;
 
                     h5 {
-                        color: @white;
+                        color: @black;
                         font-size: 16px;
                         font-family: number;
                         line-height: 40px;
@@ -780,7 +794,7 @@ a {
 }
 
 .currency {
-    color: @white;
+    color: @black;
 
     p {
         margin-bottom: 10px;
@@ -813,7 +827,7 @@ a {
             border-bottom: 1px solid @borderColor;
             border-radius: 0;
             padding: 0;
-            color: @white;
+            color: @black;
 
             &:focus {
                 border-color: @blue;
@@ -988,7 +1002,7 @@ a {
         margin-bottom: 8px;
 
         a {
-            color: @white;
+            color: @black;
             position: relative;
             padding: 8px 20px 8px 0;
             display: block;
@@ -1055,7 +1069,7 @@ a {
             .el-tabs__item {
                 width: 50%;
                 text-align: center;
-                color: @white;
+                color: @black;
             }
 
             .el-tabs__item.is-active {
@@ -1088,7 +1102,7 @@ a {
                     h5 {
                         font-family: number;
                         font-size: 14px;
-                        color: @white;
+                        color: @black;
                         line-height: 25px;
                     }
 
@@ -1116,7 +1130,7 @@ a {
         margin-bottom: 10px;
 
         p {
-            color: @white;
+            color: @black;
             line-height: 180%;
             margin-bottom: 10px;
         }
@@ -1136,7 +1150,7 @@ a {
                 border-bottom: 1px solid @borderColor;
                 border-radius: 0;
                 padding: 0;
-                color: @white;
+                color: @black;
 
                 &::-webkit-input-placeholder {
                     color: @gray;
@@ -1215,7 +1229,7 @@ a {
 
                 a {
                     display: block;
-                    color: @white;
+                    color: @black;
 
                     img {
                         width: 15px;
@@ -1255,7 +1269,7 @@ a {
 
     p {
         font-size: 14px;
-        color: @white;
+        color: @black;
         margin-bottom: 10px;
     }
 
@@ -1265,7 +1279,7 @@ a {
         border-bottom: 1px solid @borderColor;
         min-height: 80px !important;
         border-radius: 0;
-        color: @white;
+        color: @black;
         padding: 0;
 
         &:focus {
@@ -1295,7 +1309,7 @@ a {
             margin-bottom: 10px;
 
             a {
-                color: @white;
+                color: @black;
                 position: relative;
                 display: block;
 
@@ -1332,7 +1346,7 @@ a {
         }
 
         p {
-            color: @white;
+            color: @black;
         }
     }
 }
@@ -1341,7 +1355,7 @@ a {
     h5 {
         border-left: 2px solid @blue;
         padding-left: 5px;
-        color: @white;
+        color: @black;
         font-size: 14px;
         line-height: 180%;
         margin: 20px 0;
@@ -1361,7 +1375,7 @@ a {
                 display: flex;
                 align-items: center;
                 justify-content: left;
-                color: @white;
+                color: @black;
 
                 img {
                     width: 40px;
@@ -1407,12 +1421,12 @@ a {
     }
 
     a {
-        color: @white;
+        color: @black;
     }
 }
 
 .fcList {
-    background-color: #07263e;
+    background-color: @bgkblue;
     padding: 20px;
     margin-top: 20px;
     height: calc(100vh - 172px);
@@ -1439,7 +1453,7 @@ a {
                 }
 
                 p {
-                    color: @white;
+                    color: @black;
                     margin-top: 8px;
                     text-align: center;
                 }
@@ -1457,14 +1471,14 @@ a {
 
             li {
                 border-radius: 6px;
-                background-color: #062e46;
+                background-color: white;
                 padding: 15px;
                 margin-bottom: 10px;
 
                 h5 {
                     border-bottom: 1px solid @borderColor;
                     line-height: 180%;
-                    color: @white;
+                    color: @black;
                     position: relative;
 
                     span {
@@ -1498,12 +1512,12 @@ a {
                             h6 {
                                 font-size: 22px;
                                 font-family: number;
-                                color: @white;
+                                color: @black;
                                 line-height: 40px;
                             }
 
                             p {
-                                color: @white;
+                                color: @black;
                             }
                         }
                     }
@@ -1513,7 +1527,7 @@ a {
                             padding: 0;
                             margin: 0;
                             line-height: 25px;
-                            color: @white;
+                            color: @black;
                             position: relative;
 
                             span {
@@ -1544,7 +1558,7 @@ a {
     border-bottom: 1px solid @borderColor;
 
     h5 {
-        color: @white;
+        color: @black;
         font-size: 16px;
         line-height: 180%;
     }
@@ -1557,7 +1571,7 @@ a {
 
 .newsContent {
     margin-top: 20px;
-    color: @white;
+    color: @black;
 
     p {
         line-height: 180%;
@@ -1702,7 +1716,7 @@ a {
 
 .seting .el-input__inner {
     border: none;
-    color: white;
+    color: black;
     border-bottom: 1px solid @borderColor;
     background: transparent;
     border-radius: 0;
@@ -1710,7 +1724,7 @@ a {
 }
 
 .demo-ruleForm .el-form-item__label {
-    color: @white;
+    color: @black;
 }
 
 .rondom {
@@ -1765,7 +1779,7 @@ a {
     overflow: hidden;
 
     .aboutfont {
-        background: #062e46;
+        background: @bgkblue;
         border-top: 2px solid @blue;
         padding: 20px;
         height: calc(100vh - 162px);
@@ -1782,7 +1796,7 @@ a {
             line-height: 180%;
             margin: 0;
             text-align: justify;
-            color: @white;
+            color: @black;
             margin-top: 15px;
         }
 
@@ -1799,7 +1813,7 @@ a {
 
         .codefont {
             text-align: center;
-            color: @white;
+            color: @black;
             margin-top: 15px;
         }
     }
@@ -1980,7 +1994,7 @@ a {
 .stepNumber {
     .el-input--small .el-input__inner {
         background: transparent;
-        color: @white;
+        color: @black;
         border: none;
     }
 
@@ -2034,7 +2048,7 @@ a {
     }
 
     ul {
-        background: #062e46;
+        background: @color;
         padding: 20px;
         border-radius: 6px;
         display: flex;
@@ -2145,7 +2159,7 @@ a {
         padding-right: 50%;
 
         p {
-            color: @white;
+            color: @black;
             height: 45px;
         }
 
@@ -2370,7 +2384,7 @@ a {
 **
 **/
 .guessAmount {
-    background: #062e46;
+    background: @bgkblue;
     padding: 20px;
     padding-top: 70px;
 
@@ -2389,7 +2403,7 @@ a {
         }
 
         p {
-            color: @white;
+            color: @black;
             margin-top: 8px;
         }
     }
@@ -2411,7 +2425,7 @@ a {
 
             h5 {
                 font-size: 16px;
-                color: @white;
+                color: @black;
                 font-family: number;
                 height: 19px;
                 line-height: 19px;
@@ -2490,7 +2504,7 @@ a {
 .ctc {
     text-align: center;
     padding: 15px;
-    color: @white;
+    color: @black;
 
     h2 {
         font-family: number;
@@ -2506,7 +2520,7 @@ a {
         overflow-y: auto;
 
         li {
-            background: #062e46;
+            background: @bgkblue;
             padding: 10px;
             border-radius: 6px;
             margin-bottom: 8px;
@@ -2515,7 +2529,7 @@ a {
                 border-bottom: 1px solid @borderColor;
                 padding-bottom: 8px;
                 position: relative;
-                color: @white;
+                color: @black;
 
                 p {
                     position: absolute;
@@ -2538,7 +2552,7 @@ a {
                     padding: 0 3px;
 
                     h5 {
-                        color: @white;
+                        color: @black;
                         font-size: 16px;
                         font-family: number;
                         line-height: 30px;
@@ -2547,14 +2561,15 @@ a {
 
                     p {
                         line-height: 30px;
-                        color: @white;
+                        color: @black;
                         width: 100%;
-                        text-overflow:ellipsis;
+                        text-overflow: ellipsis;
                         overflow: hidden;
                         white-space: nowrap;
 
                     }
-                    .el-button{
+
+                    .el-button {
                         margin-top: 17px;
                         background: @blue;
                         color: @white;
@@ -2563,8 +2578,9 @@ a {
                         line-height: 20px;
                         border-radius: 10px;
                     }
-                    &:last-child{
-                        p{
+
+                    &:last-child {
+                        p {
                             margin-top: 15px;
                             color: @gray;
                         }
@@ -2586,7 +2602,7 @@ a {
         padding: 50px 0;
 
         .loginForm {
-            margin-top: 80px;
+            margin-top: 150px;
         }
 
         .submit.el-button {
@@ -2618,7 +2634,7 @@ a {
     }
 
     .el-icon-close {
-        color: @white;
+        color: @black;
     }
 }
 
@@ -2702,5 +2718,5 @@ strong {
     line-height: 60px;
     text-align: center;
     font-size: 22px;
-    color: @white;
+    color: @black;
 }

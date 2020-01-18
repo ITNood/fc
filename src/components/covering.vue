@@ -21,11 +21,11 @@
           </li>
           <li>
             <p>{{$t('message.currcontractamount')}}</p>
-            <h4 style="color:white">{{addAmount}}</h4>
+            <h4 style="color:black">{{addAmount}}</h4>
           </li>
           <li>
             <p>{{$t('message.remainday')}}</p>
-            <h4 style="color:white">{{addSurplus}} Day</h4>
+            <h4 style="color:black">{{addSurplus}} Day</h4>
           </li>
           <li>
             <p>{{$t('message.margin1')}}</p>

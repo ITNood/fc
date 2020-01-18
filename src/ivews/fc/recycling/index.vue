@@ -39,7 +39,7 @@
             </li>
             <li>
               <p>{{$t('message.backAccount')}}(FC)</p>
-              <h5 style="color:white">{{account}}</h5>
+              <h5 style="color:black">{{account}}</h5>
             </li>
           </ul>
           <div
