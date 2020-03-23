@@ -1,7 +1,7 @@
 <template>
   <div>
     <Footer />
-    <el-header class="header">
+    <!-- <el-header class="header">
       <el-row :gutter="15">
         <el-col
           :span="12"
@@ -12,66 +12,67 @@
           :span="6"
           class="clear"
         >
-          <router-link
-            to="/home/news/index"
-            class="news"
-          >
-            <el-badge
-              :value="number"
-              :max="99"
-              class="item"
-            >
-              <i
-                size="small"
-                class="icon iconfont icon-xiaoxi"
-              ></i>
-            </el-badge>
+          
+        </el-col>
+      </el-row>
+    </el-header> -->
+    <div class="home">
+      <router-link
+        to="/home/news/index"
+        class="newshref"
+      >
+        <el-badge
+          :value="number"
+          :max="99"
+          class="items"
+        >
+          <i
+            size="small"
+            class="icon iconfont icon-xiaoxi"
+          ></i>
+        </el-badge>
+      </router-link>
+      <el-row
+        :gutter="15"
+        style="padding:0 20px;"
+      >
+        <el-col :span="12">
+          <div id="avatar">
+            <el-avatar
+              icon="el-icon-user-solid"
+              :src="avatar"
+              :size="50"
+            ></el-avatar>
+            <p>Hi,{{username}}</p>
+          </div>
+        </el-col>
+        <el-col :span="12">
+          <div class="purse">
+            <h4><span>$</span>{{amount}}</h4>
+            <p>USDT</p>
+          </div>
+        </el-col>
+      </el-row>
+      <el-row class="purseLists">
+        <el-col
+          :span="8"
+          v-for="(list,index) in lists"
+          :key="index"
+        >
+          <router-link :to="list.url">
+            <span><i
+                class="icon iconfont"
+                :class="list.icon"
+                :style="list.fontsize"
+              ></i></span>{{list.test}}
           </router-link>
         </el-col>
       </el-row>
-    </el-header>
+    </div>
     <div
       class="layout"
       style="margin-top:0;"
     >
-      <div class="home">
-        <el-row
-          :gutter="15"
-          style="padding:0 20px;"
-        >
-          <el-col :span="12">
-            <div id="avatar">
-              <el-avatar
-                icon="el-icon-user-solid"
-                :src="avatar"
-                :size="50"
-              ></el-avatar>
-              <p>Hi,{{username}}</p>
-            </div>
-          </el-col>
-          <el-col :span="12">
-            <div class="purse">
-              <h4><span>$</span>{{amount}}</h4>
-              <p>USDT</p>
-            </div>
-          </el-col>
-        </el-row>
-        <el-row class="purseLists">
-          <el-col
-            :span="8"
-            v-for="(list,index) in lists"
-            :key="index"
-          >
-            <router-link :to="list.url">
-              <span><i
-                  class="icon iconfont"
-                  :class="list.icon"
-                  :style="list.fontsize"
-                ></i></span>{{list.test}}
-            </router-link>
-          </el-col>
-        </el-row>
-      </div>
 
       <!--合约钱包-->
       <div class="treaty">
@@ -219,7 +220,7 @@ export default {
       amount: "",
       img: "",
       typeId: "",
-      number: "",
+      number: '',
       coinName: "",
       num: "",
       bag: "0.00",
@@ -263,9 +264,9 @@ export default {
         .then(result => {
           if (result.status == 200) {
             this.amount = result.res.usdt;
-            this.username = result.res.user.nickname
-              this.avatar = result.res.user.avatar
-            this.items =result.res.levelSet
+            this.username = result.res.user.nickname;
+            this.avatar = result.res.user.avatar;
+            this.items = result.res.levelSet;
             if (result.res.msgNumber > 0) {
               this.number = result.res.msgNumber;
             }
@@ -275,7 +276,7 @@ export default {
             this.bs = result.res.contract.multiple;
             //创建合约
             this.select = result.res.contract.set;
-            // console.log(result.res.contract.record.id);
+            console.log(result.res.contract.record.id);
             if (result.res.contract.record.id) {
               this.show = true;
               this.id = result.res.contract.record.id;

@@ -78,7 +78,7 @@ export default {
                 this.count = true;
                 this.loading = false;
               }
-              this.items = this.items.concat(result.res);
+              this.items = result.res;
             }
           })
           .catch(err => {
@@ -96,7 +96,7 @@ export default {
               this.count = true;
               this.loading = false;
             }
-            this.items = this.items.concat(result.res);
+            this.items = result.res;
           }
         })
         .catch(err => {

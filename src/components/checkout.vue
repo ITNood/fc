@@ -21,7 +21,7 @@
           </li>
           <li>
             <p>{{$t('message.remainday')}}</p>
-            <h4 style="color:white">{{surplus}} Day</h4>
+            <h4 style="color:black">{{surplus}} Day</h4>
           </li>
         </ul>
         <el-button

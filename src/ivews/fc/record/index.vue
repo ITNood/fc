@@ -59,7 +59,7 @@ export default {
         .choices(http.FCRECORD,{id:id})
         .then(result => {
           if (result.status == 200) {
-            this.items = this.items.concat(result.res.record);
+            this.items = result.res.record;
             this.msg=result.res.name
           }
         })

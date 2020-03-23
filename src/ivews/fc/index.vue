@@ -129,7 +129,7 @@ export default {
             this.FC = result.res.flowFc;
             this.closeFC = result.res.lockFc;
             this.num = result.res.ratio;
-            this.lists = this.lists.concat(result.res.order);
+            this.lists = result.res.order;
           }
         })
         .catch(err => {

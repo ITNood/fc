@@ -34,7 +34,7 @@ export default {
       getdata(){
           api.choices(http.TAKERECORD).then(result=>{
               if(result.status==200){
-                  this.items=this.items.concat(result.res.record)
+                  this.items=result.res.record
               }
           }).catch(err=>{
               console.log(err)

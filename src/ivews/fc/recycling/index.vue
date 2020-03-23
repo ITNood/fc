@@ -39,7 +39,7 @@
             </li>
             <li>
               <p>{{$t('message.backAccount')}}(FC)</p>
-              <h5 style="color:white">{{account}}</h5>
+              <h5 style="color:black">{{account}}</h5>
             </li>
           </ul>
           <div
@@ -129,7 +129,7 @@ export default {
             this.max = result.res.max;
             this.repo = result.res.repoPrice;
             this.fee = result.res.fee;
-            this.items=this.items.concat(result.res.record)
+            this.items=result.res.record
           }
         })
         .catch(err => {

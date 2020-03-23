@@ -31,81 +31,108 @@
         </el-col>
       </el-row>
     </el-header>
-    <div class="layout" style="margin-top:0">
-        <div class="ctc">
-            <h2>{{ctc}}</h2>
-            <p>{{$t('message.myctc')}}</p>
-        </div>
-        <div class="ctclist">
-            <ul>
-                <li v-for="(item,index) in items" :key="index">
-                    <div class="ctcdate">{{$t('message.the')}}<span> {{item.period}} </span>{{$t('message.stage')}}<p>{{item.date}}</p></div>
-                    <div class="contentlist clear">
-                        <div class="itemcontent">
-                            <h5>{{item.number}}</h5>
-                            <p>{{$t('message.subscription')}}</p>
-                        </div>
-                        <div class="itemcontent" style="text-align:center">
-                            <h5>$ {{item.price}}</h5>
-                            <p>{{$t('message.Subscriptionprice')}}</p>
-                        </div>
-                        <div class="itemcontent" style="text-align:right">
-                            <p v-if="item.is_open==0">{{$t('message.notopen')}}</p>
-                            <el-button v-else-if="item.is_open==1" @click="buy(item.id,item.price)">{{$t('message.buy')}}</el-button>
-                            <p v-else>{{$t('message.end')}}</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+    <div
+      class="layout"
+      style="margin-top:0"
+    >
+      <div class="ctc">
+        <h2>{{ctc}}</h2>
+        <p>{{$t('message.myctc')}}</p>
+      </div>
+      <div class="ctclist">
+        <ul>
+          <li
+            v-for="(item,index) in items"
+            :key="index"
+          >
+            <div class="ctcdate">{{$t('message.the')}}<span> {{item.period}} </span>{{$t('message.stage')}}<p>{{item.date}}</p>
+            </div>
+            <div class="contentlist clear">
+              <div class="itemcontent">
+                <h5>{{item.number}}</h5>
+                <p>{{$t('message.subscription')}}</p>
+              </div>
+              <div
+                class="itemcontent"
+                style="text-align:center"
+              >
+                <h5>$ {{item.price}}</h5>
+                <p>{{$t('message.Subscriptionprice')}}</p>
+              </div>
+              <div
+                class="itemcontent"
+                style="text-align:right"
+              >
+                <p v-if="item.is_open==0">{{$t('message.notopen')}}</p>
+                <el-button
+                  v-else-if="item.is_open==1"
+                  @click="buy(item.id,item.price)"
+                >{{$t('message.buy')}}</el-button>
+                <p v-else>{{$t('message.end')}}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <CTC ref="ctcs" :amount="usdt" :todos="select" :number="num" :total="all" :ids="id" :price="price" />
+    <CTC
+      ref="ctcs"
+      :amount="usdt"
+      :todos="select"
+      :number="num"
+      :total="all"
+      :ids="id"
+      :price="price"
+    />
   </div>
 </template>
 
 <script>
-import * as http from '../../public/index'
-import CTC from '../../components/ctc'
+import * as http from "../../public/index";
+import CTC from "../../components/ctc";
 import Footer from "../../components/nav";
-import api from '../../API/index'
+import api from "../../API/index";
 export default {
-  components: { Footer,CTC },
+  components: { Footer, CTC },
   data() {
     return {
-        ctc:'0.00',
-        usdt:'',
-        select:[],
-        num:'',
-        all:'0.00',
-        id:'',
-        price:'',
-        items:[]
+      ctc: "0.00",
+      usdt: "",
+      select: [],
+      num: "",
+      all: "0.00",
+      id: "",
+      price: "",
+      items: []
     };
   },
   created() {
-      this.getdata()
+    this.getdata();
   },
   methods: {
-      buy(id,price){
-          this.$refs.ctcs.ctc()
-          console.log(id,price)
-          this.price=price
-          this.id=id
-      },
-      getdata(){
-          api.choices(http.CTC).then(result=>{
-              if(result.status==200){
-                  this.ctc=result.res.ctc
-                  this.items=result.res.data
-                  this.usdt=result.res.usdt
-                  this.num=result.res.number
-                  this.select=result.res.paySet
-              }
-          }).catch(err=>{
-              console.log(err)
-          })
-      }
-  },
+    buy(id, price) {
+      this.$refs.ctcs.ctc();
+      console.log(id, price);
+      this.price = price;
+      this.id = id;
+    },
+    getdata() {
+      api
+        .choices(http.CTC)
+        .then(result => {
+          if (result.status == 200) {
+            this.ctc = result.res.ctc;
+            this.items = result.res.data;
+            this.usdt = result.res.usdt;
+            this.num = result.res.number;
+            this.select = result.res.paySet;
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
 };
 </script>
 

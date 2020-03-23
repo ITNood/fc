@@ -11,7 +11,10 @@
         <!-- <i class="el-icon-arrow-right"></i> -->
         <div class="coin"><img :src="imgSrc">{{name}}</div>
         <p>我的合约钱包</p>
-         <div class="coin" style="color:#0fbcfa">{{wallet}}</div>
+        <div
+          class="coin"
+          style="color:#0fbcfa"
+        >{{wallet}}</div>
         <p>{{$t('message.arbitAmount')}}</p>
         <el-input
           v-model="amount"
@@ -38,18 +41,18 @@
 </template>
 
 <script>
-import * as http  from '../public/index'
+import * as http from "../public/index";
 import api from "../API/index";
 import Pin from "../components/pin";
 export default {
-  props: ["name", "imgSrc", "id", "name", "number",'wallet'],
+  props: ["name", "imgSrc", "id", "name", "number", "wallet"],
   name: "Interest",
   components: { Pin },
   data() {
     return {
       amount: "",
       dialogVisible: false,
-      type_id: "",
+      type_id: ""
     };
   },
   updated() {
@@ -61,20 +64,27 @@ export default {
       let amount = this.amount;
       if (amount) {
         this.dialogVisible = !this.dialogVisible;
-        this.$refs.child.open()
-      }else{
-        alert(this.$t('message.entryAmount'))
+        this.$refs.child.open();
+      } else {
+        alert(this.$t("message.entryAmount"));
       }
     },
     submit(pwd) {
-      api.choices(http.INTEREST,{safePwd:pwd,type_id:this.type_id,amount:this.amount}).then(result=>{
-        if(result.status==200){
-          alert(result.msg)
-          window.location.reload()
-        }
-      }).catch(err=>{
-        console.log(err)
-      })
+      api
+        .choices(http.INTEREST, {
+          safePwd: pwd,
+          type_id: this.type_id,
+          amount: this.amount
+        })
+        .then(result => {
+          if (result.status == 200) {
+            alert(result.msg);
+            window.location.reload();
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
     opening() {
       this.dialogVisible = !this.dialogVisible;

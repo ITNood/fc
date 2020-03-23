@@ -53,7 +53,7 @@ export default {
         .choices(http.INVESRECORD)
         .then(result => {
           if (result.status == 200) {
-            this.items = this.items.concat(result.res.data);
+            this.items = result.res.data;
           }
         })
         .catch(err => {

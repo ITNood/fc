@@ -63,13 +63,7 @@ export default {
       };
     return {
       forgetDialog:false,
-      forgetForm:{
-          username:'',
-          mobile:'',
-          mobileCode:'',
-          password:'',
-          confirmPwd:''
-      },
+      forgetForm:{},
       rules:{
           username:[
               {required:true,message:this.$t('message.entryAccount'),trigger:'blur'}

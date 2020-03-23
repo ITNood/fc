@@ -48,7 +48,7 @@ export default {
       api.choices('api/wallet/record',{id:id}).then(result=>{
         if(result.status==200){
           this.msg=result.res.name
-          this.items=this.items.concat(result.res.record)
+          this.items=result.res.record
         }
       }).catch(err=>{
         console.log(err)

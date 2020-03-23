@@ -139,7 +139,7 @@ export default {
           if (result.status == 200) {
             this.usdt = result.res.usdt;
             this.number = result.res.multiple;
-            this.items = this.items.concat(result.res.record);
+            this.items = result.res.record;
           }
         })
         .catch(err => {

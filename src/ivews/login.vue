@@ -1,41 +1,42 @@
 <template>
   <div id="login">
-    <img
-      src="../assets/image/logo.png"
-      class="logo"
-    >
-    <el-form
-      :model="form"
-      ref="form"
-      :rules="rules"
-      class="loginForm"
-    >
-      <el-form-item prop="username">
-        <el-input
-          v-model="form.username"
-          :placeholder="$t('message.username')"
-        ></el-input>
-        <i class="icon iconfont icon-user"></i>
-      </el-form-item>
-      <el-form-item prop="password">
-        <el-input
-          type="password"
-          v-model="form.password"
-          :placeholder="$t('message.acoountPwd')"
-        ></el-input>
-        <i class="icon iconfont icon-password"></i>
-      </el-form-item>
-    </el-form>
-    <router-link
-      to="/forget"
-      class="forget"
-      style="text-align:right;display:block"
-    >{{$t('message.forget')}}？</router-link>
-    <el-button
-      class="submit"
-      @click="login('form')"
-    >{{$t('message.login')}}</el-button>
-    <div class="otherLoginWay">
+    <div class="logincontent">
+      <h1>登录</h1>
+      <div class="loginbgk">
+        <el-form
+          :model="form"
+          ref="form"
+          :rules="rules"
+          class="loginForm"
+        >
+          <el-form-item prop="username">
+            <el-input
+              v-model="form.username"
+              :placeholder="$t('message.username')"
+            ></el-input>
+            <i class="icon iconfont icon-user"></i>
+          </el-form-item>
+          <el-form-item prop="password">
+            <el-input
+              type="password"
+              v-model="form.password"
+              :placeholder="$t('message.acoountPwd')"
+            ></el-input>
+            <i class="icon iconfont icon-password"></i>
+          </el-form-item>
+        </el-form>
+        <router-link
+          to="/forget"
+          class="forget"
+          style="text-align:right;display:block;margin:0 20px"
+        >{{$t('message.forget')}}？</router-link>
+        <el-button
+          class="submit"
+          @click="login('form')"
+        >{{$t('message.login')}}</el-button>
+      </div>
+    </div>
+    <!-- <div class="otherLoginWay">
       <el-divider class="otherTitle">{{$t('message.otherLogin')}}</el-divider>
       <ul class="loginList">
         <li @click="openCtc()">
@@ -55,7 +56,7 @@
           <p>SYL</p>
         </li>
       </ul>
-    </div>
+    </div> -->
     <Login
       :logo="imgSrc"
       :userMessage="userMsg"
@@ -73,10 +74,7 @@ export default {
   components: { Login },
   data() {
     return {
-      form: {
-        username: "",
-        password: ""
-      },
+      form: { type: 2 },
       rules: {
         username: [
           {

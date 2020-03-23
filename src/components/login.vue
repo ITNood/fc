@@ -25,7 +25,7 @@
 
           <el-form-item prop="password">
             <el-input
-            type="password"
+              type="password"
               v-model="loginForm.password"
               :placeholder="userMessage+$t('message.acoountPwd')"
             ></el-input>
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import * as http from '../public/index'
+import * as http from "../public/index";
 import api from "../API/index";
 import Forget from "../components/forget";
 export default {
@@ -65,11 +65,9 @@ export default {
       forget: false,
       imgLogo: "",
       account: "",
-      isreset:false,
+      isreset: false,
       loginForm: {
-        type: "",
-        username: "",
-        password: ""
+        type: ""
       },
       rules: {
         username: [
@@ -110,7 +108,7 @@ export default {
         .then(result => {
           if (result.status == 200) {
             // this.$store.commit("setToken", result.res.token);
-            localStorage.setItem('token',result.res.token)
+            localStorage.setItem("token", result.res.token);
             this.$router.push("/home/index");
           }
         })
