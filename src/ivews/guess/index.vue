@@ -31,6 +31,7 @@
             </li>
         </ul>
     </div>
+    
     <div class="interest" style="padding: 0 15px">
         <div class="interest-title">{{$t('message.groupguess')}}
           <router-link

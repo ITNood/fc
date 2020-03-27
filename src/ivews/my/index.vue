@@ -41,15 +41,16 @@
               商家中心
             </router-link>
           </li>
-          <li>
-            <router-link to="">
-              <i class="icon iconfont icon-shanchujiedian"></i>
-              <span class="el-icon-arrow-right"></span>
-              超级节点
-            </router-link>
-          </li>
+
         </ul> -->
         <ul>
+           <li>
+            <router-link to="/my/old/index">
+             <img src="../../assets/image/16.png" alt="">
+              <span class="el-icon-arrow-right"></span>
+              原始会员
+            </router-link>
+          </li>
           <li>
             <router-link to="/fc/index">
             <img src="../../assets/image/fc.png">

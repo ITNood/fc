@@ -90,6 +90,20 @@ export default new Router({
       }
     },
     {
+      path: '/my/old/index',
+      name: 'old',
+      component: () => {
+        return import('../ivews/my/old/index')
+      }
+    },
+    {
+      path: '/my/old/message',
+      name: 'message',
+      component: () => {
+        return import('../ivews/my/old/message')
+      }
+    },
+    {
       path: '/my/set/index',
       name: 'set',
       component: () => {

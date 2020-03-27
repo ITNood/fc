@@ -113,7 +113,6 @@
 
         </div>
       </div>
-
       <!--套利-->
       <div class="interest">
         <div class="interest-title">{{$t('message.arbteam')}}
@@ -179,6 +178,7 @@
       :amount="amount"
       :number="beishu"
       ref="treatys"
+      :beishu="bs"
     />
     <!--合约出仓-->
     <Checkout
@@ -256,6 +256,7 @@ export default {
   },
   mounted() {
     this.getdata();
+    this.addtreaty()
   },
   methods: {
     getdata() {

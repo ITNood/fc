@@ -34,6 +34,20 @@
               :placeholder="$t('message.enter100')+number+$t('message.times')"
             ></el-input>
           </li>
+           <li>
+            <p>支付方式</p>
+            <el-select
+              v-model="value1"
+              @change="changId()"
+            >
+              <el-option
+                v-for="list in todos1"
+                :key="list.id"
+                :value="list.id"
+                :label="list.amount"
+              ></el-option>
+            </el-select>
+          </li>
         </ul>
         <el-button
           class="submit"
@@ -59,19 +73,28 @@ export default {
   data() {
     return {
       dialogVisible: false,
+      todos1:[ { id:1,amount: "100%USDT" },{  id:2,amount: "50%USDT+50%Hedge" }],
       value: "",
+      value1: "",
       total: ""
     };
   },
   mounted() {
    setTimeout(() => {
-      // console.log(this.todos[0].id);
+      console.log(this.todos[0].id);
+      console.log(this.todos1[0].id);
         this.value = this.todos[0].id;
+        this.value1 = this.todos1[0].id;
+
    }, 1000);
   },
+
   methods: {
     changId() {
       console.log(this.value);
+    },
+    changId1(){
+  console.log(this.value1);
     },
     treaty() {
       this.dialogVisible = !this.dialogVisible;
