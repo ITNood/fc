@@ -32,8 +32,7 @@
             <el-select
               v-model="value"
               @change="changId()"
-            >
-              <el-option
+            >               <el-option
                 v-for="list in todos"
                 :key="list.id"
                 :value="list.id"

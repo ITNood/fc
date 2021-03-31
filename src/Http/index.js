@@ -13,9 +13,11 @@ const Axios = axios.create({
     maxRedirects: 1,
     headers: { "Content-Type": 'application/json' },
 })
+var load;
 //拦截所有api请求，重新获取token
 Axios.interceptors.request.use(
     config => {
+        load = Loading.service({ fullscreen: true, text: 'Loading...' })
         const token = localStorage.getItem('token')
         const lang = localStorage.getItem('lang')
         if (token || lang) {
@@ -25,52 +27,46 @@ Axios.interceptors.request.use(
         return config
     },
     err => {
+        load.close()
         return Promise.reject(err)
     }
 )
 
-var loadinginstace;
+
 
 // 拦截所有的 api 请求，未来可做权限检查，缓存，代理等
-Axios.interceptors.request.use(
-    config => {
-        // element ui Loading方法
-        loadinginstace = Loading.service({ fullscreen: true, text: 'Loading...' })
-        return config;
-    },
-    error => {
-        loadinginstace.close()
-        return Promise.reject(error);
-    },
+// Axios.interceptors.request.use(
+//     config => {
+//         // element ui Loading方法
+//         loadinginstace = Loading.service({ fullscreen: true, text: 'Loading...' })
+//         return config;
+//     },
+//     error => {
+//         loadinginstace.close()
+//         return Promise.reject(error);
+//     },
 
-);
+// );
 
 // 拦截所有的 api 响应，可以实现自动弹窗报错
 Axios.interceptors.response.use(
     response => {   // when HTTP_STATUS in [ 200 , 299 ]
-        loadinginstace.close()
+        load.close()
         //判断登录状态，跳转路由
         if (response.data.status === 500) {//退出登录
             alert(response.data.msg)
             localStorage.removeItem('token')
             window.location.href = '#/login'
-        } else if (response.data.status == 400) {//返回错误
+        } else if (response.data.status === 400) {//返回错误
             alert(response.data.msg)
             return Promise.resolve(response.data)
-        } else if (response.data.status === json_response_codes.status) {//返回数据
+        } else if (response.data.status === json_response_codes.status) {//code===200返回数据
             return Promise.resolve(response.data);
         }
-
-        // Message({
-        //     //请求超时时间
-        //     message: response.data.msg || '服务器接口异常', type: 'error', duration: 3 * 1000
-        // });
-
-        //return Promise.reject(response.data.msg);
     },
     error => {      // when HTTP_STATUS in [ 300 , 599 ]
 
-        loadinginstace.close()
+        load.close()
 
         if (error === 'cancelled locally') {
             return Promise.reject(error);

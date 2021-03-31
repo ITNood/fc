@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog :visible.sync="centerDialogVisible" width="100%" center id="pin" >
+    <el-dialog :visible.sync="centerDialogVisible" width="100%" center id="pin">
       <div class="pay-tool">
         <div class="pay-tool-title border-bottom">
           <span class="icon1 icon-back"></span>
@@ -8,7 +8,7 @@
         <!--密码输入框-->
         <div class="pay-tool-content">
           <div class="pay-tool-inputs">
-            <div class="item" v-for="i in items" :key="i" >
+            <div class="item" v-for="i in items" :key="i">
               <span class="icon_dot" v-if="password[i]"></span>
             </div>
           </div>
@@ -16,10 +16,8 @@
         <!--键盘-->
         <div class="pay-tool-keyboard">
           <ul>
-            <li @click="keyUpHandle($event)" v-for="val in keys" :key="val" >
-              {{ val }}
-            </li>
-            <li class="del" @click="delHandle" >
+            <li @click="keyUpHandle($event)" v-for="val in keys" :key="val">{{ val }}</li>
+            <li class="del" @click="delHandle">
               <span class="icon-del el-icon-back"></span>
             </li>
           </ul>
@@ -46,6 +44,16 @@ export default {
       this.centerDialogVisible = !this.centerDialogVisible;
       this.clearPasswordHandle();
     },
+    ajaxData() {
+      if (this.password.length >= 6) {
+        let password = this.password.join("");
+        //提交方法传给父组件
+        this.$emit("submit", password);
+        this.centerDialogVisible = !this.centerDialogVisible;
+        this.clearPasswordHandle();
+      }
+      return false;
+    },
     keyUpHandle(e) {
       let text = e.currentTarget.innerText;
       let len = this.password.length;
@@ -58,17 +66,7 @@ export default {
       if (this.password.length <= 0) return false;
       this.password.shift();
     },
-    ajaxData() {
-      if (this.password.length >= 6) {
-        let that = that;
-        let password = this.password.join("");
-        //提交方法传给父组件
-        this.$emit("submit", password);
-        this.centerDialogVisible = !this.centerDialogVisible;
-        this.clearPasswordHandle();
-      }
-      return false;
-    },
+
     //清空密码
     clearPasswordHandle() {
       this.password = [];
